@@ -15,5 +15,7 @@ void main()
     vec2 res = vec2(data.width,data.height);
     vec2 uv = vec2((2.*gl_FragCoord.xy-res.xy)/res.y);
 
-    fragColor = vec3(uv, data.time);
+    uv.x += sin(data.time);
+
+    fragColor = vec3(uv, 0.);
 }

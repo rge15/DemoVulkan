@@ -1,4 +1,5 @@
-#include <utilities/graphicInclude.hpp>
+#pragma once
+#include <utilities/Includes/graphicInclude.hpp>
 #include <utilities/typeAliases.hpp>
 
 class WindowMng

@@ -1,4 +1,5 @@
 #include "DrawerMng.hpp"
+#include <utilities/Timer/Timer.hpp>
 
 DrawerMng::DrawerMng(
     VkDevice& p_device, const DeviceQueueFamilies& p_queueFamilyId, VkRenderPass& p_renderPass,
@@ -177,7 +178,7 @@ DrawerMng::passPushConstantData() noexcept
 {
     auto width  = (float)_swapInfo.imageExtent.width;
     auto heigth = (float)_swapInfo.imageExtent.height;
-    auto time   = (float)_swapInfo.imageExtent.height;
+    auto time   = (float)Timer::getInstance().ellapsedSeconds();
 
     Vector<float> resolution { width, heigth, time };
 

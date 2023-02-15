@@ -1,5 +1,6 @@
 #pragma once
-#include "utilities/graphicInclude.hpp"
+#include <utilities/Includes/graphicInclude.hpp>
+
 #include "utilities/typeAliases.hpp"
 
 struct SwapchainDetails

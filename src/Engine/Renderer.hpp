@@ -1,5 +1,4 @@
 #pragma once
-#include <utilities/graphicInclude.hpp>
 #include <utilities/typeAliases.hpp>
 #include <Engine/DrawerMng.hpp>
 #include <Engine/PipelineStructs/PipelineFrameBuffers.hpp>
