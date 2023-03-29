@@ -1,9 +1,8 @@
 #include "InitDemoApp.hpp"
 #include <Engine/Driver.hpp>
 #include <Engine/Renderer.hpp>
+#include <Engine/DemoFX.hpp>
 
-#include <Engine/Sources/ShaderSrc.hpp>
-#include <Engine/RenderPipelineMng.hpp>
 #include <Engine/DrawerMng.hpp>
 #include <Engine/WorkMng.hpp>
 
@@ -28,51 +27,47 @@ InitDemoApp::run()
     auto&   window = driver.get()->getWindowManager().getWindow();
     //Driver -----------
     
-
-    // RenderMng DATA Start    
-    /**
-
-    auto pipeLayout = std::make_unique<PipelineLayout>( device );
-    auto layoutObj  = pipeLayout.get()->getLayout();
-
-    auto renderPass     = std::make_unique<RenderPass>( device, swapMngObj );
-    auto renderPassObj  = renderPass.get()->getRenderPass();
-    
-    auto frameBuffers = std::make_unique<PipelineFrameBuffers>( device, renderPassObj, swapMngObj);
-    */
-    // RenderMng DATA End
-
+    //Renderer ---------
     auto renderer = std::make_unique<Renderer>( *driver.get() );
 
     auto& renderPass = renderer.get()->getRenderPass().getRenderPass();
     auto& pipeLayout = renderer.get()->getPipeLayout().getLayout();
     auto& framebuff  = renderer.get()->getFramebuffer();
+    //Renderer ---------
 
-    // DemoFX DATA Start
-    auto pipeConfig = GraphicPipelineConfig();
+    //TODO : -------------< DemoFX Class > --------------------
+    //TODO : Crear DemoFX class para pasar poder tener un FX
+    //TODO : Recibirá Un Driver y un Renderer obligatorio
+    //TODO : Se le deberá configurar el vertex y fragment
+    //TODO : Se le deberá crear la pipeline
 
-    auto vertShaderSrc = std::make_unique<ShaderSrc>(device, "src/shaders/vert.spv", VK_SHADER_STAGE_VERTEX_BIT);
-    auto fragShaderSrc = std::make_unique<ShaderSrc>(device, "src/shaders/frag.spv", VK_SHADER_STAGE_FRAGMENT_BIT);
 
-    auto vertexShaderStageInfo   = vertShaderSrc.get()->getShaderStageInfo();
-    auto fragmentShaderStageInfo = fragShaderSrc.get()->getShaderStageInfo();
-    using ShaderStagesVector     = Vector<VkPipelineShaderStageCreateInfo>;
-    ShaderStagesVector shaders { vertexShaderStageInfo, fragmentShaderStageInfo };
 
-    auto  renderPipelineMng  = std::make_unique<RenderPipelineMng>( device, renderPass, pipeLayout, pipeConfig, shaders );
-    auto& pipeline           = renderPipelineMng.get()->pipeline_;
-    // DemoFX DATA End
+    //TODO : -------------< Track Class > --------------------
+    //TODO : Tendrá un vector de tuplas<DemoFX&, initTime, durationTime>
+    //TODO : A medida que vaya haciendo falta ir implementadndo funcionalidad
+
+    //DemoFX -----------
+    auto demoFX = std::make_unique<DemoFX>( *driver.get(), *renderer.get() );
+    demoFX.get()->setVertexShader("src/shaders/vert.spv");
+    demoFX.get()->setFragmentShader("src/shaders/frag.spv");
+    demoFX.get()->prepareToRender();
+    auto& pipeline = demoFX.get()->getRenderPipelieneMng().pipeline_;
+    //DemoFX -----------
     
+    //TODO : -------------< Drawer Class     > --------------------
+    //TODO : Tendrá un commandMng y workMng y los usará para dibuajar
+    //TODO : También tendrá una clase track que ejecutará los FX
+
+    //TODO : -------------< CommandMng Class > --------------------
+    //TODO : Clase encargada de manejar todo paripé de commands
 
     auto drawerMng = std::make_unique<DrawerMng>( device, queueIds, renderPass, pipeline, pipeLayout,swapInfo );
-    //TODO : El drawer no tendrá una pipeline a piñon.
 
-    //TODO : Hacer una clase Track que contenga los DemoFX que tenga que ejecutar con su tiempo de entrada y tiempo de visión
-    //TODO : tmbn tendrá un clock para cronometrar el tiempo total y el tiempo relativo de cada FX para poder pasar los valores como push constant
+    auto& draweMngObj = *drawerMng.get();
 
-    //TODO : Hacer clase DemoFX que contenga los shaders que deba mostrar por pantalla, una renderpipeline con esos shaders y un método que grabe ese efecto
-
-    auto& draweMngObj       = *drawerMng.get();
+    //TODO : -------------< WorkMng Class   > --------------------
+    //TODO : Clase encargada de manejar todo paripé de sincronización
 
     auto workMng       = std::make_unique<WorkMng>( deviceMng, swapMngObj, draweMngObj, framebuff);
     auto& workMngObj    = *workMng.get();
