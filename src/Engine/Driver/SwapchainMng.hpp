@@ -6,18 +6,18 @@
 class SwapchainMng
 {
 private:
-    VkSwapchainKHR _swapchain { VK_NULL_HANDLE };
+    VkSwapchainKHR swapchain_ { VK_NULL_HANDLE };
 
-    VkDevice& _device;
-    VkSurfaceKHR& _surface;
-    const SwapchainDetails& _swapDetails;
-    const DeviceQueueFamilies& _queueIds;
-    Vector<uint32_t> _queueFamilies;
+    VkDevice& device_;
+    VkSurfaceKHR& surface_;
+    const SwapchainDetails& swapDetails_;
+    const DeviceQueueFamilies& queueIds_;
+    Vector<uint32_t> queueFamilies_;
 
-    VkSwapchainCreateInfoKHR _createInfo{};
+    VkSwapchainCreateInfoKHR createInfo_{};
 
-    Vector<VkImage> _swapImages;
-    Vector<VkImageView> _viewImages;
+    Vector<VkImage> swapImages_;
+    Vector<VkImageView> viewImages_;
 
 public:
     SwapchainMng(VkDevice& p_device, VkSurfaceKHR& p_surface, const SwapchainDetails& p_details, const DeviceQueueFamilies& p_queueIds );
@@ -25,15 +25,15 @@ public:
 
     inline
     const VkSwapchainCreateInfoKHR&
-    getSwapchainInfo() const { return _createInfo; };
+    getSwapchainInfo() const { return createInfo_; };
 
     inline
     const Vector<VkImageView>&
-    getSwapchainImageViews() const { return _viewImages; };
+    getSwapchainImageViews() const { return viewImages_; };
 
     inline
     VkSwapchainKHR&
-    getSwapchain() { return _swapchain; };
+    getSwapchain() { return swapchain_; };
 
 private:
     void

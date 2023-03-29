@@ -1,74 +1,86 @@
 #include "InitDemoApp.hpp"
-#include "Engine/InstanceMng.hpp"
-#include "Engine/DeviceMng.hpp"
-#include "Engine/WindowMng.hpp" 
-#include "Engine/SurfaceMng.hpp"
-#include "Engine/SwapchainMng.hpp"
-#include "Engine/Sources/ShaderSrc.hpp"
-#include "Engine/PipelineStructs/GraphicPipelineConfig.hpp"
-#include "Engine/PipelineStructs/PipelineLayout.hpp"
-#include "Engine/PipelineStructs/RenderPass.hpp"
-#include "Engine/RenderPipelineMng.hpp"
-#include "Engine/PipelineStructs/PipelineFrameBuffers.hpp"
-#include "Engine/DrawerMng.hpp"
-#include "Engine/Renderer.hpp"
+#include <Engine/Driver.hpp>
+#include <Engine/Renderer.hpp>
+
+#include <Engine/Sources/ShaderSrc.hpp>
+#include <Engine/RenderPipelineMng.hpp>
+#include <Engine/DrawerMng.hpp>
+#include <Engine/WorkMng.hpp>
+
+//Let this darkness be
+//Orders of magnitude
+//The tale of blue bird and the dragon
 
 void
 InitDemoApp::run()
 {
-    auto windowMng   = std::make_unique<WindowMng>();
-    auto instanceMng = std::make_unique<InstanceMng>();
     
-    auto  instance   = instanceMng.get()->_vkInstance;
-    auto& window     = windowMng.get()->getWindow();
+    //Driver -----------
+    auto driver = std::make_unique<Driver>();
 
-    auto surfaceMng  = std::make_unique<SurfaceMng>( instance, window );
-    auto surface     = surfaceMng.get()->getSurface();
-
-    auto deviceMng   = std::make_unique<DeviceMng>( instance, surface);
-
-    auto device      = deviceMng.get()->getDevice();
-    auto swapDetails = deviceMng.get()->getSwapchainDetails();
-    auto queueIds    = deviceMng.get()->getFamilyQueueIds();
-
-    auto  swapMng    = std::make_unique<SwapchainMng>( device, surface, swapDetails, queueIds );
-    auto& swapMngObj = *swapMng.get();
-    auto  swapInfo   = swapMngObj.getSwapchainInfo(); 
-
-    auto vertShaderSrc = std::make_unique<ShaderSrc>(device, "src/shaders/vert.spv", VK_SHADER_STAGE_VERTEX_BIT);
-    auto fragShaderSrc = std::make_unique<ShaderSrc>(device, "src/shaders/frag.spv", VK_SHADER_STAGE_FRAGMENT_BIT);
+    auto&   deviceMng   = driver.get()->getDeviceManager();   
+    auto&   device      = deviceMng.getDevice();
+    auto&   queueIds    = deviceMng.getFamilyQueueIds();
     
-    auto vertexShaderStageInfo   = vertShaderSrc.get()->getShaderStageInfo();
-    auto fragmentShaderStageInfo = fragShaderSrc.get()->getShaderStageInfo();
-    using ShaderStagesVector     = Vector<VkPipelineShaderStageCreateInfo>;
-    ShaderStagesVector shaders { vertexShaderStageInfo, fragmentShaderStageInfo };
+    auto&   swapMngObj  = driver.get()->getSwapchainManager();
+    auto&   swapInfo    = swapMngObj.getSwapchainInfo();
 
-    auto pipeConfig = GraphicPipelineConfig();
+    auto&   window = driver.get()->getWindowManager().getWindow();
+    //Driver -----------
     
+
+    // RenderMng DATA Start    
+    /**
+
     auto pipeLayout = std::make_unique<PipelineLayout>( device );
     auto layoutObj  = pipeLayout.get()->getLayout();
 
     auto renderPass     = std::make_unique<RenderPass>( device, swapMngObj );
     auto renderPassObj  = renderPass.get()->getRenderPass();
-
-    auto  renderPipelineMng  = std::make_unique<RenderPipelineMng>( device, renderPassObj, layoutObj, pipeConfig, shaders );
-    auto& pipeline           = renderPipelineMng.get()->_pipeline;
-
+    
     auto frameBuffers = std::make_unique<PipelineFrameBuffers>( device, renderPassObj, swapMngObj);
+    */
+    // RenderMng DATA End
 
-    auto drawerMng = std::make_unique<DrawerMng>( device, queueIds, renderPassObj, pipeline, layoutObj,swapInfo );
+    auto renderer = std::make_unique<Renderer>( *driver.get() );
 
-    auto& deviceMngObj      = *deviceMng.get();
+    auto& renderPass = renderer.get()->getRenderPass().getRenderPass();
+    auto& pipeLayout = renderer.get()->getPipeLayout().getLayout();
+    auto& framebuff  = renderer.get()->getFramebuffer();
+
+    // DemoFX DATA Start
+    auto pipeConfig = GraphicPipelineConfig();
+
+    auto vertShaderSrc = std::make_unique<ShaderSrc>(device, "src/shaders/vert.spv", VK_SHADER_STAGE_VERTEX_BIT);
+    auto fragShaderSrc = std::make_unique<ShaderSrc>(device, "src/shaders/frag.spv", VK_SHADER_STAGE_FRAGMENT_BIT);
+
+    auto vertexShaderStageInfo   = vertShaderSrc.get()->getShaderStageInfo();
+    auto fragmentShaderStageInfo = fragShaderSrc.get()->getShaderStageInfo();
+    using ShaderStagesVector     = Vector<VkPipelineShaderStageCreateInfo>;
+    ShaderStagesVector shaders { vertexShaderStageInfo, fragmentShaderStageInfo };
+
+    auto  renderPipelineMng  = std::make_unique<RenderPipelineMng>( device, renderPass, pipeLayout, pipeConfig, shaders );
+    auto& pipeline           = renderPipelineMng.get()->pipeline_;
+    // DemoFX DATA End
+    
+
+    auto drawerMng = std::make_unique<DrawerMng>( device, queueIds, renderPass, pipeline, pipeLayout,swapInfo );
+    //TODO : El drawer no tendrá una pipeline a piñon.
+
+    //TODO : Hacer una clase Track que contenga los DemoFX que tenga que ejecutar con su tiempo de entrada y tiempo de visión
+    //TODO : tmbn tendrá un clock para cronometrar el tiempo total y el tiempo relativo de cada FX para poder pasar los valores como push constant
+
+    //TODO : Hacer clase DemoFX que contenga los shaders que deba mostrar por pantalla, una renderpipeline con esos shaders y un método que grabe ese efecto
+
     auto& draweMngObj       = *drawerMng.get();
-    auto& framebufferMngObj = *frameBuffers.get();
 
-    auto renderer       = std::make_unique<Renderer>( deviceMngObj, swapMngObj, draweMngObj, framebufferMngObj);
-    auto& rendererObj    = *renderer.get();
+    auto workMng       = std::make_unique<WorkMng>( deviceMng, swapMngObj, draweMngObj, framebuff);
+    auto& workMngObj    = *workMng.get();
 
     while( glfwGetKey(&window, GLFW_KEY_ESCAPE ) != GLFW_PRESS && !glfwWindowShouldClose(&window) )
     {
         glfwPollEvents();
-        rendererObj.drawFrame();
+        workMngObj.drawFrame();
     }
 
     vkDeviceWaitIdle(device);

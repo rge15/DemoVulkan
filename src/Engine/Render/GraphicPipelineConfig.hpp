@@ -5,27 +5,27 @@
 struct GraphicPipelineConfig
 {
     private:
-        Vector<VkDynamicState> _dynamicStates {
+        Vector<VkDynamicState> dynamicStates_ {
             VK_DYNAMIC_STATE_VIEWPORT , VK_DYNAMIC_STATE_SCISSOR
         };
 
-        VkPipelineColorBlendAttachmentState _colorBlendAttach {};
+        VkPipelineColorBlendAttachmentState colorBlendAttach_ {};
 
     public:
 
-        VkPipelineDynamicStateCreateInfo _dynamicInfo {};
+        VkPipelineDynamicStateCreateInfo dynamicInfo_ {};
 
-        VkPipelineVertexInputStateCreateInfo _vertexInputInfo {};
+        VkPipelineVertexInputStateCreateInfo vertexInputInfo_ {};
 
-        VkPipelineInputAssemblyStateCreateInfo _assemblyInfo {};
+        VkPipelineInputAssemblyStateCreateInfo assemblyInfo_ {};
 
-        VkPipelineViewportStateCreateInfo _viewportScissorInfo {};
+        VkPipelineViewportStateCreateInfo viewportScissorInfo_ {};
 
-        VkPipelineRasterizationStateCreateInfo _rasterInfo {};
+        VkPipelineRasterizationStateCreateInfo rasterInfo_ {};
 
-        VkPipelineMultisampleStateCreateInfo _msaaInfo {};
+        VkPipelineMultisampleStateCreateInfo msaaInfo_ {};
 
-        VkPipelineColorBlendStateCreateInfo _colorInfo  {};
+        VkPipelineColorBlendStateCreateInfo colorInfo_  {};
 
     public:
         GraphicPipelineConfig() noexcept;

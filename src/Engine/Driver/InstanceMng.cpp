@@ -6,13 +6,13 @@ InstanceMng::InstanceMng(
     const uint32_t p_appVersion, const uint32_t p_engineVersion
 ) noexcept
 {
-    _appInfo.sType = VK_STRUCTURE_TYPE_APPLICATION_INFO;
-    _appInfo.pNext = nullptr;
-    _appInfo.pApplicationName = p_appName;
-    _appInfo.applicationVersion = p_appVersion;
-    _appInfo.pEngineName = p_engineName;
-    _appInfo.engineVersion = p_engineVersion;
-    _appInfo.apiVersion = VK_MAKE_API_VERSION(0,1,0,0);
+    appInfo_.sType = VK_STRUCTURE_TYPE_APPLICATION_INFO;
+    appInfo_.pNext = nullptr;
+    appInfo_.pApplicationName = p_appName;
+    appInfo_.applicationVersion = p_appVersion;
+    appInfo_.pEngineName = p_engineName;
+    appInfo_.engineVersion = p_engineVersion;
+    appInfo_.apiVersion = VK_MAKE_API_VERSION(0,1,0,0);
 
     fillInstanceInfo();
     createInstance();
@@ -23,7 +23,7 @@ InstanceMng::InstanceMng(
 
 InstanceMng::~InstanceMng() noexcept
 {
-    vkDestroyInstance(_vkInstance, nullptr);
+    vkDestroyInstance(vkInstance_, nullptr);
 }
 
 //-----------------------------------------------------------------------------
@@ -32,10 +32,10 @@ InstanceMng::~InstanceMng() noexcept
 void
 InstanceMng::fillInstanceInfo() noexcept
 {
-    _instanceInfo.sType = VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO;
-    _instanceInfo.pNext = nullptr;
-    _instanceInfo.pApplicationInfo = &_appInfo;
-    _instanceInfo.flags = 0;
+    instanceInfo_.sType = VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO;
+    instanceInfo_.pNext = nullptr;
+    instanceInfo_.pApplicationInfo = &appInfo_;
+    instanceInfo_.flags = 0;
 
     checkLayer();
 
@@ -43,8 +43,8 @@ InstanceMng::fillInstanceInfo() noexcept
     const char** glfwExtensions;
 
     glfwExtensions = glfwGetRequiredInstanceExtensions(&glfwCountExtension);
-    _instanceInfo.enabledExtensionCount = { glfwCountExtension };
-    _instanceInfo.ppEnabledExtensionNames = { glfwExtensions };
+    instanceInfo_.enabledExtensionCount = { glfwCountExtension };
+    instanceInfo_.ppEnabledExtensionNames = { glfwExtensions };
 }
 
 //-----------------------------------------------------------------------------
@@ -53,7 +53,7 @@ InstanceMng::fillInstanceInfo() noexcept
 void
 InstanceMng::createInstance() noexcept
 {
-    auto result = vkCreateInstance(&_instanceInfo, nullptr, &_vkInstance);
+    auto result = vkCreateInstance(&instanceInfo_, nullptr, &vkInstance_);
 
     assert(result == VK_SUCCESS);
 }
@@ -85,6 +85,6 @@ InstanceMng::checkLayer() noexcept
         assert( layerFound );
     }
 
-    _instanceInfo.enabledLayerCount = { (uint32_t)_validationLayers.size() };
-    _instanceInfo.ppEnabledLayerNames = { _validationLayers.data() };
+    instanceInfo_.enabledLayerCount = { (uint32_t)_validationLayers.size() };
+    instanceInfo_.ppEnabledLayerNames = { _validationLayers.data() };
 }

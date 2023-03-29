@@ -1,22 +1,22 @@
 #pragma once
 #include <utilities/Includes/graphicInclude.hpp>
 #include <utilities/typeAliases.hpp>
-#include <Engine/SwapchainMng.hpp>
+#include <Engine/Driver/SwapchainMng.hpp>
 
 class RenderPass
 {
 private:
-    VkDevice& _device;
-    const SwapchainMng& _swapMng;
+    VkDevice& device_;
+    const SwapchainMng& swapMng_;
 
-    VkAttachmentDescription _attachmentDesc {};
+    VkAttachmentDescription attachmentDesc_ {};
 
-    VkAttachmentReference   _attachmentReference {};
-    VkSubpassDescription    _subpassDesc {};
+    VkAttachmentReference   attachmentReference_ {};
+    VkSubpassDescription    subpassDesc_ {};
     
-    VkRenderPassCreateInfo  _renderPassInfo {};
+    VkRenderPassCreateInfo  renderPassInfo_ {};
 
-    VkRenderPass _renderPass { VK_NULL_HANDLE }; 
+    VkRenderPass renderPass_ { VK_NULL_HANDLE }; 
 
 public:
     RenderPass( VkDevice& p_device, const SwapchainMng& p_swapMng );
@@ -24,7 +24,7 @@ public:
 
     inline
     VkRenderPass&
-    getRenderPass(){ return _renderPass; };
+    getRenderPass(){ return renderPass_; };
 
 private:
 

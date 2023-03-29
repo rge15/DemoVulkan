@@ -1,7 +1,7 @@
 #include "PipelineFrameBuffers.hpp"
 
 PipelineFrameBuffers::PipelineFrameBuffers( VkDevice& p_device, VkRenderPass& p_renderPass, SwapchainMng& p_swapChainMng ) noexcept
-: _device { p_device }, _renderPass { p_renderPass }, _swapMng { p_swapChainMng }
+: device_ { p_device }, renderPass_ { p_renderPass }, swapMng_ { p_swapChainMng }
 {
     createBuffers();
 }
@@ -11,9 +11,9 @@ PipelineFrameBuffers::PipelineFrameBuffers( VkDevice& p_device, VkRenderPass& p_
 
 PipelineFrameBuffers::~PipelineFrameBuffers()
 {
-    for(size_t i = 0 ; i < _buffers.size(); i++)
+    for(size_t i = 0 ; i < buffers_.size(); i++)
     {
-        vkDestroyFramebuffer( _device, _buffers[i], nullptr );
+        vkDestroyFramebuffer( device_, buffers_[i], nullptr );
     }
 }
 
@@ -23,16 +23,16 @@ PipelineFrameBuffers::~PipelineFrameBuffers()
 void
 PipelineFrameBuffers::createBuffers() noexcept
 {
-    auto swapInfo = _swapMng.getSwapchainInfo();
-    auto vkImages = _swapMng.getSwapchainImageViews();
-    _buffers.resize(vkImages.size());
+    auto swapInfo = swapMng_.getSwapchainInfo();
+    auto vkImages = swapMng_.getSwapchainImageViews();
+    buffers_.resize(vkImages.size());
 
     VkFramebufferCreateInfo info {};
     info.sType  = VK_STRUCTURE_TYPE_FRAMEBUFFER_CREATE_INFO;
     info.pNext  = nullptr;
     info.flags  = 0;
 
-    info.renderPass = _renderPass;
+    info.renderPass = renderPass_;
     
     info.height = swapInfo.imageExtent.height;
     info.width = swapInfo.imageExtent.width;
@@ -45,7 +45,7 @@ PipelineFrameBuffers::createBuffers() noexcept
     {
         info.pAttachments = &image;
 
-        auto result = vkCreateFramebuffer( _device, &info, nullptr, &_buffers[i]);
+        auto result = vkCreateFramebuffer( device_, &info, nullptr, &buffers_[i]);
         
         assert(result == VK_SUCCESS);
         

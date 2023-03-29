@@ -6,9 +6,9 @@ class WindowMng
 {
 private:
     
-    UniqPtr<GLFWwindow, void (*)(GLFWwindow*)> _window {nullptr, nullptr};
+    UniqPtr<GLFWwindow, void (*)(GLFWwindow*)> window_ {nullptr, nullptr};
 
-    uint32_t _width, _heigth;
+    uint32_t width_, heigth_;
 
 public:
     WindowMng(const uint32_t p_w = 640, const uint32_t p_h = 480) noexcept;
@@ -23,14 +23,14 @@ public:
     inline
     GLFWwindow& getWindow()
     {
-        return *_window.get();
+        return *window_.get();
     }
 
     inline
-    uint32_t getWidth(){ return _width; };
+    uint32_t getWidth(){ return width_; };
 
     inline
-    uint32_t getHeigth(){ return _heigth; };
+    uint32_t getHeigth(){ return heigth_; };
 
 };
 

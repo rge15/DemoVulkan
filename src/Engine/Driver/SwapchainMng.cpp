@@ -1,10 +1,10 @@
 #include "SwapchainMng.hpp"
 
 SwapchainMng::SwapchainMng(VkDevice& p_device, VkSurfaceKHR& p_surface, const SwapchainDetails& p_details, const DeviceQueueFamilies& p_queueIds )
-: _device { p_device }, _surface { p_surface }, _swapDetails { p_details }, _queueIds { p_queueIds }
+: device_ { p_device }, surface_ { p_surface }, swapDetails_ { p_details }, queueIds_ { p_queueIds }
 {
-    _queueFamilies.push_back( _queueIds._graphicQueueId.value() );
-    _queueFamilies.push_back( _queueIds._presentQueueId.value() );
+    queueFamilies_.push_back( queueIds_._graphicQueueId.value() );
+    queueFamilies_.push_back( queueIds_._presentQueueId.value() );
     initCreateInfo();
     createSwapchain();
     getSwapchainImages();
@@ -16,12 +16,12 @@ SwapchainMng::SwapchainMng(VkDevice& p_device, VkSurfaceKHR& p_surface, const Sw
 
 SwapchainMng::~SwapchainMng()
 {
-    for(size_t i = 0 ; i < _viewImages.size(); i++)
+    for(size_t i = 0 ; i < viewImages_.size(); i++)
     {
-        vkDestroyImageView( _device, _viewImages[i], nullptr );
+        vkDestroyImageView( device_, viewImages_[i], nullptr );
     }
 
-    vkDestroySwapchainKHR( _device, _swapchain, nullptr );
+    vkDestroySwapchainKHR( device_, swapchain_, nullptr );
 }
 
 //-----------------------------------------------------------------------------
@@ -30,28 +30,28 @@ SwapchainMng::~SwapchainMng()
 void
 SwapchainMng::initCreateInfo()
 {
-    _createInfo.sType = VK_STRUCTURE_TYPE_SWAPCHAIN_CREATE_INFO_KHR;
-    _createInfo.pNext = nullptr;
-    _createInfo.flags = 0;
-    _createInfo.surface = _surface;
+    createInfo_.sType = VK_STRUCTURE_TYPE_SWAPCHAIN_CREATE_INFO_KHR;
+    createInfo_.pNext = nullptr;
+    createInfo_.flags = 0;
+    createInfo_.surface = surface_;
 
     selectImageCount();
     selectColorAndFormat();
 
-    _createInfo.imageExtent = _swapDetails.capabilities.currentExtent;
+    createInfo_.imageExtent = swapDetails_.capabilities.currentExtent;
 
-    _createInfo.imageArrayLayers = 1;
-    _createInfo.imageUsage = VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT;
+    createInfo_.imageArrayLayers = 1;
+    createInfo_.imageUsage = VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT;
 
     selectQueueFamiliesImages();
 
-    _createInfo.preTransform = _swapDetails.capabilities.currentTransform;
-    _createInfo.compositeAlpha = VK_COMPOSITE_ALPHA_OPAQUE_BIT_KHR;
+    createInfo_.preTransform = swapDetails_.capabilities.currentTransform;
+    createInfo_.compositeAlpha = VK_COMPOSITE_ALPHA_OPAQUE_BIT_KHR;
 
     selectPresentMode();
 
-    _createInfo.clipped = VK_TRUE;
-    _createInfo.oldSwapchain = VK_NULL_HANDLE;
+    createInfo_.clipped = VK_TRUE;
+    createInfo_.oldSwapchain = VK_NULL_HANDLE;
 }
 
 //-----------------------------------------------------------------------------
@@ -60,7 +60,7 @@ SwapchainMng::initCreateInfo()
 void
 SwapchainMng::createSwapchain()
 {
-    auto result = vkCreateSwapchainKHR( _device, &_createInfo, nullptr, &_swapchain );
+    auto result = vkCreateSwapchainKHR( device_, &createInfo_, nullptr, &swapchain_ );
 
     assert(result == VK_SUCCESS);
 }
@@ -73,12 +73,12 @@ SwapchainMng::selectImageCount()
 {
     uint32_t imageCount {0};
 
-    imageCount = _swapDetails.capabilities.minImageCount + 1;
+    imageCount = swapDetails_.capabilities.minImageCount + 1;
     
-    if(imageCount > _swapDetails.capabilities.maxImageCount)
-        imageCount = _swapDetails.capabilities.maxImageCount;
+    if(imageCount > swapDetails_.capabilities.maxImageCount)
+        imageCount = swapDetails_.capabilities.maxImageCount;
     
-    _createInfo.minImageCount = imageCount;
+    createInfo_.minImageCount = imageCount;
 }
 
 //-----------------------------------------------------------------------------
@@ -87,17 +87,17 @@ SwapchainMng::selectImageCount()
 void
 SwapchainMng::selectColorAndFormat()
 {
-    for(auto& format : _swapDetails.formats)
+    for(auto& format : swapDetails_.formats)
     {
         if( format.format == VK_FORMAT_B8G8R8A8_SRGB && format.colorSpace == VK_COLOR_SPACE_SRGB_NONLINEAR_KHR )
         {
-            _createInfo.imageFormat = format.format;
-            _createInfo.imageColorSpace = format.colorSpace;
+            createInfo_.imageFormat = format.format;
+            createInfo_.imageColorSpace = format.colorSpace;
             return;
         }
     }
-    _createInfo.imageFormat = _swapDetails.formats[0].format;
-    _createInfo.imageColorSpace = _swapDetails.formats[0].colorSpace;
+    createInfo_.imageFormat = swapDetails_.formats[0].format;
+    createInfo_.imageColorSpace = swapDetails_.formats[0].colorSpace;
 }
 
 //-----------------------------------------------------------------------------
@@ -106,15 +106,15 @@ SwapchainMng::selectColorAndFormat()
 void
 SwapchainMng::selectQueueFamiliesImages()
 {
-    if( _queueIds._graphicQueueId == _queueIds._presentQueueId )
+    if( queueIds_._graphicQueueId == queueIds_._presentQueueId )
     {
-        _createInfo.imageSharingMode = VK_SHARING_MODE_EXCLUSIVE;
-        _createInfo.queueFamilyIndexCount = 0;
-        _createInfo.pQueueFamilyIndices = nullptr;
+        createInfo_.imageSharingMode = VK_SHARING_MODE_EXCLUSIVE;
+        createInfo_.queueFamilyIndexCount = 0;
+        createInfo_.pQueueFamilyIndices = nullptr;
     }else{
-        _createInfo.imageSharingMode = VK_SHARING_MODE_CONCURRENT;
-        _createInfo.queueFamilyIndexCount = (uint32_t)_queueFamilies.size();
-        _createInfo.pQueueFamilyIndices = _queueFamilies.data();
+        createInfo_.imageSharingMode = VK_SHARING_MODE_CONCURRENT;
+        createInfo_.queueFamilyIndexCount = (uint32_t)queueFamilies_.size();
+        createInfo_.pQueueFamilyIndices =queueFamilies_.data();
     }
 }
 
@@ -124,15 +124,15 @@ SwapchainMng::selectQueueFamiliesImages()
 void
 SwapchainMng::selectPresentMode()
 {
-    for(auto& presentMode : _swapDetails.presentModes )
+    for(auto& presentMode : swapDetails_.presentModes )
     {
         if(presentMode == VK_PRESENT_MODE_MAILBOX_KHR)
         {
-            _createInfo.presentMode = VK_PRESENT_MODE_MAILBOX_KHR;
+            createInfo_.presentMode = VK_PRESENT_MODE_MAILBOX_KHR;
             return;
         }
     }
-    _createInfo.presentMode = _swapDetails.presentModes[0];
+    createInfo_.presentMode = swapDetails_.presentModes[0];
 }
 
 //-----------------------------------------------------------------------------
@@ -142,10 +142,10 @@ void
 SwapchainMng::getSwapchainImages()
 {
     uint32_t imageCount { 0 };
-    vkGetSwapchainImagesKHR( _device, _swapchain, &imageCount, nullptr );
-    _swapImages.resize(imageCount);
-    _viewImages.resize(imageCount);
-    vkGetSwapchainImagesKHR( _device, _swapchain, &imageCount, &_swapImages[0] );
+    vkGetSwapchainImagesKHR( device_, swapchain_, &imageCount, nullptr );
+    swapImages_.resize(imageCount);
+    viewImages_.resize(imageCount);
+    vkGetSwapchainImagesKHR( device_, swapchain_, &imageCount, &swapImages_[0] );
 }
 
 //-----------------------------------------------------------------------------
@@ -165,7 +165,7 @@ SwapchainMng::getImageViews()
     imageViewCreateInfo.components.b = VK_COMPONENT_SWIZZLE_IDENTITY;
     imageViewCreateInfo.components.a = VK_COMPONENT_SWIZZLE_IDENTITY;
 
-    imageViewCreateInfo.format = _createInfo.imageFormat;
+    imageViewCreateInfo.format = createInfo_.imageFormat;
     imageViewCreateInfo.viewType = VK_IMAGE_VIEW_TYPE_2D;
 
     imageViewCreateInfo.subresourceRange.aspectMask = VK_IMAGE_ASPECT_COLOR_BIT;
@@ -174,11 +174,11 @@ SwapchainMng::getImageViews()
     imageViewCreateInfo.subresourceRange.levelCount = 1;
     imageViewCreateInfo.subresourceRange.baseMipLevel = 0;
 
-    for(size_t i = 0; i < _swapImages.size() ; i++ )
+    for(size_t i = 0; i < swapImages_.size() ; i++ )
     {
-        imageViewCreateInfo.image = _swapImages[i];
+        imageViewCreateInfo.image = swapImages_[i];
 
-        auto result = vkCreateImageView( _device, &imageViewCreateInfo, nullptr, &_viewImages[i] );
+        auto result = vkCreateImageView( device_, &imageViewCreateInfo, nullptr, &viewImages_[i] );
 
         assert(result == VK_SUCCESS);
     }

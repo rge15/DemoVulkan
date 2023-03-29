@@ -6,13 +6,13 @@ class PipelineLayout
 {
 private:
     
-    VkDevice& _device;
+    VkDevice& device_;
 
-    VkPipelineLayoutCreateInfo _layoutInfo {};
+    VkPipelineLayoutCreateInfo layoutInfo_ {};
 
-    VkPipelineLayout _pipeLayout { VK_NULL_HANDLE };
+    VkPipelineLayout pipeLayout_ { VK_NULL_HANDLE };
 
-    Vector<VkPushConstantRange> _pushConstantsInfo;
+    Vector<VkPushConstantRange> pushConstantsInfo_;
 
 public:
     PipelineLayout( VkDevice& p_device );
@@ -21,7 +21,7 @@ public:
 
     inline
     VkPipelineLayout&
-    getLayout(){ return _pipeLayout; };
+    getLayout(){ return pipeLayout_; };
 
 private:
 

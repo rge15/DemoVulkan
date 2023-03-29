@@ -1,25 +1,25 @@
 #include <utilities/Includes/graphicInclude.hpp>
 #include <utilities/typeAliases.hpp>
-#include <Engine/PipelineStructs/GraphicPipelineConfig.hpp>
-#include <Engine/PipelineStructs/PipelineLayout.hpp>
-#include <Engine/PipelineStructs/RenderPass.hpp>
+#include <Engine/Render/GraphicPipelineConfig.hpp>
+#include <Engine/Render/PipelineLayout.hpp>
+#include <Engine/Render/RenderPass.hpp>
 
 
 class RenderPipelineMng
 {
 private:
-    VkDevice&   _device;
+    VkDevice&   device_;
 
-    VkRenderPass&                     _renderPass;
-    VkPipelineLayout&                 _layout;
-    const GraphicPipelineConfig&    _config;
+    VkRenderPass&                       renderPass_;
+    VkPipelineLayout&                   layout_;
+    const GraphicPipelineConfig&        config_;
 
-    Vector<VkPipelineShaderStageCreateInfo> _shaderStages;
+    Vector<VkPipelineShaderStageCreateInfo> shaderStages_;
 
-    VkGraphicsPipelineCreateInfo _createInfo {};
+    VkGraphicsPipelineCreateInfo createInfo_ {};
 
 public:
-    VkPipeline _pipeline { VK_NULL_HANDLE };
+    VkPipeline pipeline_ { VK_NULL_HANDLE };
 
 public:
     RenderPipelineMng(

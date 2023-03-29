@@ -6,18 +6,18 @@
 class DrawerMng
 {
 private:
-    VkDevice&                   _device;
-    const DeviceQueueFamilies&  _queueFamilyId;
-    VkRenderPass&               _renderPass;
-    VkPipeline&                 _pipeline;
-    VkPipelineLayout&           _layout;
+    VkDevice&                   device_;
+    const DeviceQueueFamilies&  queueFamilyId_;
+    VkRenderPass&               renderPass_;
+    VkPipeline&                 pipeline_;
+    VkPipelineLayout&           layout_;
 
-    const VkSwapchainCreateInfoKHR&   _swapInfo;
+    const VkSwapchainCreateInfoKHR&   swapInfo_;
 
-    VkCommandPool   _pool       { VK_NULL_HANDLE };
-    VkCommandBuffer _cmdBuffer  { VK_NULL_HANDLE };
+    VkCommandPool   pool_       { VK_NULL_HANDLE };
+    VkCommandBuffer cmdBuffer_  { VK_NULL_HANDLE };
 
-    VkCommandBufferBeginInfo _beginRecordInfo {};
+    VkCommandBufferBeginInfo beginRecordInfo_ {};
 
 public:
 
@@ -33,7 +33,7 @@ public:
 
     inline
     VkCommandBuffer&
-    getCmdBuffer() { return _cmdBuffer; };
+    getCmdBuffer() { return cmdBuffer_; };
 
 private:
 

@@ -5,10 +5,10 @@
 class SurfaceMng
 {
 private:
-    VkInstance& _instance;
-    GLFWwindow& _window;
+    VkInstance& instance_;
+    GLFWwindow& window_;
 
-    VkSurfaceKHR _surface;
+    VkSurfaceKHR surface_;
 public:
     SurfaceMng(VkInstance& p_instance, GLFWwindow& p_window);
     ~SurfaceMng();
@@ -16,7 +16,7 @@ public:
     inline 
     VkSurfaceKHR& getSurface()
     {
-        return _surface;
+        return surface_;
     }
 };
 

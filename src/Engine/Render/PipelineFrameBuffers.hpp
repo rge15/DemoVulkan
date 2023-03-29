@@ -1,16 +1,16 @@
 #pragma once
 #include <utilities/typeAliases.hpp>
-#include <Engine/SwapchainMng.hpp>
+#include <Engine/Driver/SwapchainMng.hpp>
 
 class PipelineFrameBuffers
 {
 private:
-    VkDevice&       _device;
-    VkRenderPass&   _renderPass;
-    SwapchainMng&   _swapMng;
+    VkDevice&       device_;
+    VkRenderPass&   renderPass_;
+    SwapchainMng&   swapMng_;
 
     using Framebuffers = Vector<VkFramebuffer>;
-    Framebuffers        _buffers {};
+    Framebuffers        buffers_ {};
 
 public:
     PipelineFrameBuffers( VkDevice& p_device, VkRenderPass& p_renderPass, SwapchainMng& p_swapChainMng ) noexcept;
@@ -18,7 +18,7 @@ public:
 
     inline
     VkFramebuffer&
-    getFramebufferByIndex(uint32_t p_id ){ return _buffers[p_id]; };
+    getFramebufferByIndex(uint32_t p_id ){ return buffers_[p_id]; };
 
 private:
 

@@ -1,7 +1,7 @@
 #include "WindowMng.hpp"
 
 WindowMng::WindowMng(const uint32_t p_w, const uint32_t p_h) noexcept
-: _width { p_w }, _heigth { p_h }
+: width_ { p_w }, heigth_ { p_h }
 {
     glfwInit();
 
@@ -9,11 +9,11 @@ WindowMng::WindowMng(const uint32_t p_w, const uint32_t p_h) noexcept
     glfwWindowHint( GLFW_RESIZABLE, GLFW_FALSE );
 
     UniqPtr<GLFWwindow, void (*)(GLFWwindow*)> window { 
-        glfwCreateWindow( _width, _heigth, "HelloVulkan!", nullptr, nullptr),
+        glfwCreateWindow( width_, heigth_, "HelloVulkan!", nullptr, nullptr),
         deleteWindow };
 
     assert(window.get());
 
-    _window = std::move(window);
+    window_ = std::move(window);
 }
 

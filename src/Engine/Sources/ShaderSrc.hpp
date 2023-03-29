@@ -6,16 +6,16 @@ class ShaderSrc
 {
 private:
 
-    VkDevice& _device;
+    VkDevice& device_;
 
-    VkShaderStageFlagBits _shaderStage;
+    VkShaderStageFlagBits shaderStage_;
     
-    VkShaderModuleCreateInfo _shaderCreateInfo {};
-    VkPipelineShaderStageCreateInfo _shaderStageInfo {};
+    VkShaderModuleCreateInfo shaderCreateInfo_ {};
+    VkPipelineShaderStageCreateInfo shaderStageInfo_ {};
 
-    Vector<uint32_t> _shaderCode;
+    Vector<uint32_t> shaderCode_;
 
-    VkShaderModule _shaderModule { VK_NULL_HANDLE };
+    VkShaderModule shaderModule_ { VK_NULL_HANDLE };
 
 public:
     ShaderSrc(VkDevice& p_device, String&& p_filePath, VkShaderStageFlagBits p_shaderStage = VK_SHADER_STAGE_VERTEX_BIT ) noexcept;
@@ -23,7 +23,7 @@ public:
 
     inline
     VkPipelineShaderStageCreateInfo
-    getShaderStageInfo() { return _shaderStageInfo; };
+    getShaderStageInfo() { return shaderStageInfo_; };
 
 private:
 

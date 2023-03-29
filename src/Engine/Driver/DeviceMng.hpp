@@ -7,26 +7,26 @@ class DeviceMng
 {
 private:
 	
-	VkInstance&		_instance;
-	VkSurfaceKHR&	_surface;
+	VkInstance&		instance_;
+	VkSurfaceKHR&	surface_;
 
-    VkPhysicalDeviceFeatures	_phDeviceFeatures {};
-	VkDeviceCreateInfo 			_deviceInfo {};
+    VkPhysicalDeviceFeatures	phDeviceFeatures_ {};
+	VkDeviceCreateInfo 			deviceInfo_ {};
 
-	VkPhysicalDevice	_physicalDevice { VK_NULL_HANDLE };
-	VkDevice			_logicalDevice 	{ VK_NULL_HANDLE };
+	VkPhysicalDevice	physicalDevice_ { VK_NULL_HANDLE };
+	VkDevice			logicalDevice_ 	{ VK_NULL_HANDLE };
 
-	Vector<VkDeviceQueueCreateInfo> _queuesCreateInfo;
+	Vector<VkDeviceQueueCreateInfo> queuesCreateInfo_;
 
-	VkQueue	_graphicQueueHandler { VK_NULL_HANDLE };
-	VkQueue	_presentQueueHandler { VK_NULL_HANDLE };
+	VkQueue	graphicQueueHandler_ { VK_NULL_HANDLE };
+	VkQueue	presentQueueHandler_ { VK_NULL_HANDLE };
 
-	DeviceQueueFamilies _queueIds{};
-	float	_queuePriority { 1.f };
+	DeviceQueueFamilies queueIds_{};
+	float	queuePriority_ { 1.f };
 
-	SwapchainDetails _swapchainSupportDetails {};
+	SwapchainDetails swapchainSupportDetails_ {};
 
-	const Vector<const char*> _requiredDeviceExtensions =
+	const Vector<const char*> requiredDeviceExtensions_ =
 	{
 		VK_KHR_SWAPCHAIN_EXTENSION_NAME
 	};
@@ -39,35 +39,35 @@ public:
 	const DeviceQueueFamilies&
 	getFamilyQueueIds() const noexcept
 	{
-		return _queueIds;
+		return queueIds_;
 	}
 
 	inline
 	const SwapchainDetails&
 	getSwapchainDetails() const noexcept
 	{
-		return _swapchainSupportDetails;
+		return swapchainSupportDetails_;
 	}
 
 	inline
 	VkDevice&
 	getDevice() noexcept
 	{
-		return _logicalDevice;
+		return logicalDevice_;
 	}
 
 	inline
 	VkQueue&
 	getGraphicQueueHandler() noexcept
 	{
-		return _graphicQueueHandler;
+		return graphicQueueHandler_;
 	}
 
 	inline
 	VkQueue&
 	getPresentQueueHandler() noexcept
 	{
-		return _presentQueueHandler;
+		return presentQueueHandler_;
 	}
 
 

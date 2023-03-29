@@ -5,11 +5,11 @@
 class InstanceMng
 {
 public:
-	VkInstance	_vkInstance {VK_NULL_HANDLE};
+	VkInstance	vkInstance_ {VK_NULL_HANDLE};
 
 private:    
-	VkInstanceCreateInfo    _instanceInfo {};
-    VkApplicationInfo		_appInfo {};
+	VkInstanceCreateInfo    instanceInfo_ {};
+    VkApplicationInfo		appInfo_ {};
 
     const Vector<const char*> _validationLayers = 
     {

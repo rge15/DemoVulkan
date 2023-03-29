@@ -1,7 +1,7 @@
 #include "PipelineLayout.hpp"
 
 PipelineLayout::PipelineLayout( VkDevice& p_device )
-: _device { p_device }
+: device_ { p_device }
 {
     addPushConstants();
     initCreateInfo();
@@ -13,7 +13,7 @@ PipelineLayout::PipelineLayout( VkDevice& p_device )
 
 PipelineLayout::~PipelineLayout()
 {
-    vkDestroyPipelineLayout( _device, _pipeLayout, nullptr );
+    vkDestroyPipelineLayout( device_, pipeLayout_, nullptr );
 }
 
 //-----------------------------------------------------------------------------
@@ -22,13 +22,13 @@ PipelineLayout::~PipelineLayout()
 void
 PipelineLayout::initCreateInfo()
 {
-    _layoutInfo.sType = VK_STRUCTURE_TYPE_PIPELINE_LAYOUT_CREATE_INFO;
-    _layoutInfo.pNext = nullptr;
-    _layoutInfo.flags = 0;
-    _layoutInfo.setLayoutCount = 0;
-    _layoutInfo.pSetLayouts = nullptr;
-    _layoutInfo.pushConstantRangeCount = _pushConstantsInfo.size();
-    _layoutInfo.pPushConstantRanges = _pushConstantsInfo.data();
+    layoutInfo_.sType = VK_STRUCTURE_TYPE_PIPELINE_LAYOUT_CREATE_INFO;
+    layoutInfo_.pNext = nullptr;
+    layoutInfo_.flags = 0;
+    layoutInfo_.setLayoutCount = 0;
+    layoutInfo_.pSetLayouts = nullptr;
+    layoutInfo_.pushConstantRangeCount = pushConstantsInfo_.size();
+    layoutInfo_.pPushConstantRanges = pushConstantsInfo_.data();
 }
 
 //-----------------------------------------------------------------------------
@@ -37,7 +37,7 @@ PipelineLayout::initCreateInfo()
 void
 PipelineLayout::createLayout()
 {
-    auto result = vkCreatePipelineLayout( _device, &_layoutInfo, nullptr, &_pipeLayout);
+    auto result = vkCreatePipelineLayout( device_, &layoutInfo_, nullptr, &pipeLayout_);
 
     assert(result == VK_SUCCESS);
 }
@@ -48,7 +48,7 @@ PipelineLayout::createLayout()
 void
 PipelineLayout::addPushConstants()
 {
-    auto& resolutionCnst        = _pushConstantsInfo.emplace_back();
+    auto& resolutionCnst        = pushConstantsInfo_.emplace_back();
     resolutionCnst.stageFlags   = VK_SHADER_STAGE_FRAGMENT_BIT;
     resolutionCnst.offset       = 0;
     resolutionCnst.size         = sizeof( float ) * 4;

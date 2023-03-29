@@ -1,7 +1,7 @@
 #include "ShaderSrc.hpp"
 
 ShaderSrc::ShaderSrc(VkDevice& p_device, String&& p_filePath, VkShaderStageFlagBits p_shaderStage) noexcept
-: _device { p_device }, _shaderStage { p_shaderStage }
+: device_ { p_device }, shaderStage_ { p_shaderStage }
 {
     readFile( p_filePath );
     initShaderModuleInfo();
@@ -11,8 +11,8 @@ ShaderSrc::ShaderSrc(VkDevice& p_device, String&& p_filePath, VkShaderStageFlagB
 
 ShaderSrc::~ShaderSrc()
 {
-    if(_shaderModule != VK_NULL_HANDLE)
-        vkDestroyShaderModule( _device, _shaderModule, nullptr );
+    if(shaderModule_ != VK_NULL_HANDLE)
+        vkDestroyShaderModule( device_, shaderModule_, nullptr );
 }
 
 void
@@ -27,12 +27,12 @@ ShaderSrc::readFile(String& p_file)
     Vector<char> code;
 
     code.resize( fileSize );
-    _shaderCode.resize( fileSize >> 2 );
+    shaderCode_.resize( fileSize >> 2 );
 
     file.seekg(0);
     file.read( code.data(), fileSize );
 
-    memcpy( _shaderCode.data(), code.data(), fileSize );
+    memcpy( shaderCode_.data(), code.data(), fileSize );
 
     file.close();
 }
@@ -40,7 +40,7 @@ ShaderSrc::readFile(String& p_file)
 void
 ShaderSrc::createShaderModule()
 {
-    auto result = vkCreateShaderModule( _device, &_shaderCreateInfo, nullptr, &_shaderModule );
+    auto result = vkCreateShaderModule( device_, &shaderCreateInfo_, nullptr, &shaderModule_ );
 
     assert(result == VK_SUCCESS);
 }
@@ -48,21 +48,21 @@ ShaderSrc::createShaderModule()
 void
 ShaderSrc::initShaderModuleInfo()
 {
-    _shaderCreateInfo.sType = VK_STRUCTURE_TYPE_SHADER_MODULE_CREATE_INFO;
-    _shaderCreateInfo.pNext = nullptr;
-    _shaderCreateInfo.flags = 0;
-    _shaderCreateInfo.codeSize = _shaderCode.size() << 2;
-    _shaderCreateInfo.pCode = _shaderCode.data();
+    shaderCreateInfo_.sType = VK_STRUCTURE_TYPE_SHADER_MODULE_CREATE_INFO;
+    shaderCreateInfo_.pNext = nullptr;
+    shaderCreateInfo_.flags = 0;
+    shaderCreateInfo_.codeSize = shaderCode_.size() << 2;
+    shaderCreateInfo_.pCode = shaderCode_.data();
 }
 
 void
 ShaderSrc::initPipelineStageInfo()
 {
-    _shaderStageInfo.sType = VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_CREATE_INFO;
-    _shaderStageInfo.pNext = nullptr;
-    _shaderStageInfo.flags = 0;
-    _shaderStageInfo.module = _shaderModule;
-    _shaderStageInfo.pName = "main";
-    _shaderStageInfo.stage = _shaderStage;
-    _shaderStageInfo.pSpecializationInfo = nullptr;
+    shaderStageInfo_.sType = VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_CREATE_INFO;
+    shaderStageInfo_.pNext = nullptr;
+    shaderStageInfo_.flags = 0;
+    shaderStageInfo_.module = shaderModule_;
+    shaderStageInfo_.pName = "main";
+    shaderStageInfo_.stage = shaderStage_;
+    shaderStageInfo_.pSpecializationInfo = nullptr;
 }

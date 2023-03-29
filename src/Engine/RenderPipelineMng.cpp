@@ -7,11 +7,11 @@ RenderPipelineMng::RenderPipelineMng(
     VkPipelineLayout& p_layout,
     const GraphicPipelineConfig& p_config,
     Vector<VkPipelineShaderStageCreateInfo> p_shaderStages) noexcept
-    : _device       { p_device }
-    , _renderPass   { p_renderPass }
-    , _layout       { p_layout }
-    , _config       { p_config }
-    , _shaderStages { p_shaderStages }
+    : device_       { p_device }
+    , renderPass_   { p_renderPass }
+    , layout_       { p_layout }
+    , config_       { p_config }
+    , shaderStages_ { p_shaderStages }
 {
     initCreateInfo();
     createPipeline();
@@ -22,7 +22,7 @@ RenderPipelineMng::RenderPipelineMng(
 
 RenderPipelineMng::~RenderPipelineMng()
 {
-    vkDestroyPipeline( _device, _pipeline, nullptr );
+    vkDestroyPipeline( device_, pipeline_, nullptr );
 }
 
 //-----------------------------------------------------------------------------
@@ -31,29 +31,29 @@ RenderPipelineMng::~RenderPipelineMng()
 void
 RenderPipelineMng::initCreateInfo()
 {
-    _createInfo.sType = VK_STRUCTURE_TYPE_GRAPHICS_PIPELINE_CREATE_INFO;
-    _createInfo.pNext = nullptr;
-    _createInfo.flags = 0;
+    createInfo_.sType = VK_STRUCTURE_TYPE_GRAPHICS_PIPELINE_CREATE_INFO;
+    createInfo_.pNext = nullptr;
+    createInfo_.flags = 0;
 
-    _createInfo.stageCount  = _shaderStages.size();
-    _createInfo.pStages     = _shaderStages.data();
+    createInfo_.stageCount  = shaderStages_.size();
+    createInfo_.pStages     = shaderStages_.data();
 
-    _createInfo.pViewportState      = &_config._viewportScissorInfo;
-    _createInfo.pVertexInputState   = &_config._vertexInputInfo;
-    _createInfo.pRasterizationState = &_config._rasterInfo;
-    _createInfo.pInputAssemblyState = &_config._assemblyInfo;
-    _createInfo.pMultisampleState   = &_config._msaaInfo;
-    _createInfo.pDynamicState       = &_config._dynamicInfo;
-    _createInfo.pColorBlendState    = &_config._colorInfo;
-    _createInfo.pDepthStencilState  = nullptr;
-    _createInfo.pTessellationState  = nullptr;
+    createInfo_.pViewportState      = &config_.viewportScissorInfo_;
+    createInfo_.pVertexInputState   = &config_.vertexInputInfo_;
+    createInfo_.pRasterizationState = &config_.rasterInfo_;
+    createInfo_.pInputAssemblyState = &config_.assemblyInfo_;
+    createInfo_.pMultisampleState   = &config_.msaaInfo_;
+    createInfo_.pDynamicState       = &config_.dynamicInfo_;
+    createInfo_.pColorBlendState    = &config_.colorInfo_;
+    createInfo_.pDepthStencilState  = nullptr;
+    createInfo_.pTessellationState  = nullptr;
 
-    _createInfo.layout      = _layout;
-    _createInfo.renderPass  = _renderPass;
-    _createInfo.subpass     = 0;
+    createInfo_.layout      = layout_;
+    createInfo_.renderPass  = renderPass_;
+    createInfo_.subpass     = 0;
 
-    _createInfo.basePipelineHandle  = VK_NULL_HANDLE;
-    _createInfo.basePipelineIndex   = -1;
+    createInfo_.basePipelineHandle  = VK_NULL_HANDLE;
+    createInfo_.basePipelineIndex   = -1;
 
 }
 
@@ -63,7 +63,7 @@ RenderPipelineMng::initCreateInfo()
 void
 RenderPipelineMng::createPipeline()
 {
-    auto result = vkCreateGraphicsPipelines( _device, VK_NULL_HANDLE, 1, &_createInfo, nullptr, &_pipeline);
+    auto result = vkCreateGraphicsPipelines( device_, VK_NULL_HANDLE, 1, &createInfo_, nullptr, &pipeline_);
 
     assert(result == VK_SUCCESS);
 }
