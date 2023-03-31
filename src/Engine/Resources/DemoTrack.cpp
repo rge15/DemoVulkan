@@ -3,7 +3,12 @@
 void
 DemoTrack::addFXToTrack( DemoFX& p_demo, float p_timeStart, float p_duration ) noexcept
 {
-    Clip clip = Clip( p_demo, p_timeStart, p_timeStart + p_duration);
+    float endClipTime { p_timeStart + p_duration };
+
+    Clip clip = Clip( p_demo, p_timeStart, endClipTime);
+
+    if( maxPlayTime_ < endClipTime )
+        maxPlayTime_ = endClipTime;
 
     demoTrack_.push_back(clip);
 }

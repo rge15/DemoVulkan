@@ -13,6 +13,8 @@ class DemoTrack
 private:
     Vector<Clip> demoTrack_ {};
 
+    float maxPlayTime_ { 0. };
+
 public:
 
     explicit DemoTrack() = default;
@@ -24,5 +26,8 @@ public:
 
     Vector<PlayingClip>
     getPlayingFXs() noexcept;
+
+    inline
+    float getMaxPlayTime() { return maxPlayTime_; };
 
 };

@@ -41,8 +41,9 @@ InitDemoApp::run()
     track.addFXToTrack( *demoFX.get(), 0., 5. );
 
     auto& timer = Timer::getInstance();
+    timer.reset();
 
-    while( glfwGetKey(&window, GLFW_KEY_ESCAPE ) != GLFW_PRESS && !glfwWindowShouldClose(&window) )
+    while( glfwGetKey(&window, GLFW_KEY_ESCAPE ) != GLFW_PRESS && !glfwWindowShouldClose(&window) && timer.ellapsedSeconds() < track.getMaxPlayTime() )
     {
         if(timer.update())
         {
