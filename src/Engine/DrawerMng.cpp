@@ -1,210 +1,158 @@
 #include "DrawerMng.hpp"
-#include <utilities/Timer/Timer.hpp>
 
-DrawerMng::DrawerMng(
-    VkDevice& p_device, const DeviceQueueFamilies& p_queueFamilyId, VkRenderPass& p_renderPass,
-    VkPipeline& p_pipeline, VkPipelineLayout& p_layout, const VkSwapchainCreateInfoKHR& p_swapInfo
-) noexcept
-: device_ { p_device }, queueFamilyId_ { p_queueFamilyId }, renderPass_ { p_renderPass }
-, pipeline_ { p_pipeline }, layout_ { p_layout }, swapInfo_ { p_swapInfo }
+DrawerMng::DrawerMng(Driver& p_driver, Renderer& p_render) noexcept
+: driver_ { p_driver }, render_ { p_render }
 {
-    createCommandPool();
-    allocateCommandBuffer();
-    initCommandBufferRecordingInfo();
+    initCommander();
+    initWorker();
+    track_ = std::make_unique<DemoTrack>();
 }
 
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
 
-DrawerMng::~DrawerMng()
+void 
+DrawerMng::initCommander()
 {
-    vkDestroyCommandPool( device_, pool_, nullptr );
+    auto& deviceMng     = driver_.getDeviceManager(); 
+    auto& device        = deviceMng.getDevice();
+    auto& queueFamily   = deviceMng.getFamilyQueueIds();
+
+    command_ = std::make_unique<CommandMng>( device, queueFamily );
+
+}
+
+//-----------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
+
+void 
+DrawerMng::initWorker()
+{
+    auto& deviceMng     = driver_.getDeviceManager(); 
+    auto& device        = deviceMng.getDevice();
+
+    work_ = std::make_unique<WorkMng>( device );
 }
 
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
 
 void
-DrawerMng::createCommandPool() noexcept
+DrawerMng::drawFrame() noexcept
 {
-    VkCommandPoolCreateInfo _info {};
-
-    _info.sType = VK_STRUCTURE_TYPE_COMMAND_POOL_CREATE_INFO;
-    _info.pNext = nullptr;
-    _info.flags = VK_COMMAND_POOL_CREATE_RESET_COMMAND_BUFFER_BIT;
-    _info.queueFamilyIndex = queueFamilyId_._graphicQueueId.value();
-
-    auto result = vkCreateCommandPool(device_, &_info, nullptr, &pool_);
-
-    assert(result == VK_SUCCESS);
-}
-
-//-----------------------------------------------------------------------------
-//-----------------------------------------------------------------------------
-
-void
-DrawerMng::allocateCommandBuffer() noexcept
-{
-    VkCommandBufferAllocateInfo info_ {};
+    uint32_t frameId = getReadyToRecord();
     
-    info_.sType = VK_STRUCTURE_TYPE_COMMAND_BUFFER_ALLOCATE_INFO;
-    info_.pNext = nullptr;
-    info_.level = VK_COMMAND_BUFFER_LEVEL_PRIMARY;
+    command_.get()->beginRecording();
+
+    auto playingDemos = track_.get()->getPlayingFXs();
     
-    info_.commandPool           = pool_;
-    info_.commandBufferCount    = 1;
+    recordCommand( frameId, playingDemos );
 
-    auto result = vkAllocateCommandBuffers( device_, &info_, &cmdBuffer_ );
+    command_.get()->endRecording();
 
-    assert(result == VK_SUCCESS);
-}
-
-//-----------------------------------------------------------------------------
-//-----------------------------------------------------------------------------
-
-void
-DrawerMng::recordDrawCommand( VkFramebuffer& p_framebuffer ) noexcept
-{
-    beginRecording();
-
-    recordCommands( p_framebuffer );
-
-    endRecording();
-}
-
-//-----------------------------------------------------------------------------
-//-----------------------------------------------------------------------------
-
-void
-DrawerMng::beginRecording() noexcept
-{
-    vkBeginCommandBuffer(cmdBuffer_, &beginRecordInfo_);
-}
-
-//-----------------------------------------------------------------------------
-//-----------------------------------------------------------------------------
-
-void
-DrawerMng::endRecording() noexcept
-{
-    vkEndCommandBuffer(cmdBuffer_);
-}
-
-//-----------------------------------------------------------------------------
-//-----------------------------------------------------------------------------
-
-void
-DrawerMng::recordCommands(VkFramebuffer& p_framebuffer) noexcept
-{
-    initRenderPass( p_framebuffer );
-
-    vkCmdBindPipeline( cmdBuffer_, VK_PIPELINE_BIND_POINT_GRAPHICS, pipeline_ );
-
-    initDynamicStates();
-
-    passPushConstantData();
-
-    vkCmdDraw( cmdBuffer_, 6, 1, 0, 0);
-
-    vkCmdEndRenderPass( cmdBuffer_ );
-}
-
-//-----------------------------------------------------------------------------
-//-----------------------------------------------------------------------------
-
-void
-DrawerMng::initRenderPass( VkFramebuffer& p_framebuffer ) noexcept
-{
-    VkRenderPassBeginInfo _beginInfo {};
-
-    _beginInfo.sType = VK_STRUCTURE_TYPE_RENDER_PASS_BEGIN_INFO;
-    _beginInfo.pNext = nullptr;
-    
-    _beginInfo.renderPass = renderPass_;
-    _beginInfo.framebuffer = p_framebuffer;
-
-    _beginInfo.renderArea.offset = { 0, 0 };
-    _beginInfo.renderArea.extent = swapInfo_.imageExtent;
-
-    _beginInfo.clearValueCount = 1;
-    VkClearValue blackColor {0.f,0.f,0.f,1.f};
-    _beginInfo.pClearValues = &blackColor;
-
-    vkCmdBeginRenderPass( cmdBuffer_, &_beginInfo, VK_SUBPASS_CONTENTS_INLINE );
-}
-
-//-----------------------------------------------------------------------------
-//-----------------------------------------------------------------------------
-
-void
-DrawerMng::initCommandBufferRecordingInfo() noexcept
-{
-    beginRecordInfo_.sType = VK_STRUCTURE_TYPE_COMMAND_BUFFER_BEGIN_INFO;
-    beginRecordInfo_.pNext = nullptr;
-    beginRecordInfo_.flags = 0;
-    beginRecordInfo_.pInheritanceInfo = nullptr;
-}
-
-//-----------------------------------------------------------------------------
-//-----------------------------------------------------------------------------
-
-void
-DrawerMng::initDynamicStates() noexcept
-{
-    VkViewport viewport{};
-
-    viewport.x = 0;
-    viewport.y = 0;
-    viewport.height = swapInfo_.imageExtent.height;
-    viewport.width = swapInfo_.imageExtent.width;
-    viewport.minDepth = 0.0f;
-    viewport.maxDepth = 1.0f;
-
-    vkCmdSetViewport( cmdBuffer_, 0, 1, &viewport );
-
-    VkRect2D _scissor {};
-
-    _scissor.offset = { 0 , 0 };
-    _scissor.extent = swapInfo_.imageExtent;
-
-    vkCmdSetScissor( cmdBuffer_, 0, 1, &_scissor );
-}
-
-//-----------------------------------------------------------------------------
-//-----------------------------------------------------------------------------
-
-void
-DrawerMng::passPushConstantData() noexcept
-{
-    auto width  = (float)swapInfo_.imageExtent.width;
-    auto heigth = (float)swapInfo_.imageExtent.height;
-    auto time   = (float)Timer::getInstance().ellapsedSeconds();
-
-    Vector<float> resolution { width, heigth, time };
-
-    uint32_t finalSize = getPushConstantSize(resolution);
-
-    vkCmdPushConstants(
-        cmdBuffer_, layout_, VK_SHADER_STAGE_FRAGMENT_BIT,
-        0, finalSize, resolution.data() 
-    );
+    //SubmitCmd
+    submitCommands(frameId);
 
 }
 
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
 
-template<typename T>
 uint32_t
-DrawerMng::getPushConstantSize( const Vector<T>& p_data ) noexcept
+DrawerMng::getReadyToRecord() noexcept
 {
-    auto dataSize   = p_data.size() * sizeof(p_data.data()[0]) ;
-    auto multiple4  = (int)std::log2( dataSize );
+    //Get FrameBuffer Id
+    uint32_t frameId = getFrameBufferId();
+
+    //Sync Cmnd
+    work_.get()->waitBufferSync();
+
+    return frameId;
+}
+
+//-----------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
+
+uint32_t
+DrawerMng::getFrameBufferId() noexcept
+{
+    auto& swap = driver_.getSwapchainManager().getSwapchain();
+
+    uint32_t imgId = work_.get()->getFrameBufferIndex( swap );
+
+    return imgId;
+}
+
+//-----------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
+
+void
+DrawerMng::recordCommand( uint32_t p_imageId, Vector<PlayingClip>& p_demos ) noexcept
+{
+    auto& cmd       = command_.get()->getCmdBuffer();
+    auto& swapInfo  = driver_.getSwapchainManager().getSwapchainInfo();
+    auto& layoutMng = render_.getPipeLayout();
+
+    render_.initRenderPass( p_imageId, cmd );
+
+    for(auto& demoClip : p_demos)
+    {
+        auto& demoFx            = std::get<DemoFX&>( demoClip );
+        float relativeTime      = std::get<float>( demoClip );
+        auto& renderPipelineMng = demoFx.getRenderPipelieneMng();
+
+        renderPipelineMng.bindPipelineAndDynamics( cmd, swapInfo );
+
+        layoutMng.sendPushConstantData( cmd, relativeTime, swapInfo );
+
+        vkCmdDraw( cmd, 6, 1, 0, 0);
+    }
+
+    vkCmdEndRenderPass( cmd );
+
+}
+
+//-----------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
+
+void
+DrawerMng::submitCommands( uint32_t p_imageId ) noexcept
+{
+    auto& swapchain = driver_.getSwapchainManager().getSwapchain();
+    auto& deviceMng = driver_.getDeviceManager();
+    auto& workMng   = *work_.get();
+
+    VkPipelineStageFlags    stageFlags { VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT };
+    VkSubmitInfo            _subInfo {};
     
-    uint32_t perfectSize = pow(2,multiple4);
-    uint32_t difference  = dataSize % perfectSize ;
+    
 
-    uint32_t finalSize = (difference == 0) ? perfectSize : pow(2,multiple4+1);
+    _subInfo.sType = VK_STRUCTURE_TYPE_SUBMIT_INFO;
+    _subInfo.pNext = nullptr;
+    _subInfo.waitSemaphoreCount = 1;
+    _subInfo.pWaitSemaphores    = &workMng.getImgAvailableSemaphore();
+    _subInfo.pWaitDstStageMask  = &stageFlags;
+    _subInfo.commandBufferCount = 1;
+    
+    _subInfo.pCommandBuffers        = &command_.get()->getCmdBuffer();
+    _subInfo.signalSemaphoreCount   = 1;
+    _subInfo.pSignalSemaphores      = &workMng.getImgRenderedSemaphore();
 
-    return finalSize;
+    auto graphicQueueHandler = deviceMng.getGraphicQueueHandler();
+    vkQueueSubmit( graphicQueueHandler, 1, &_subInfo, workMng.getCmdAvailableFence() );
+
+    VkPresentInfoKHR presentInfo {};
+    presentInfo.sType = VK_STRUCTURE_TYPE_PRESENT_INFO_KHR;
+    presentInfo.pNext = nullptr;
+
+    presentInfo.waitSemaphoreCount  = 1;
+    presentInfo.pWaitSemaphores     = &workMng.getImgRenderedSemaphore();
+
+    presentInfo.swapchainCount  = 1;
+    presentInfo.pSwapchains     = &swapchain;
+    presentInfo.pImageIndices   = &p_imageId;
+    presentInfo.pResults = nullptr;
+
+    vkQueuePresentKHR( deviceMng.getPresentQueueHandler(), &presentInfo );
+
 }

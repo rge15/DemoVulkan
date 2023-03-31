@@ -1,71 +1,47 @@
 #pragma once
-#include <utilities/Includes/graphicInclude.hpp>
-#include <utilities/typeAliases.hpp>
-#include <Engine/utilStructs/DeviceQueueFamilies.hpp>
+#include <Engine/Driver.hpp>
+#include <Engine/Renderer.hpp>
+#include <Engine/DrawerMng/CommandMng.hpp>
+#include <Engine/DrawerMng/WorkMng.hpp>
+#include <Engine/Resources/DemoTrack.hpp> 
 
 class DrawerMng
 {
 private:
-    VkDevice&                   device_;
-    const DeviceQueueFamilies&  queueFamilyId_;
-    VkRenderPass&               renderPass_;
-    VkPipeline&                 pipeline_;
-    VkPipelineLayout&           layout_;
+    Driver&     driver_;
+    //TODO : Creo que el renderer no debe ir aquí sino acceder desde el DemoFX que se ejecute (2º Iteración)
+    Renderer&   render_;
 
-    const VkSwapchainCreateInfoKHR&   swapInfo_;
-
-    VkCommandPool   pool_       { VK_NULL_HANDLE };
-    VkCommandBuffer cmdBuffer_  { VK_NULL_HANDLE };
-
-    VkCommandBufferBeginInfo beginRecordInfo_ {};
+    UniqPtr<CommandMng> command_    { nullptr };
+    UniqPtr<WorkMng>    work_       { nullptr };
+    UniqPtr<DemoTrack>  track_      { nullptr };
 
 public:
-
-    DrawerMng(
-        VkDevice& p_device, const DeviceQueueFamilies& p_queueFamilyId, VkRenderPass& p_renderPass,
-        VkPipeline& p_pipeline, VkPipelineLayout& p_layout, const VkSwapchainCreateInfoKHR& p_swapInfo
-    ) noexcept;
-
-    ~DrawerMng();
+    explicit DrawerMng(Driver& p_driver, Renderer& p_render) noexcept;
+    ~DrawerMng() = default;
 
     void
-    recordDrawCommand( VkFramebuffer& p_framebuffer ) noexcept;
+    drawFrame() noexcept;
 
     inline
-    VkCommandBuffer&
-    getCmdBuffer() { return cmdBuffer_; };
+    DemoTrack& getTrack(){ return *track_.get(); };
 
 private:
 
-    void
-    createCommandPool() noexcept;
+    void initCommander();
+    
+    void initWorker();
 
-    void
-    allocateCommandBuffer() noexcept;
-
-    void
-    initCommandBufferRecordingInfo() noexcept;
-
-    void
-    beginRecording() noexcept;
-
-    void
-    recordCommands( VkFramebuffer& p_framebuffer ) noexcept;
-
-    void
-    endRecording() noexcept;
-
-    void
-    initRenderPass( VkFramebuffer& p_framebuffer ) noexcept;
-
-    void
-    initDynamicStates() noexcept;
-
-    void
-    passPushConstantData() noexcept;
-
-    template<typename T>
     uint32_t
-    getPushConstantSize( const Vector<T>& p_data ) noexcept;
+    getReadyToRecord() noexcept;
+
+    uint32_t
+    getFrameBufferId() noexcept;
+
+    void
+    recordCommand( uint32_t p_imageId, Vector<PlayingClip>& p_demos ) noexcept;
+
+    void
+    submitCommands( uint32_t p_imageId ) noexcept;
 
 };

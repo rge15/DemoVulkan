@@ -31,6 +31,10 @@ public:
     
     ~RenderPipelineMng();
 
+    void
+    bindPipelineAndDynamics( VkCommandBuffer& p_cmd, const VkSwapchainCreateInfoKHR& p_swapInfo );
+
+
 private:
 
     void

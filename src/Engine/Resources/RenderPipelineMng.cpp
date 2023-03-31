@@ -67,3 +67,30 @@ RenderPipelineMng::createPipeline()
 
     assert(result == VK_SUCCESS);
 }
+
+//-----------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
+
+void
+RenderPipelineMng::bindPipelineAndDynamics( VkCommandBuffer& p_cmd, const VkSwapchainCreateInfoKHR& p_swapInfo )
+{
+    vkCmdBindPipeline( p_cmd, VK_PIPELINE_BIND_POINT_GRAPHICS, pipeline_ );
+
+    VkViewport viewport{};
+
+    viewport.x = 0;
+    viewport.y = 0;
+    viewport.height = p_swapInfo.imageExtent.height;
+    viewport.width = p_swapInfo.imageExtent.width;
+    viewport.minDepth = 0.0f;
+    viewport.maxDepth = 1.0f;
+
+    vkCmdSetViewport( p_cmd, 0, 1, &viewport );
+
+    VkRect2D _scissor {};
+
+    _scissor.offset = { 0 , 0 };
+    _scissor.extent = p_swapInfo.imageExtent;
+
+    vkCmdSetScissor( p_cmd, 0, 1, &_scissor );
+}

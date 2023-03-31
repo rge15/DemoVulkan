@@ -2,6 +2,7 @@
 #include <fstream>
 #include <memory>
 #include <vector>
+#include <tuple>
 #include <assert.h>
 #include <string>
 #include <cstring>

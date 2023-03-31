@@ -5,6 +5,9 @@ DemoFX::DemoFX(Driver& p_driver, Renderer& p_renderer) noexcept
 {
 }
 
+//-----------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
+
 void 
 DemoFX::setVertexShader( std::string_view p_shaderPath ) noexcept
 {
@@ -13,6 +16,9 @@ DemoFX::setVertexShader( std::string_view p_shaderPath ) noexcept
     vertexShader_ = std::make_unique<ShaderSrc>( device, p_shaderPath.data() );
 }
 
+//-----------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
+
 void 
 DemoFX::setFragmentShader( std::string_view p_shaderPath ) noexcept
 {
@@ -20,6 +26,9 @@ DemoFX::setFragmentShader( std::string_view p_shaderPath ) noexcept
     
     fragmentShader_ = std::make_unique<ShaderSrc>( device, p_shaderPath.data(), VK_SHADER_STAGE_FRAGMENT_BIT );
 }
+
+//-----------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 
 void 
 DemoFX::prepareToRender() noexcept
@@ -35,6 +44,9 @@ DemoFX::prepareToRender() noexcept
     }
 }
 
+//-----------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
+
 void 
 DemoFX::prepareShaderStages() noexcept
 {
@@ -47,6 +59,9 @@ DemoFX::prepareShaderStages() noexcept
     shaderStages_.push_back(fragmentShaderStage);
 }
 
+//-----------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
+
 void 
 DemoFX::createRenderPipeline() noexcept
 {
@@ -56,6 +71,9 @@ DemoFX::createRenderPipeline() noexcept
 
     renderPipeline_ = std::make_unique<RenderPipelineMng>(device, renderPass, pipeLayout, pipelineConfig, shaderStages_);
 }
+
+//-----------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 
 RenderPipelineMng&
 DemoFX::getRenderPipelieneMng()

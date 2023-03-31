@@ -1,7 +1,10 @@
 #include "WorkMng.hpp"
 
-WorkMng::WorkMng(DeviceMng& p_deviceMng, SwapchainMng& p_swapMng, DrawerMng& p_drawer, PipelineFrameBuffers& p_buffers ) noexcept
-: deviceMng_ { p_deviceMng }, device_ { p_deviceMng.getDevice() }, swapMng_{ p_swapMng }, drawer_ { p_drawer }, frameBuffers_ { p_buffers }
+//-----------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
+
+WorkMng::WorkMng(VkDevice& p_device ) noexcept
+: device_ { p_device }
 {
     createSyncObjects();
 }
@@ -14,23 +17,6 @@ WorkMng::~WorkMng()
     vkDestroySemaphore( device_, imgAvailable_, nullptr );
     vkDestroySemaphore( device_, imgRendered_, nullptr );
     vkDestroyFence( device_, cmdBufferAvailable_, nullptr );
-}
-
-//-----------------------------------------------------------------------------
-//-----------------------------------------------------------------------------
-
-void
-WorkMng::drawFrame()
-{
-    auto imageId        = getFrameBufferIndex();
-    auto frameBuffer    = frameBuffers_.getFramebufferByIndex( imageId );
-
-    vkWaitForFences( device_, 1, &cmdBufferAvailable_, true, UINT64_MAX );
-    vkResetFences( device_, 1, &cmdBufferAvailable_ );
-
-    drawer_.recordDrawCommand( frameBuffer );
-
-    submitCommands( imageId );
 }
 
 //-----------------------------------------------------------------------------
@@ -58,19 +44,50 @@ WorkMng::createSyncObjects()
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
 
+/*
+void
+WorkMng::drawFrame()
+{
+    auto imageId        = getFrameBufferIndex();
+    
+    TODO : Esto se puede hacer más tarde
+    auto frameBuffer    = frameBuffers_.getFramebufferByIndex( imageId );
+
+    vkWaitForFences( device_, 1, &cmdBufferAvailable_, true, UINT64_MAX );
+    vkResetFences( device_, 1, &cmdBufferAvailable_ );
+
+    drawer_.recordDrawCommand( frameBuffer );
+
+    submitCommands( imageId );
+}
+*/
+//-----------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
+
 uint32_t
-WorkMng::getFrameBufferIndex()
+WorkMng::getFrameBufferIndex( VkSwapchainKHR& p_swap )
 {
     uint32_t imgId  = 0;
-    auto swapchain  = swapMng_.getSwapchain();
 
-    vkAcquireNextImageKHR( device_, swapchain, UINT64_MAX, imgAvailable_, VK_NULL_HANDLE, &imgId);
+    vkAcquireNextImageKHR( device_ , p_swap, UINT64_MAX, imgAvailable_, VK_NULL_HANDLE, &imgId);
+    
     return imgId;
 }
 
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
 
+void
+WorkMng::waitBufferSync() noexcept
+{
+    vkWaitForFences( device_, 1, &cmdBufferAvailable_, true, UINT64_MAX );
+    vkResetFences( device_, 1, &cmdBufferAvailable_ );
+}
+
+//-----------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
+
+/*
 void
 WorkMng::submitCommands( uint32_t p_imageId ) noexcept
 {
@@ -106,3 +123,4 @@ WorkMng::submitCommands( uint32_t p_imageId ) noexcept
     vkQueuePresentKHR( deviceMng_.getPresentQueueHandler(), &presentInfo );
 
 }
+*/

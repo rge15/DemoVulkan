@@ -13,3 +13,6 @@ using Optional = std::optional<T>;
 
 template<typename... T>
 using Set = std::set<T...>;
+
+template<typename... T>
+using Tuple = std::tuple<T...>;

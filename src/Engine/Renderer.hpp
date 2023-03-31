@@ -19,6 +19,9 @@ public:
     
     ~Renderer() = default;
 
+    void
+    initRenderPass( uint32_t p_imageId, VkCommandBuffer& p_cmd ) noexcept;
+
     inline PipelineLayout& getPipeLayout(){ return *pipeLayout_.get(); };
 
     inline RenderPass& getRenderPass(){ return *renderPass_.get(); };
