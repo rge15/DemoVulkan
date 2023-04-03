@@ -26,19 +26,28 @@ InitDemoApp::run()
     //Renderer ---------
 
 
-    //DemoFX -----------
+    //DemoFX1 -----------
     auto demoFX = std::make_unique<DemoFX>( *driver.get(), *renderer.get() );
     demoFX.get()->setVertexShader("src/shaders/vert.spv");
     demoFX.get()->setFragmentShader("src/shaders/frag.spv");
     demoFX.get()->prepareToRender();
-    //DemoFX -----------
+    //DemoFX1 -----------
     
+    //DemoFX2 -----------
+    auto demoFX2 = std::make_unique<DemoFX>( *driver.get(), *renderer.get() );
+    demoFX2.get()->setVertexShader("src/shaders/vert.spv");
+    demoFX2.get()->setFragmentShader("src/shaders/time.spv");
+    demoFX2.get()->prepareToRender();
+    //DemoFX2 -----------
+
+
     //Drawer Class -----
     auto drawerMng = std::make_unique<DrawerMng>( *driver.get(), *renderer.get() );
 
     auto& track = drawerMng.get()->getTrack();
 
-    track.addFXToTrack( *demoFX.get(), 0., 5. );
+    track.addFXToTrack( *demoFX2.get(), 0., 5. );
+    track.addFXToTrack( *demoFX.get(), 5., 5. );
 
     auto& timer = Timer::getInstance();
     timer.reset();
