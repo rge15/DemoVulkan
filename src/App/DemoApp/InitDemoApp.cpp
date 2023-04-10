@@ -1,8 +1,6 @@
 #include "InitDemoApp.hpp"
-#include <Engine/Driver.hpp>
-#include <Engine/Renderer.hpp>
 #include <Engine/Resources/DemoFX.hpp>
-#include <Engine/DrawerMng.hpp>
+#include <Engine/DemoEngine.hpp>
 
 //Let this darkness be
 //Orders of magnitude
@@ -11,30 +9,27 @@
 void
 InitDemoApp::run()
 {
-    
-    //Driver -----------
-    auto driver = std::make_unique<Driver>();
+    auto demoEng = std::make_unique<DemoEngine>();
 
-    auto&   deviceMng   = driver.get()->getDeviceManager();   
-    auto&   device      = deviceMng.getDevice();
-    
-    auto&   window = driver.get()->getWindowManager().getWindow();
+    //Driver -----------
+    auto& driver = demoEng.get()->getDriver();
+    auto& device = driver.getDeviceManager().getDevice();
+    auto& window = driver.getWindowManager().getWindow();
     //Driver -----------
     
     //Renderer ---------
-    auto renderer = std::make_unique<Renderer>( *driver.get() );
+    auto& renderer = demoEng.get()->getRenderer();
     //Renderer ---------
-
 
     //DemoFX1 -----------
-    auto demoFX = std::make_unique<DemoFX>( *driver.get(), *renderer.get() );
+    auto demoFX = std::make_unique<DemoFX>( driver, renderer );
     demoFX.get()->setVertexShader("src/shaders/vert.spv");
     demoFX.get()->setFragmentShader("src/shaders/frag.spv");
     demoFX.get()->prepareToRender();
     //DemoFX1 -----------
     
     //DemoFX2 -----------
-    auto demoFX2 = std::make_unique<DemoFX>( *driver.get(), *renderer.get() );
+    auto demoFX2 = std::make_unique<DemoFX>( driver, renderer );
     demoFX2.get()->setVertexShader("src/shaders/vert.spv");
     demoFX2.get()->setFragmentShader("src/shaders/time.spv");
     demoFX2.get()->prepareToRender();
@@ -42,9 +37,9 @@ InitDemoApp::run()
 
 
     //Drawer Class -----
-    auto drawerMng = std::make_unique<DrawerMng>( *driver.get(), *renderer.get() );
+    auto& drawerMng = demoEng.get()->getDrawer();
 
-    auto& track = drawerMng.get()->getTrack();
+    auto& track = drawerMng.getTrack();
 
     track.addFXToTrack( *demoFX2.get(), 0., 5. );
     track.addFXToTrack( *demoFX.get(), 5., 5. );
@@ -57,7 +52,7 @@ InitDemoApp::run()
         if(timer.update())
         {
             glfwPollEvents();
-            drawerMng.get()->drawFrame();
+            drawerMng.drawFrame();
         }
     }
 
