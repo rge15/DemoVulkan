@@ -20,29 +20,47 @@ InitDemoApp::run()
     //Renderer ---------
     auto& renderer = demoEng.get()->getRenderer();
     //Renderer ---------
-
-    //DemoFX1 -----------
-    auto demoFX = std::make_unique<DemoFX>( driver, renderer );
-    demoFX.get()->setVertexShader("src/shaders/vert.spv");
-    demoFX.get()->setFragmentShader("src/shaders/frag.spv");
-    demoFX.get()->prepareToRender();
-    //DemoFX1 -----------
     
-    //DemoFX2 -----------
-    auto demoFX2 = std::make_unique<DemoFX>( driver, renderer );
-    demoFX2.get()->setVertexShader("src/shaders/vert.spv");
-    demoFX2.get()->setFragmentShader("src/shaders/time.spv");
-    demoFX2.get()->prepareToRender();
-    //DemoFX2 -----------
+    //TimeFX -----------
+    auto timeFX = std::make_unique<DemoFX>( driver, renderer );
+    timeFX.get()->setVertexShader("src/shaders/vert.spv");
+    timeFX.get()->setFragmentShader("src/shaders/time.spv");
+    timeFX.get()->prepareToRender();
+    //TimeFX -----------
 
+    //BandTrans -----------
+    auto bandTrans = std::make_unique<DemoFX>( driver, renderer );
+    bandTrans.get()->setVertexShader("src/shaders/vert.spv");
+    bandTrans.get()->setFragmentShader("src/shaders/bandTrans.spv");
+    bandTrans.get()->prepareToRender();
+    //BandTrans -----------
+
+    //ColorBands -----------
+    auto colorBands = std::make_unique<DemoFX>( driver, renderer );
+    colorBands.get()->setVertexShader("src/shaders/vert.spv");
+    colorBands.get()->setFragmentShader("src/shaders/colorBands.spv");
+    colorBands.get()->prepareToRender();
+    //ColorBands -----------
+
+    //BlobsFX -----------
+    auto blobsFX = std::make_unique<DemoFX>( driver, renderer );
+    blobsFX.get()->setVertexShader("src/shaders/vert.spv");
+    blobsFX.get()->setFragmentShader("src/shaders/blob.spv");
+    blobsFX.get()->prepareToRender();
+    //BlobsFX -----------
 
     //Drawer Class -----
     auto& drawerMng = demoEng.get()->getDrawer();
 
     auto& track = drawerMng.getTrack();
 
-    track.addFXToTrack( *demoFX2.get(), 0., 5. );
-    track.addFXToTrack( *demoFX.get(), 5., 5. );
+    //track.addFXToTrack( *timeFX.get(), 0., 5. );
+    
+    //track.addFXToTrack( *bandTrans.get(), 0., 5. );
+    
+    track.addFXToTrack( *colorBands.get(), 0., 30. );
+    
+    //track.addFXToTrack( *blobsFX.get(), 10., 5. );
 
     auto& timer = Timer::getInstance();
     timer.reset();
