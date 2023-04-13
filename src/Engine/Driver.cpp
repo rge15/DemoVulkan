@@ -19,7 +19,5 @@ Driver::Driver()
     auto& swapDetails    = deviceMng_.get()->getSwapchainDetails();
     auto& queueIds       = deviceMng_.get()->getFamilyQueueIds();
 
-
     swapchainMng_   = std::make_unique<SwapchainMng>(device, surface, swapDetails, queueIds);
-
 }

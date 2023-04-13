@@ -65,7 +65,7 @@ PipelineLayout::sendPushConstantData(
     auto width      = (float)p_swapInfo.imageExtent.width;
     auto heigth     = (float)p_swapInfo.imageExtent.height;
     auto absTime    = (float)Timer::getInstance().ellapsedSeconds();
-    auto relTime    = (float)p_relTime;mak
+    auto relTime    = (float)p_relTime;
 
     Vector<float> pushCnstData { width, heigth, absTime, relTime };
 

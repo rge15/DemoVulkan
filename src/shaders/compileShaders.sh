@@ -5,3 +5,4 @@ glslc fragTime.frag -o time.spv
 glslc colorblob.frag -o blob.spv
 glslc whiteBandTrans.frag -o bandTrans.spv
 glslc colorBands.frag -o colorBands.spv
+glslc noiseTripColors.frag -o tripColor.spv

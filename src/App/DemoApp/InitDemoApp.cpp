@@ -49,6 +49,13 @@ InitDemoApp::run()
     blobsFX.get()->prepareToRender();
     //BlobsFX -----------
 
+    //TripFX -----------
+    auto tripFX = std::make_unique<DemoFX>( driver, renderer );
+    tripFX.get()->setVertexShader("src/shaders/vert.spv");
+    tripFX.get()->setFragmentShader("src/shaders/tripColor.spv");
+    tripFX.get()->prepareToRender();
+    //TripFX -----------
+
     //Drawer Class -----
     auto& drawerMng = demoEng.get()->getDrawer();
 
@@ -58,9 +65,14 @@ InitDemoApp::run()
     
     //track.addFXToTrack( *bandTrans.get(), 0., 5. );
     
-    track.addFXToTrack( *colorBands.get(), 0., 30. );
+    //Duration 40s
+    //track.addFXToTrack( *colorBands.get(), 0., 40. );
     
+    //Duration 15s
     //track.addFXToTrack( *blobsFX.get(), 10., 5. );
+
+    //Duration 40s
+    track.addFXToTrack( *tripFX.get(), 0., 20. );
 
     auto& timer = Timer::getInstance();
     timer.reset();
