@@ -18,13 +18,6 @@ float timeMark( in float timeDuration, in float timeStart )
     return  t;
 }
 
-float normalTimeMark( in float timeDuration, in float timeStart  )
-{
-    float time = step(0.,data.rTime-timeStart) * max( smoothstep(0.,1.,mod(data.rTime-timeStart,timeDuration)), step(0.,data.rTime-timeStart-timeDuration));
-
-    return time;
-}
-
 void main()
 {
     // Normalized pixel coordinates (from 0 to 1)

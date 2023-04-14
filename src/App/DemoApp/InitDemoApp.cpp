@@ -56,6 +56,14 @@ InitDemoApp::run()
     tripFX.get()->prepareToRender();
     //TripFX -----------
 
+    //CircleMask -----------
+    auto circleMask = std::make_unique<DemoFX>( driver, renderer );
+    circleMask.get()->setVertexShader("src/shaders/vert.spv");
+    circleMask.get()->setFragmentShader("src/shaders/circleForms.spv");
+    circleMask.get()->prepareToRender();
+    //CircleMask -----------
+
+
     //Drawer Class -----
     auto& drawerMng = demoEng.get()->getDrawer();
 
@@ -71,8 +79,12 @@ InitDemoApp::run()
     //Duration 15s
     //track.addFXToTrack( *blobsFX.get(), 10., 5. );
 
-    //Duration 40s
-    track.addFXToTrack( *tripFX.get(), 0., 20. );
+    //Duration 25s
+    //track.addFXToTrack( *tripFX.get(), 0., 20. );
+
+    //Duration 30s
+    track.addFXToTrack( *circleMask.get(), 0., 20. );
+
 
     auto& timer = Timer::getInstance();
     timer.reset();
