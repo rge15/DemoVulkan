@@ -83,7 +83,7 @@ InitDemoApp::run()
     //track.addFXToTrack( *tripFX.get(), 0., 20. );
 
     //Duration 30s
-    track.addFXToTrack( *circleMask.get(), 0., 20. );
+    track.addFXToTrack( *circleMask.get(), 0., 60. );
 
 
     auto& timer = Timer::getInstance();
