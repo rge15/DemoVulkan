@@ -22,46 +22,48 @@ InitDemoApp::run()
     //Renderer ---------
     
     //TimeFX -----------
-    auto timeFX = std::make_unique<DemoFX>( driver, renderer );
+    auto timeFX = std::make_unique<DemoFX>( driver, renderer, LayoutTypes::BasicLayout );
     timeFX.get()->setVertexShader("src/shaders/vert.spv");
     timeFX.get()->setFragmentShader("src/shaders/time.spv");
     timeFX.get()->prepareToRender();
     //TimeFX -----------
 
     //BandTrans -----------
-    auto bandTrans = std::make_unique<DemoFX>( driver, renderer );
+    auto bandTrans = std::make_unique<DemoFX>( driver, renderer, LayoutTypes::BasicLayout );
     bandTrans.get()->setVertexShader("src/shaders/vert.spv");
     bandTrans.get()->setFragmentShader("src/shaders/bandTrans.spv");
     bandTrans.get()->prepareToRender();
     //BandTrans -----------
 
     //ColorBands -----------
-    auto colorBands = std::make_unique<DemoFX>( driver, renderer );
+    auto colorBands = std::make_unique<DemoFX>( driver, renderer, LayoutTypes::BasicLayout );
     colorBands.get()->setVertexShader("src/shaders/vert.spv");
     colorBands.get()->setFragmentShader("src/shaders/colorBands.spv");
     colorBands.get()->prepareToRender();
     //ColorBands -----------
 
     //BlobsFX -----------
-    auto blobsFX = std::make_unique<DemoFX>( driver, renderer );
+    auto blobsFX = std::make_unique<DemoFX>( driver, renderer, LayoutTypes::BasicLayout );
     blobsFX.get()->setVertexShader("src/shaders/vert.spv");
     blobsFX.get()->setFragmentShader("src/shaders/blob.spv");
     blobsFX.get()->prepareToRender();
     //BlobsFX -----------
 
     //TripFX -----------
-    auto tripFX = std::make_unique<DemoFX>( driver, renderer );
+    auto tripFX = std::make_unique<DemoFX>( driver, renderer, LayoutTypes::BasicLayout );
     tripFX.get()->setVertexShader("src/shaders/vert.spv");
     tripFX.get()->setFragmentShader("src/shaders/tripColor.spv");
     tripFX.get()->prepareToRender();
     //TripFX -----------
 
     //CircleMask -----------
-    auto circleMask = std::make_unique<DemoFX>( driver, renderer );
+    auto circleMask = std::make_unique<DemoFX>( driver, renderer, LayoutTypes::BasicLayout );
     circleMask.get()->setVertexShader("src/shaders/vert.spv");
     circleMask.get()->setFragmentShader("src/shaders/circleForms.spv");
     circleMask.get()->prepareToRender();
     //CircleMask -----------
+
+    //TODO : Create a demoFX that uses the other pipelinelayout and ckeck if it works
 
 
     //Drawer Class -----
@@ -80,7 +82,7 @@ InitDemoApp::run()
     //track.addFXToTrack( *blobsFX.get(), 10., 5. );
 
     //Duration 25s
-    //track.addFXToTrack( *tripFX.get(), 0., 20. );
+    //track.addFXToTrack( *tripFX.get(), 0., 5. );
 
     //Duration 30s
     track.addFXToTrack( *circleMask.get(), 0., 60. );

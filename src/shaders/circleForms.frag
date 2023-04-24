@@ -246,7 +246,7 @@ void main()
     
     float final = step(0.1,maskSelect(shape));
 
-    float tunnelMaskTransition = timeMark(4., 25.);
+    float tunnelMaskTransition = timeMark(10., 22.);
     
     if(tunnelMaskTransition != 0)
     {

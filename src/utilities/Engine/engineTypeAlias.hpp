@@ -3,3 +3,5 @@
 
 //Vector of shader stages
 using ShaderStagesVector = Vector<VkPipelineShaderStageCreateInfo>;
+
+using RenderRSCId = std::size_t;

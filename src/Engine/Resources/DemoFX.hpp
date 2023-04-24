@@ -2,15 +2,17 @@
 #include <Engine/Render/GraphicPipelineConfig.hpp>
 #include <Engine/Sources/ShaderSrc.hpp>
 #include <Engine/Driver.hpp>
-#include <Engine/Renderer.hpp>
 #include <utilities/Engine/engineTypeAlias.hpp>
 #include <Engine/Resources/RenderPipelineMng.hpp>
+#include <Engine/Render/RendererCmp.hpp>
 
 class DemoFX
 {
 private:
     Driver& driver_;
-    Renderer& renderer_;
+    RendererType& renderer_;
+
+    LayoutTypes pipelineLayoutId;
 
     GraphicPipelineConfig pipelineConfig {};
     UniqPtr<ShaderSrc> vertexShader_    { nullptr };
@@ -21,7 +23,7 @@ private:
     ShaderStagesVector shaderStages_ {};
 
 public:
-    explicit DemoFX(Driver& p_driver, Renderer& p_renderer) noexcept;
+    explicit DemoFX(Driver& p_driver, RendererType& p_renderer, LayoutTypes p_layType) noexcept;
     ~DemoFX() = default;
 
     inline GraphicPipelineConfig& getPipeConfig(){ return pipelineConfig; };
@@ -33,6 +35,13 @@ public:
     void setFragmentShader( std::string_view p_shaderPath ) noexcept;
 
     void prepareToRender() noexcept;
+
+    inline
+    RendererType&
+    getDemoRenderer(){ return renderer_; };
+
+    LayoutTypes
+    getLayoutId() const noexcept;
 
 private:
 

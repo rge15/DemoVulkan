@@ -16,3 +16,6 @@ using Set = std::set<T...>;
 
 template<typename... T>
 using Tuple = std::tuple<T...>;
+
+template<typename... T>
+using Map = std::map<T...>;

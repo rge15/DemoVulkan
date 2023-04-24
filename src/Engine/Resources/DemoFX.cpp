@@ -1,7 +1,7 @@
 #include "DemoFX.hpp"
 
-DemoFX::DemoFX(Driver& p_driver, Renderer& p_renderer) noexcept
-: driver_ { p_driver }, renderer_ { p_renderer }
+DemoFX::DemoFX(Driver& p_driver, RendererType& p_renderer, LayoutTypes p_layType) noexcept
+: driver_ { p_driver }, renderer_ { p_renderer }, pipelineLayoutId { p_layType }
 {
 }
 
@@ -66,8 +66,10 @@ void
 DemoFX::createRenderPipeline() noexcept
 {
     auto& device        = driver_.getDeviceManager().getDevice();
+    //TODO : Corregir esto
     auto& renderPass    = renderer_.getRenderPass().getRenderPass();
-    auto& pipeLayout    = renderer_.getPipeLayout().getLayout();
+    
+    auto& pipeLayout    = renderer_.getLayout(pipelineLayoutId);
 
     renderPipeline_ = std::make_unique<RenderPipelineMng>(device, renderPass, pipeLayout, pipelineConfig, shaderStages_);
 }
@@ -82,3 +84,13 @@ DemoFX::getRenderPipelieneMng()
 
     return *renderPipeline_.get();
 };
+
+//-----------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
+
+LayoutTypes
+DemoFX::getLayoutId() const noexcept
+{
+    return pipelineLayoutId;
+}
+

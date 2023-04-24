@@ -1,6 +1,6 @@
 #pragma once
 #include <Engine/Driver.hpp>
-#include <Engine/Renderer.hpp>
+#include <Engine/Render/RendererCmp.hpp>
 #include <Engine/DrawerMng/CommandMng.hpp>
 #include <Engine/DrawerMng/WorkMng.hpp>
 #include <Engine/Resources/DemoTrack.hpp> 
@@ -9,15 +9,14 @@ class DrawerMng
 {
 private:
     Driver&     driver_;
-    //TODO : Creo que el renderer no debe ir aquí sino acceder desde el DemoFX que se ejecute (2º Iteración)
-    Renderer&   render_;
+    RendererType&   renderer_;
 
     UniqPtr<CommandMng> command_    { nullptr };
     UniqPtr<WorkMng>    work_       { nullptr };
     UniqPtr<DemoTrack>  track_      { nullptr };
 
 public:
-    explicit DrawerMng(Driver& p_driver, Renderer& p_render) noexcept;
+    explicit DrawerMng(Driver& p_driver, RendererType& p_renderer) noexcept;
     ~DrawerMng() = default;
 
     void
@@ -43,5 +42,8 @@ private:
 
     void
     submitCommands( uint32_t p_imageId ) noexcept;
+
+    void
+    bindLayoutData( VkCommandBuffer& p_cmd, LayoutTypes p_type, float p_relativeTime );
 
 };

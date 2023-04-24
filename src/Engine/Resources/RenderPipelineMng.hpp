@@ -1,8 +1,8 @@
 #include <utilities/Includes/graphicInclude.hpp>
 #include <utilities/typeAliases.hpp>
 #include <Engine/Render/GraphicPipelineConfig.hpp>
-#include <Engine/Render/PipelineLayout.hpp>
-#include <Engine/Render/RenderPass.hpp>
+#include <Engine/Render/BasePipelineLayout.hpp>
+#include <Engine/Render/BaseRenderPass.hpp>
 
 
 class RenderPipelineMng

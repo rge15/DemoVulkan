@@ -1,7 +1,7 @@
 #include "DrawerMng.hpp"
 
-DrawerMng::DrawerMng(Driver& p_driver, Renderer& p_render) noexcept
-: driver_ { p_driver }, render_ { p_render }
+DrawerMng::DrawerMng( Driver& p_driver, RendererType& p_renderer ) noexcept
+: driver_ { p_driver }, renderer_ { p_renderer }
 {
     initCommander();
     initWorker();
@@ -89,21 +89,31 @@ DrawerMng::getFrameBufferId() noexcept
 void
 DrawerMng::recordCommand( uint32_t p_imageId, Vector<PlayingClip>& p_demos ) noexcept
 {
+    if( p_demos.empty() )
+        return;
+    
     auto& cmd       = command_.get()->getCmdBuffer();
     auto& swapInfo  = driver_.getSwapchainManager().getSwapchainInfo();
-    auto& layoutMng = render_.getPipeLayout();
-
-    render_.initRenderPass( p_imageId, cmd );
+    
+    //TODO : A cambiar
+    //TODO : El renderer necesitará el id del renderPass sacado de la DemoFX
+    //TODO : El layout se obtendrá por el id de la DemoFX como el renderpass
+    renderer_.initRenderPass( p_imageId, cmd );
 
     for(auto& demoClip : p_demos)
     {
         auto& demoFx            = std::get<DemoFX&>( demoClip );
         float relativeTime      = std::get<float>( demoClip );
         auto& renderPipelineMng = demoFx.getRenderPipelieneMng();
+        auto layoutType         = demoFx.getLayoutId();
 
         renderPipelineMng.bindPipelineAndDynamics( cmd, swapInfo );
 
-        layoutMng.sendPushConstantData( cmd, relativeTime, swapInfo );
+        bindLayoutData( cmd, layoutType, relativeTime );
+
+        //renderLayout.bindLayoutCmdData( cmd );
+        //TODO : Ver de que el renderLayout tenga algún prepareData overrideado o algo.
+        //renderLayout.sendPushConstantData( cmd, relativeTime, swapInfo );
 
         vkCmdDraw( cmd, 6, 1, 0, 0);
     }
@@ -124,8 +134,6 @@ DrawerMng::submitCommands( uint32_t p_imageId ) noexcept
 
     VkPipelineStageFlags    stageFlags { VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT };
     VkSubmitInfo            _subInfo {};
-    
-    
 
     _subInfo.sType = VK_STRUCTURE_TYPE_SUBMIT_INFO;
     _subInfo.pNext = nullptr;
@@ -155,4 +163,21 @@ DrawerMng::submitCommands( uint32_t p_imageId ) noexcept
 
     vkQueuePresentKHR( deviceMng.getPresentQueueHandler(), &presentInfo );
 
+}
+
+
+void
+DrawerMng::bindLayoutData( VkCommandBuffer& p_cmd, LayoutTypes p_type, float p_relativeTime )
+{
+    //TODO : Poner aquí el resto de valores del IF
+    if(p_type == LayoutTypes::BasicLayout )
+    {
+        auto& layout = renderer_.getPipeLayoutMng<BasicPipelineLayout>();
+        layout.bindLayoutCmdData(p_cmd, p_relativeTime);
+        return;
+    }else
+    {
+        printf("There's no available layoutMng of that kind");
+        assert(false);
+    }
 }
