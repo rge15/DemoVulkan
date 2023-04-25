@@ -79,24 +79,24 @@ InitDemoApp::run()
 
     auto& track = drawerMng.getTrack();
 
-    //Duration 25s
-    track.addFXToTrack( *imageMask.get(), 0., 25. );
+    track.addFXToTrack( *timeFX.get(), 0., 10. );
 
-    //track.addFXToTrack( *timeFX.get(), 0., 5. );
+    //Duration 25s
+    track.addFXToTrack( *imageMask.get(), 10., 30. );
     
-    track.addFXToTrack( *bandTrans.get(), 25., 5. );
+    track.addFXToTrack( *bandTrans.get(), 40., 5. );
     
     //Duration 40s
-    track.addFXToTrack( *colorBands.get(), 30., 40. );
+    track.addFXToTrack( *colorBands.get(), 45., 40. );
     
     //Duration 20s
-    track.addFXToTrack( *blobsFX.get(), 70., 20. );
+    track.addFXToTrack( *blobsFX.get(), 85., 20. );
 
     //Duration 25s
-    track.addFXToTrack( *tripFX.get(), 90., 25. );
+    track.addFXToTrack( *tripFX.get(), 105., 25. );
 
     //Duration 30s
-    track.addFXToTrack( *circleMask.get(), 115., 60. );
+    track.addFXToTrack( *circleMask.get(), 130., 60. );
 
 
     vkDeviceWaitIdle(device);

@@ -120,7 +120,7 @@ float TconvMask( in vec2 uv )
 
     float applyMax = step(0.,(uv.y)+maxYValue);
 
-    float final = (dbox1 + dbox2) * applyMax;
+    float final = (dbox1 + dbox2);
 
     return step( 0.8, final );
 }
@@ -133,17 +133,26 @@ float N21(in vec2 p)
     return -1. + (2.*fract((p.x*p.y)) ) + 0.03;
 }
 
-mat3 conv = mat3(vec3(0.8,0.7,0.6),
-                 vec3(0.7,0.0,0.5),
-                 vec3(0.6,0.5,0.5));
+float timeMark( in float timeDuration, in float timeStart )
+{
+    float t = step(0.,data.rTime-timeStart) * max( smoothstep(0.,timeDuration,mod(data.rTime-timeStart,timeDuration)), step(0.,data.rTime-timeStart-timeDuration));
+
+    return  t;
+}
+
+float t = timeMark( .1 , 20. );
+
+mat3 conv = mat3(vec3(0.85,0.75,0.65),
+                 vec3(0.75, 0.0,0.55),
+                 vec3(0.65,0.55,0.55)) * (1. + t * 0.5);
 
 float pixelValueInFX( in vec2 p_pos )
 {
     vec2 uv  = vec2((2.*p_pos.xy-res.xy) / res.y);
 
-    float timeMark = TIMEletter(uv);
+    float timeMark = TIMEletter(uv) * (1.-t);
 
-    float tMask = TconvMask(uv);
+    float tMask = TconvMask(uv) * (1.-t);
     float tMaskRandom = tMask * noiseValue;
 
     float imgReadMask = 1. - clamp( 0. , 1. , tMask + timeMark );
@@ -156,13 +165,6 @@ float pixelValueInFX( in vec2 p_pos )
 
     return (tMaskRandom + r.x)/2.;
 
-}
-
-float timeMark( in float timeDuration, in float timeStart )
-{
-    float t = step(0.,data.rTime-timeStart) * max( smoothstep(0.,timeDuration,mod(data.rTime-timeStart,timeDuration)), step(0.,data.rTime-timeStart-timeDuration));
-
-    return  t;
 }
 
 float kernelApply()

@@ -211,7 +211,6 @@ ImagePipelineLayout::createDescriptorPool() noexcept
     
     auto vkResult = vkCreateDescriptorPool( device_, &info, nullptr, &descPool_ );
     assert(vkResult == VK_SUCCESS);
-    printf(" Descriptor Pool created succesfully ");
 
 }
 
@@ -231,7 +230,6 @@ ImagePipelineLayout::allocateDescriptorSet() noexcept
 
     auto vkResult = vkAllocateDescriptorSets( device_, &info, &descSet_ );
     assert(vkResult == VK_SUCCESS);
-    printf(" Descriptor Set allocated succesfully ");
 
 }
 
@@ -258,7 +256,6 @@ ImagePipelineLayout::setDescriptorSetConfiguration() noexcept
 
     auto vkResult = vkCreateDescriptorSetLayout( device_, &info, nullptr, &descSetLayout_ );
     assert(vkResult == VK_SUCCESS);
-    printf("Descriptor Layout created succesfully\n");
 }
 
 //-----------------------------------------------------------------------------
