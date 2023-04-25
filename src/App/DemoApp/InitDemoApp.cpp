@@ -63,6 +63,14 @@ InitDemoApp::run()
     circleMask.get()->prepareToRender();
     //CircleMask -----------
 
+    //TimeImage -----------
+    auto imageMask = std::make_unique<DemoFX>( driver, renderer, LayoutTypes::ImageLayout );
+    imageMask.get()->setVertexShader("src/shaders/vert.spv");
+    imageMask.get()->setFragmentShader("src/shaders/timeImg.spv");
+    imageMask.get()->prepareToRender();
+    //TimeImage -----------
+
+
     //TODO : Create a demoFX that uses the other pipelinelayout and ckeck if it works
 
 
@@ -71,23 +79,27 @@ InitDemoApp::run()
 
     auto& track = drawerMng.getTrack();
 
+    //Duration 25s
+    track.addFXToTrack( *imageMask.get(), 0., 25. );
+
     //track.addFXToTrack( *timeFX.get(), 0., 5. );
     
-    //track.addFXToTrack( *bandTrans.get(), 0., 5. );
+    track.addFXToTrack( *bandTrans.get(), 25., 5. );
     
     //Duration 40s
-    //track.addFXToTrack( *colorBands.get(), 0., 40. );
+    track.addFXToTrack( *colorBands.get(), 30., 40. );
     
-    //Duration 15s
-    //track.addFXToTrack( *blobsFX.get(), 10., 5. );
+    //Duration 20s
+    track.addFXToTrack( *blobsFX.get(), 70., 20. );
 
     //Duration 25s
-    //track.addFXToTrack( *tripFX.get(), 0., 5. );
+    track.addFXToTrack( *tripFX.get(), 90., 25. );
 
     //Duration 30s
-    track.addFXToTrack( *circleMask.get(), 0., 60. );
+    track.addFXToTrack( *circleMask.get(), 115., 60. );
 
 
+    vkDeviceWaitIdle(device);
     auto& timer = Timer::getInstance();
     timer.reset();
 
@@ -99,6 +111,5 @@ InitDemoApp::run()
             drawerMng.drawFrame();
         }
     }
-
     vkDeviceWaitIdle(device);
 }

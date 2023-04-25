@@ -106,7 +106,7 @@ ImagePipelineLayout::createImage() noexcept
     imgInfo.flags = 0;
     imgInfo.imageType = VK_IMAGE_TYPE_2D;
     //TODO : Alomejor no es el formato correcto
-    imgInfo.format = VK_FORMAT_R8_UNORM;
+    imgInfo.format = VK_FORMAT_R16_SFLOAT;
     imgInfo.extent = imgExt;
     imgInfo.mipLevels   = 1;
     imgInfo.arrayLayers = 1;
@@ -136,7 +136,7 @@ ImagePipelineLayout::createImageView() noexcept
     info.image = image_;
     info.viewType = VK_IMAGE_VIEW_TYPE_2D;
     //TODO : Alomejor no es el formato correcto
-    info.format = VK_FORMAT_R8_UNORM;
+    info.format = VK_FORMAT_R16_SFLOAT;
     info.components.r = VK_COMPONENT_SWIZZLE_IDENTITY;
     info.components.g = VK_COMPONENT_SWIZZLE_IDENTITY;
     info.components.b = VK_COMPONENT_SWIZZLE_IDENTITY;
@@ -292,7 +292,50 @@ ImagePipelineLayout::addPushConstantInfo() noexcept
 void
 ImagePipelineLayout::bindLayoutCmdData( VkCommandBuffer& p_cmd, float p_relTime )
 {
+    //setPipelineImageBarrier( p_cmd );
     sendPushConstantData( p_cmd, p_relTime );
+    bindDescriptorSetImages( p_cmd );
+}
+
+//-----------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
+
+void
+ImagePipelineLayout::setPipelineImageBarrier( VkCommandBuffer& p_cmd )
+{
+    VkImageMemoryBarrier imgBarrier {};
+
+    imgBarrier.sType = VK_STRUCTURE_TYPE_IMAGE_MEMORY_BARRIER;
+    imgBarrier.pNext = nullptr;
+    imgBarrier.srcAccessMask = VK_ACCESS_SHADER_WRITE_BIT;
+    imgBarrier.dstAccessMask = VK_ACCESS_SHADER_READ_BIT;
+    imgBarrier.oldLayout = VK_IMAGE_LAYOUT_UNDEFINED;
+    imgBarrier.newLayout = VK_IMAGE_LAYOUT_GENERAL;
+    imgBarrier.srcQueueFamilyIndex = VK_QUEUE_FAMILY_IGNORED;
+    imgBarrier.dstQueueFamilyIndex = VK_QUEUE_FAMILY_IGNORED;
+    imgBarrier.image = image_;
+    imgBarrier.subresourceRange.aspectMask = VK_IMAGE_ASPECT_COLOR_BIT;
+    imgBarrier.subresourceRange.baseMipLevel = 0;
+    imgBarrier.subresourceRange.levelCount = 1;
+    imgBarrier.subresourceRange.baseArrayLayer = 0;
+    imgBarrier.subresourceRange.layerCount = 1;
+
+    vkCmdPipelineBarrier(
+        p_cmd, VK_PIPELINE_STAGE_ALL_GRAPHICS_BIT, VK_PIPELINE_STAGE_ALL_GRAPHICS_BIT,
+        0, 0, nullptr, 0, nullptr, 1, &imgBarrier 
+    );
+}
+
+//-----------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
+
+void
+ImagePipelineLayout::bindDescriptorSetImages( VkCommandBuffer& p_cmd )
+{
+    vkCmdBindDescriptorSets(
+        p_cmd, VK_PIPELINE_BIND_POINT_GRAPHICS, getLayout(),
+        0, 1, &descSet_, 0, nullptr
+    );
 }
 
 //-----------------------------------------------------------------------------

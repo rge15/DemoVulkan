@@ -7,3 +7,4 @@ glslc whiteBandTrans.frag -o bandTrans.spv
 glslc colorBands.frag -o colorBands.spv
 glslc noiseTripColors.frag -o tripColor.spv
 glslc circleForms.frag -o circleForms.spv
+glslc timeImg.frag -o timeImg.spv

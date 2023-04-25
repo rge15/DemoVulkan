@@ -74,19 +74,6 @@ CommandMng::initCommandBufferRecordingInfo() noexcept
 //-----------------------------------------------------------------------------
 
 void
-CommandMng::recordDrawCommand( VkFramebuffer& p_framebuffer ) noexcept
-{
-    beginRecording();
-
-    //recordCommands( p_framebuffer );
-
-    endRecording();
-}
-
-//-----------------------------------------------------------------------------
-//-----------------------------------------------------------------------------
-
-void
 CommandMng::beginRecording() noexcept
 {
     vkBeginCommandBuffer(cmdBuffer_, &beginRecordInfo_);
@@ -99,6 +86,28 @@ void
 CommandMng::endRecording() noexcept
 {
     vkEndCommandBuffer(cmdBuffer_);
+}
+
+//-----------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
+
+void
+CommandMng::submitSingle( VkQueue& p_queue ) noexcept
+{
+    VkSubmitInfo info {};
+
+    info.sType = VK_STRUCTURE_TYPE_SUBMIT_INFO;
+    info.pNext = nullptr;
+    info.signalSemaphoreCount = 0;
+    info.pWaitSemaphores = nullptr;
+    info.pWaitDstStageMask = nullptr;
+    info.commandBufferCount = 1;
+    info.pCommandBuffers = &cmdBuffer_;
+    info.signalSemaphoreCount = 0;
+    info.pSignalSemaphores = nullptr;
+
+    //auto graphicQueueHandler = queueFamilyId_._graphicQueueId.value();
+    vkQueueSubmit( p_queue, 1, &info, VK_NULL_HANDLE );
 }
 
 //-----------------------------------------------------------------------------

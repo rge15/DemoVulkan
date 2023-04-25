@@ -83,6 +83,10 @@ Renderer<Layouts...>::getLayout( LayoutTypes p_type )
     {
         auto& layoutMng = getPipeLayoutMng<BasicPipelineLayout>();
         return layoutMng.getLayout();
+    }else if( p_type == LayoutTypes::ImageLayout )
+    {
+        auto& layoutMng = getPipeLayoutMng<ImagePipelineLayout>();
+        return layoutMng.getLayout();
     }else
     {
         printf("There's no valid Layout of that type");

@@ -5,7 +5,28 @@ DrawerMng::DrawerMng( Driver& p_driver, RendererType& p_renderer ) noexcept
 {
     initCommander();
     initWorker();
+    //Todo : esto en la inicialización por defecto 
     track_ = std::make_unique<DemoTrack>();
+
+
+
+    //TODO : Single Time begin/record pipeline barrier for p_renderer.getLayoutMng<ImageLayout>();
+    //TODO : and submit that cmd
+    auto& imgLayout = renderer_.getPipeLayoutMng<ImagePipelineLayout>(); 
+    
+    command_.get()->beginRecording();
+
+    auto& cmd = command_.get()->getCmdBuffer();
+
+    imgLayout.setPipelineImageBarrier( cmd );
+
+    command_.get()->endRecording();
+
+    auto& deviceMng = driver_.getDeviceManager();
+    auto& graphicQueueHandler = deviceMng.getGraphicQueueHandler();
+
+    command_.get()->submitSingle(graphicQueueHandler);
+
 }
 
 //-----------------------------------------------------------------------------
@@ -175,8 +196,12 @@ DrawerMng::bindLayoutData( VkCommandBuffer& p_cmd, LayoutTypes p_type, float p_r
         auto& layout = renderer_.getPipeLayoutMng<BasicPipelineLayout>();
         layout.bindLayoutCmdData(p_cmd, p_relativeTime);
         return;
-    }else
+    }else if( p_type == LayoutTypes::ImageLayout )
     {
+        auto& layout = renderer_.getPipeLayoutMng<ImagePipelineLayout>();
+        layout.bindLayoutCmdData(p_cmd, p_relativeTime);
+        return;
+    }else{
         printf("There's no available layoutMng of that kind");
         assert(false);
     }

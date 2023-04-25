@@ -36,9 +36,6 @@ public:
 
     ~CommandMng();
 
-    void
-    recordDrawCommand( VkFramebuffer& p_framebuffer ) noexcept;
-
     inline
     VkCommandBuffer&
     getCmdBuffer() { return cmdBuffer_; };
@@ -48,6 +45,9 @@ public:
 
     void
     endRecording() noexcept;
+
+    void
+    submitSingle( VkQueue& p_queue ) noexcept;
 
 private:
 

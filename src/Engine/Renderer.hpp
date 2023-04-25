@@ -2,6 +2,7 @@
 #include <Engine/Driver.hpp>
 #include <Engine/Render/RendererCmp.hpp>
 #include <Engine/Render/BasicPipelineLayout.hpp>
+#include <Engine/Render/ImagePipelineLayout.hpp>
 #include <Engine/Render/BasicRenderPass.hpp>
 #include <Engine/Render/PipelineFrameBuffers.hpp>
 #include <utilities/Engine/renderConcepts.hpp>

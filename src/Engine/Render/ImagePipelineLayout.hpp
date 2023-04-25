@@ -36,7 +36,13 @@ public:
     void
     bindLayoutCmdData( VkCommandBuffer& p_cmd, float p_relTime ) override final;
 
+    void
+    setPipelineImageBarrier( VkCommandBuffer& p_cmd );
+
 private:
+
+    void
+    bindDescriptorSetImages( VkCommandBuffer& p_cmd );
 
     void
     updateDescSetValue() noexcept;
