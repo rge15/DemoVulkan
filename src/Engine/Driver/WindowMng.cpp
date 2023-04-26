@@ -9,7 +9,7 @@ WindowMng::WindowMng(const uint32_t p_w, const uint32_t p_h) noexcept
     glfwWindowHint( GLFW_RESIZABLE, GLFW_FALSE );
 
     UniqPtr<GLFWwindow, void (*)(GLFWwindow*)> window { 
-        glfwCreateWindow( width_, heigth_, "HelloVulkan!", nullptr, nullptr),
+        glfwCreateWindow( width_, heigth_, "Time - Bitboy", nullptr, nullptr),
         deleteWindow };
 
     assert(window.get());

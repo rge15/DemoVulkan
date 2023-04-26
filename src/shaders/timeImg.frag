@@ -142,9 +142,9 @@ float timeMark( in float timeDuration, in float timeStart )
 
 float t = timeMark( .1 , 20. );
 
-mat3 conv = mat3(vec3(0.85,0.75,0.65),
-                 vec3(0.75, 0.0,0.55),
-                 vec3(0.65,0.55,0.55)) * (1. + t * 0.5);
+mat3 conv = mat3(vec3(0.95,0.85,0.75),
+                 vec3(0.85, 0.0,0.65),
+                 vec3(0.75,0.65,0.65)) * (1. + t * 0.5);
 
 float pixelValueInFX( in vec2 p_pos )
 {

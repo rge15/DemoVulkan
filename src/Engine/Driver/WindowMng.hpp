@@ -11,7 +11,7 @@ private:
     uint32_t width_, heigth_;
 
 public:
-    WindowMng(const uint32_t p_w = 640, const uint32_t p_h = 480) noexcept;
+    WindowMng(const uint32_t p_w = 1280, const uint32_t p_h = 720) noexcept;
     ~WindowMng() = default;
 
     static void deleteWindow( GLFWwindow* p_window )
