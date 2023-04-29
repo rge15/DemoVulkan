@@ -1,0 +1,77 @@
+\hypertarget{classDeviceMng}{}\doxysection{Device\+Mng Class Reference}
+\label{classDeviceMng}\index{DeviceMng@{DeviceMng}}
+
+
+{\ttfamily \#include $<$Device\+Mng.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classDeviceMng_af85c8edcf95d49a17bee960f13f42b17}{Device\+Mng}} (Vk\+Instance \&p\+\_\+instance, Vk\+Surface\+KHR \&p\+\_\+surface) noexcept
+\item 
+\mbox{\hyperlink{classDeviceMng_a79c20fef3368ed11a4e2bb94825dfd83}{$\sim$\+Device\+Mng}} ()
+\item 
+const \mbox{\hyperlink{structDeviceQueueFamilies}{Device\+Queue\+Families}} \& \mbox{\hyperlink{classDeviceMng_a1042ed020af782036e8525cbbe673241}{get\+Family\+Queue\+Ids}} () const noexcept
+\item 
+const \mbox{\hyperlink{structSwapchainDetails}{Swapchain\+Details}} \& \mbox{\hyperlink{classDeviceMng_a980b435b087969e5834f81ef8f9e9c8f}{get\+Swapchain\+Details}} () const noexcept
+\item 
+Vk\+Device \& \mbox{\hyperlink{classDeviceMng_a294fc7b81bb6757905691308b17c3c54}{get\+Device}} () noexcept
+\item 
+Vk\+Queue \& \mbox{\hyperlink{classDeviceMng_ade876eaf3acba34e1ceedafda4622258}{get\+Graphic\+Queue\+Handler}} () noexcept
+\item 
+Vk\+Queue \& \mbox{\hyperlink{classDeviceMng_adb309befc9250d2e2b75d70ccc55372e}{get\+Present\+Queue\+Handler}} () noexcept
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classDeviceMng_af85c8edcf95d49a17bee960f13f42b17}\label{classDeviceMng_af85c8edcf95d49a17bee960f13f42b17}} 
+\index{DeviceMng@{DeviceMng}!DeviceMng@{DeviceMng}}
+\index{DeviceMng@{DeviceMng}!DeviceMng@{DeviceMng}}
+\doxysubsubsection{\texorpdfstring{DeviceMng()}{DeviceMng()}}
+{\footnotesize\ttfamily Device\+Mng\+::\+Device\+Mng (\begin{DoxyParamCaption}\item[{Vk\+Instance \&}]{p\+\_\+instance,  }\item[{Vk\+Surface\+KHR \&}]{p\+\_\+surface }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+\mbox{\Hypertarget{classDeviceMng_a79c20fef3368ed11a4e2bb94825dfd83}\label{classDeviceMng_a79c20fef3368ed11a4e2bb94825dfd83}} 
+\index{DeviceMng@{DeviceMng}!````~DeviceMng@{$\sim$DeviceMng}}
+\index{````~DeviceMng@{$\sim$DeviceMng}!DeviceMng@{DeviceMng}}
+\doxysubsubsection{\texorpdfstring{$\sim$DeviceMng()}{~DeviceMng()}}
+{\footnotesize\ttfamily Device\+Mng\+::$\sim$\+Device\+Mng (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classDeviceMng_a294fc7b81bb6757905691308b17c3c54}\label{classDeviceMng_a294fc7b81bb6757905691308b17c3c54}} 
+\index{DeviceMng@{DeviceMng}!getDevice@{getDevice}}
+\index{getDevice@{getDevice}!DeviceMng@{DeviceMng}}
+\doxysubsubsection{\texorpdfstring{getDevice()}{getDevice()}}
+{\footnotesize\ttfamily Vk\+Device \& Device\+Mng\+::get\+Device (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+\mbox{\Hypertarget{classDeviceMng_a1042ed020af782036e8525cbbe673241}\label{classDeviceMng_a1042ed020af782036e8525cbbe673241}} 
+\index{DeviceMng@{DeviceMng}!getFamilyQueueIds@{getFamilyQueueIds}}
+\index{getFamilyQueueIds@{getFamilyQueueIds}!DeviceMng@{DeviceMng}}
+\doxysubsubsection{\texorpdfstring{getFamilyQueueIds()}{getFamilyQueueIds()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{structDeviceQueueFamilies}{Device\+Queue\+Families}} \& Device\+Mng\+::get\+Family\+Queue\+Ids (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+\mbox{\Hypertarget{classDeviceMng_ade876eaf3acba34e1ceedafda4622258}\label{classDeviceMng_ade876eaf3acba34e1ceedafda4622258}} 
+\index{DeviceMng@{DeviceMng}!getGraphicQueueHandler@{getGraphicQueueHandler}}
+\index{getGraphicQueueHandler@{getGraphicQueueHandler}!DeviceMng@{DeviceMng}}
+\doxysubsubsection{\texorpdfstring{getGraphicQueueHandler()}{getGraphicQueueHandler()}}
+{\footnotesize\ttfamily Vk\+Queue \& Device\+Mng\+::get\+Graphic\+Queue\+Handler (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+\mbox{\Hypertarget{classDeviceMng_adb309befc9250d2e2b75d70ccc55372e}\label{classDeviceMng_adb309befc9250d2e2b75d70ccc55372e}} 
+\index{DeviceMng@{DeviceMng}!getPresentQueueHandler@{getPresentQueueHandler}}
+\index{getPresentQueueHandler@{getPresentQueueHandler}!DeviceMng@{DeviceMng}}
+\doxysubsubsection{\texorpdfstring{getPresentQueueHandler()}{getPresentQueueHandler()}}
+{\footnotesize\ttfamily Vk\+Queue \& Device\+Mng\+::get\+Present\+Queue\+Handler (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+\mbox{\Hypertarget{classDeviceMng_a980b435b087969e5834f81ef8f9e9c8f}\label{classDeviceMng_a980b435b087969e5834f81ef8f9e9c8f}} 
+\index{DeviceMng@{DeviceMng}!getSwapchainDetails@{getSwapchainDetails}}
+\index{getSwapchainDetails@{getSwapchainDetails}!DeviceMng@{DeviceMng}}
+\doxysubsubsection{\texorpdfstring{getSwapchainDetails()}{getSwapchainDetails()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{structSwapchainDetails}{Swapchain\+Details}} \& Device\+Mng\+::get\+Swapchain\+Details (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Engine/\+Driver/\mbox{\hyperlink{DeviceMng_8hpp}{Device\+Mng.\+hpp}}\item 
+src/\+Engine/\+Driver/\mbox{\hyperlink{DeviceMng_8cpp}{Device\+Mng.\+cpp}}\end{DoxyCompactItemize}

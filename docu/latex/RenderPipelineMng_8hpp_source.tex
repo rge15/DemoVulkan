@@ -1,0 +1,52 @@
+\hypertarget{RenderPipelineMng_8hpp_source}{}\doxysection{Render\+Pipeline\+Mng.\+hpp}
+\label{RenderPipelineMng_8hpp_source}\index{src/Engine/Resources/RenderPipelineMng.hpp@{src/Engine/Resources/RenderPipelineMng.hpp}}
+\mbox{\hyperlink{RenderPipelineMng_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{graphicInclude_8hpp}{utilities/Includes/graphicInclude.hpp}}>}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{typeAliases_8hpp}{utilities/typeAliases.hpp}}>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{GraphicPipelineConfig_8hpp}{Engine/Render/GraphicPipelineConfig.hpp}}>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{BasePipelineLayout_8hpp}{Engine/Render/BasePipelineLayout.hpp}}>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{BaseRenderPass_8hpp}{Engine/Render/BaseRenderPass.hpp}}>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classRenderPipelineMng}{RenderPipelineMng}}}
+\DoxyCodeLine{00009\ \{}
+\DoxyCodeLine{00010\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00011\ \ \ \ \ VkDevice\&\ \ \ device\_;}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \ \ VkRenderPass\&\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ renderPass\_;}
+\DoxyCodeLine{00014\ \ \ \ \ VkPipelineLayout\&\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ layout\_;}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structGraphicPipelineConfig}{GraphicPipelineConfig}}\&\ \ \ \ \ \ \ \ config\_;}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{typeAliases_8hpp_a795752c370b18a89f42e00cbce86534f}{Vector<VkPipelineShaderStageCreateInfo>}}\ shaderStages\_;}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ VkGraphicsPipelineCreateInfo\ createInfo\_\ \{\};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00022\ \ \ \ \ VkPipeline\ \mbox{\hyperlink{classRenderPipelineMng_a49a2f9454b2e60de6c797f6235c338d7}{pipeline\_}}\ \{\ VK\_NULL\_HANDLE\ \};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{classRenderPipelineMng}{RenderPipelineMng}}(}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ VkDevice\&\ p\_device,}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ VkRenderPass\&\ p\_renderPass,}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ VkPipelineLayout\&\ p\_layout,}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structGraphicPipelineConfig}{GraphicPipelineConfig}}\&\ p\_config,}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{typeAliases_8hpp_a795752c370b18a89f42e00cbce86534f}{Vector<VkPipelineShaderStageCreateInfo>}}\ p\_shaderStages\ )\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00031\ \ \ \ \ }
+\DoxyCodeLine{00032\ \ \ \ \ \mbox{\hyperlink{classRenderPipelineMng_ac9b5c0d526c7d4e2283a8991f5785c77}{\string~RenderPipelineMng}}();}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{classRenderPipelineMng_a391495d96f77e60c1b5240b85c8b84fe}{bindPipelineAndDynamics}}(\ VkCommandBuffer\&\ p\_cmd,\ \textcolor{keyword}{const}\ VkSwapchainCreateInfoKHR\&\ p\_swapInfo\ );}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00041\ \ \ \ \ initCreateInfo();}
+\DoxyCodeLine{00042\ \ \ \ \ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00044\ \ \ \ \ createPipeline();}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \};}
+
+\end{DoxyCode}

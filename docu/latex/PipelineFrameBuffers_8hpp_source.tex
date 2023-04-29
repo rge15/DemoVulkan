@@ -1,0 +1,34 @@
+\hypertarget{PipelineFrameBuffers_8hpp_source}{}\doxysection{Pipeline\+Frame\+Buffers.\+hpp}
+\label{PipelineFrameBuffers_8hpp_source}\index{src/Engine/Render/PipelineFrameBuffers.hpp@{src/Engine/Render/PipelineFrameBuffers.hpp}}
+\mbox{\hyperlink{PipelineFrameBuffers_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{typeAliases_8hpp}{utilities/typeAliases.hpp}}>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{SwapchainMng_8hpp}{Engine/Driver/SwapchainMng.hpp}}>}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classPipelineFrameBuffers}{PipelineFrameBuffers}}}
+\DoxyCodeLine{00006\ \{}
+\DoxyCodeLine{00007\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00008\ \ \ \ \ VkDevice\&\ \ \ \ \ \ \ device\_;}
+\DoxyCodeLine{00009\ \ \ \ \ VkRenderPass\&\ \ \ renderPass\_;}
+\DoxyCodeLine{00010\ \ \ \ \ \mbox{\hyperlink{classSwapchainMng}{SwapchainMng}}\&\ \ \ swapMng\_;}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{using\ }Framebuffers\ =\ \mbox{\hyperlink{typeAliases_8hpp_a795752c370b18a89f42e00cbce86534f}{Vector<VkFramebuffer>}};}
+\DoxyCodeLine{00013\ \ \ \ \ Framebuffers\ \ \ \ \ \ \ \ buffers\_\ \{\};}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{classPipelineFrameBuffers}{PipelineFrameBuffers}}(\ VkDevice\&\ p\_device,\ VkRenderPass\&\ p\_renderPass,\ \mbox{\hyperlink{classSwapchainMng}{SwapchainMng}}\&\ p\_swapChainMng\ )\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{classPipelineFrameBuffers_aed25dc1032502a486d849da5af7f11ed}{\string~PipelineFrameBuffers}}();}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{inline}}
+\DoxyCodeLine{00020\ \ \ \ \ VkFramebuffer\&}
+\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{classPipelineFrameBuffers_aec02d50c6d7b8f530fa0cc0b04fb18cc}{getFramebufferByIndex}}(uint32\_t\ p\_id\ )\{\ \textcolor{keywordflow}{return}\ buffers\_[p\_id];\ \};}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00026\ \ \ \ \ createBuffers()\ noexcept;}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \};}
+
+\end{DoxyCode}

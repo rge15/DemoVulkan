@@ -99,7 +99,7 @@ DrawerMng::getFrameBufferId() noexcept
 {
     auto& swap = driver_.getSwapchainManager().getSwapchain();
 
-    uint32_t imgId = work_.get()->getFrameBufferIndex( swap );
+    uint32_t imgId = work_.get()->getImageBufferIndex( swap );
 
     return imgId;
 }

@@ -1,5 +1,8 @@
 #include <App/BaseApplication.hpp>
 
+/**
+ * @brief InitDemoApp which loads and executes the Time demo
+ */
 class InitDemoApp : BaseApplication
 {
 public:

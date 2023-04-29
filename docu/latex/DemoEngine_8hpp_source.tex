@@ -1,0 +1,37 @@
+\hypertarget{DemoEngine_8hpp_source}{}\doxysection{Demo\+Engine.\+hpp}
+\label{DemoEngine_8hpp_source}\index{src/Engine/DemoEngine.hpp@{src/Engine/DemoEngine.hpp}}
+\mbox{\hyperlink{DemoEngine_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{Driver_8hpp}{Engine/Driver.hpp}}>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{DrawerMng_8hpp}{Engine/DrawerMng.hpp}}>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{RendererCmp_8hpp}{Engine/Render/RendererCmp.hpp}}>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classDemoEngine}{DemoEngine}}}
+\DoxyCodeLine{00010\ \{}
+\DoxyCodeLine{00011\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00012\ \ \ \ \ }
+\DoxyCodeLine{00013\ \ \ \ \ }
+\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{typeAliases_8hpp_a11afc303034b19c0c7977fc57f94296a}{UniqPtr<RendererType>}}\ \ \ renderer\_\ \ \ \{\ std::make\_unique<RendererType>(\ *\mbox{\hyperlink{classDemoEngine_ab45871326b53146f2b983f1297de90f1}{driver\_}}.get()\ )\ \};}
+\DoxyCodeLine{00016\ \ \ \ \ }
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{typeAliases_8hpp_a11afc303034b19c0c7977fc57f94296a}{UniqPtr<DrawerMng>}}\ \ \ \ \ \ drawer\_\ \ \ \ \ \{\ std::make\_unique<DrawerMng>(\ *\mbox{\hyperlink{classDemoEngine_ab45871326b53146f2b983f1297de90f1}{driver\_}}.get(),\ *renderer\_.get()\ )\ \};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{typeAliases_8hpp_a11afc303034b19c0c7977fc57f94296a}{UniqPtr<Driver>}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classDemoEngine_ab45871326b53146f2b983f1297de90f1}{driver\_}}\ \ \ \ \ \{\ std::make\_unique<Driver>()\ \};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classDemoEngine_a8a1807407c5728319b7580b94d3710f7}{DemoEngine}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00033\ \ \ \ \ \mbox{\hyperlink{classDemoEngine_a37ecc5a07e83de8601cf39a71a81cc3d}{\string~DemoEngine}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keyword}{inline}}
+\DoxyCodeLine{00041\ \ \ \ \ \mbox{\hyperlink{classDriver}{Driver}}\&\ \mbox{\hyperlink{classDemoEngine_ad1f5ac020c234153aba80fb810010495}{getDriver}}()\ \{\ \textcolor{keywordflow}{return}\ *\mbox{\hyperlink{classDemoEngine_ab45871326b53146f2b983f1297de90f1}{driver\_}}.get();\ \};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keyword}{inline}}
+\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{classRenderer}{RendererType}}\&\ \mbox{\hyperlink{classDemoEngine_a7deac0aef0b99bd476a9d03979ee6ba0}{getRenderer}}()\ \{\ \textcolor{keywordflow}{return}\ *renderer\_.get();\ \};}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keyword}{inline}}
+\DoxyCodeLine{00058\ \ \ \ \ \mbox{\hyperlink{classDrawerMng}{DrawerMng}}\&\ \mbox{\hyperlink{classDemoEngine_ab90860d0664dc6ac4fa7c526d30328a8}{getDrawer}}()\ \{\ \textcolor{keywordflow}{return}\ *drawer\_.get();\ \};}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \};}
+
+\end{DoxyCode}

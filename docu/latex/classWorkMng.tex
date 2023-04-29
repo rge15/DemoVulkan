@@ -1,0 +1,85 @@
+\hypertarget{classWorkMng}{}\doxysection{Work\+Mng Class Reference}
+\label{classWorkMng}\index{WorkMng@{WorkMng}}
+
+
+{\ttfamily \#include $<$Work\+Mng.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classWorkMng_adc38c975ec30c720822f08d3bebc70bc}{Work\+Mng}} (Vk\+Device \&p\+\_\+device\+Mng) noexcept
+\item 
+\mbox{\hyperlink{classWorkMng_ad2bb977d4d410e6caa07fe8aad248b29}{$\sim$\+Work\+Mng}} ()
+\item 
+void \mbox{\hyperlink{classWorkMng_a129a90668f6bf1d7982d9ee018a240ff}{draw\+Frame}} ()
+\item 
+uint32\+\_\+t \mbox{\hyperlink{classWorkMng_a3827776bb6d3ef057a4c3fd861f128d7}{get\+Frame\+Buffer\+Index}} (Vk\+Swapchain\+KHR \&p\+\_\+swap)
+\item 
+void \mbox{\hyperlink{classWorkMng_af5558cba9fc0a1da911ce0f809349f67}{wait\+Buffer\+Sync}} () noexcept
+\item 
+Vk\+Semaphore \& \mbox{\hyperlink{classWorkMng_ac929c104667321bfa479281de198a4a5}{get\+Img\+Available\+Semaphore}} ()
+\item 
+Vk\+Semaphore \& \mbox{\hyperlink{classWorkMng_a54f009c438c543aa049b22219ea7e970}{get\+Img\+Rendered\+Semaphore}} ()
+\item 
+Vk\+Fence \& \mbox{\hyperlink{classWorkMng_a6bd471ade0ebfa6198b11da6768bfe6f}{get\+Cmd\+Available\+Fence}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classWorkMng_adc38c975ec30c720822f08d3bebc70bc}\label{classWorkMng_adc38c975ec30c720822f08d3bebc70bc}} 
+\index{WorkMng@{WorkMng}!WorkMng@{WorkMng}}
+\index{WorkMng@{WorkMng}!WorkMng@{WorkMng}}
+\doxysubsubsection{\texorpdfstring{WorkMng()}{WorkMng()}}
+{\footnotesize\ttfamily Work\+Mng\+::\+Work\+Mng (\begin{DoxyParamCaption}\item[{Vk\+Device \&}]{p\+\_\+device\+Mng }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}, {\ttfamily [noexcept]}}
+
+\mbox{\Hypertarget{classWorkMng_ad2bb977d4d410e6caa07fe8aad248b29}\label{classWorkMng_ad2bb977d4d410e6caa07fe8aad248b29}} 
+\index{WorkMng@{WorkMng}!````~WorkMng@{$\sim$WorkMng}}
+\index{````~WorkMng@{$\sim$WorkMng}!WorkMng@{WorkMng}}
+\doxysubsubsection{\texorpdfstring{$\sim$WorkMng()}{~WorkMng()}}
+{\footnotesize\ttfamily Work\+Mng\+::$\sim$\+Work\+Mng (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classWorkMng_a129a90668f6bf1d7982d9ee018a240ff}\label{classWorkMng_a129a90668f6bf1d7982d9ee018a240ff}} 
+\index{WorkMng@{WorkMng}!drawFrame@{drawFrame}}
+\index{drawFrame@{drawFrame}!WorkMng@{WorkMng}}
+\doxysubsubsection{\texorpdfstring{drawFrame()}{drawFrame()}}
+{\footnotesize\ttfamily void Work\+Mng\+::draw\+Frame (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classWorkMng_a6bd471ade0ebfa6198b11da6768bfe6f}\label{classWorkMng_a6bd471ade0ebfa6198b11da6768bfe6f}} 
+\index{WorkMng@{WorkMng}!getCmdAvailableFence@{getCmdAvailableFence}}
+\index{getCmdAvailableFence@{getCmdAvailableFence}!WorkMng@{WorkMng}}
+\doxysubsubsection{\texorpdfstring{getCmdAvailableFence()}{getCmdAvailableFence()}}
+{\footnotesize\ttfamily Vk\+Fence \& Work\+Mng\+::get\+Cmd\+Available\+Fence (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classWorkMng_a3827776bb6d3ef057a4c3fd861f128d7}\label{classWorkMng_a3827776bb6d3ef057a4c3fd861f128d7}} 
+\index{WorkMng@{WorkMng}!getFrameBufferIndex@{getFrameBufferIndex}}
+\index{getFrameBufferIndex@{getFrameBufferIndex}!WorkMng@{WorkMng}}
+\doxysubsubsection{\texorpdfstring{getFrameBufferIndex()}{getFrameBufferIndex()}}
+{\footnotesize\ttfamily uint32\+\_\+t Work\+Mng\+::get\+Frame\+Buffer\+Index (\begin{DoxyParamCaption}\item[{Vk\+Swapchain\+KHR \&}]{p\+\_\+swap }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classWorkMng_ac929c104667321bfa479281de198a4a5}\label{classWorkMng_ac929c104667321bfa479281de198a4a5}} 
+\index{WorkMng@{WorkMng}!getImgAvailableSemaphore@{getImgAvailableSemaphore}}
+\index{getImgAvailableSemaphore@{getImgAvailableSemaphore}!WorkMng@{WorkMng}}
+\doxysubsubsection{\texorpdfstring{getImgAvailableSemaphore()}{getImgAvailableSemaphore()}}
+{\footnotesize\ttfamily Vk\+Semaphore \& Work\+Mng\+::get\+Img\+Available\+Semaphore (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classWorkMng_a54f009c438c543aa049b22219ea7e970}\label{classWorkMng_a54f009c438c543aa049b22219ea7e970}} 
+\index{WorkMng@{WorkMng}!getImgRenderedSemaphore@{getImgRenderedSemaphore}}
+\index{getImgRenderedSemaphore@{getImgRenderedSemaphore}!WorkMng@{WorkMng}}
+\doxysubsubsection{\texorpdfstring{getImgRenderedSemaphore()}{getImgRenderedSemaphore()}}
+{\footnotesize\ttfamily Vk\+Semaphore \& Work\+Mng\+::get\+Img\+Rendered\+Semaphore (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classWorkMng_af5558cba9fc0a1da911ce0f809349f67}\label{classWorkMng_af5558cba9fc0a1da911ce0f809349f67}} 
+\index{WorkMng@{WorkMng}!waitBufferSync@{waitBufferSync}}
+\index{waitBufferSync@{waitBufferSync}!WorkMng@{WorkMng}}
+\doxysubsubsection{\texorpdfstring{waitBufferSync()}{waitBufferSync()}}
+{\footnotesize\ttfamily void Work\+Mng\+::wait\+Buffer\+Sync (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Engine/\+Drawer\+Mng/\mbox{\hyperlink{WorkMng_8hpp}{Work\+Mng.\+hpp}}\item 
+src/\+Engine/\+Drawer\+Mng/\mbox{\hyperlink{WorkMng_8cpp}{Work\+Mng.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,13 @@
+\hypertarget{conceptRenderPassObj}{}\doxysection{Render\+Pass\+Obj Concept Reference}
+\label{conceptRenderPassObj}\index{RenderPassObj@{RenderPassObj}}
+
+
+{\ttfamily \#include $<$render\+Concepts.\+hpp$>$}
+
+\doxysubsection{Concept definition}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\textcolor{keyword}{concept\ }\mbox{\hyperlink{conceptRenderPassObj}{RenderPassObj}}\ =\ \ std::is\_base\_of<\ BaseRenderPass\ ,T>::value}
+
+\end{DoxyCode}

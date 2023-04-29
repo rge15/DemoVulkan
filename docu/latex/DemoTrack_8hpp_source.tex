@@ -1,0 +1,39 @@
+\hypertarget{DemoTrack_8hpp_source}{}\doxysection{Demo\+Track.\+hpp}
+\label{DemoTrack_8hpp_source}\index{src/Engine/Resources/DemoTrack.hpp@{src/Engine/Resources/DemoTrack.hpp}}
+\mbox{\hyperlink{DemoTrack_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{DemoFX_8hpp}{Engine/Resources/DemoFX.hpp}}>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{Timer_8hpp}{utilities/Timer/Timer.hpp}}>}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{comment}{//Clip\ Tuple\ of\ :\ Demo\ to\ play,\ starting\ point,\ final\ point}}
+\DoxyCodeLine{00006\ \textcolor{keyword}{using\ }\mbox{\hyperlink{DemoTrack_8hpp_aa8dad84ded7cde730fbed9467a84d616}{Clip}}\ =\ \mbox{\hyperlink{typeAliases_8hpp_ace31744b6ccbf161b5aee06a35acb57b}{Tuple<DemoFX\&,\ float,\ float>}};}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{comment}{//Playing\ clip\ of\ :\ Demo\ playing,\ relativePlayingTime}}
+\DoxyCodeLine{00009\ \textcolor{keyword}{using\ }\mbox{\hyperlink{DemoTrack_8hpp_af72c4721cc9f7b2912a3a9e2bec01a95}{PlayingClip}}\ =\ \mbox{\hyperlink{typeAliases_8hpp_ace31744b6ccbf161b5aee06a35acb57b}{Tuple<DemoFX\&,\ float>}};}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classDemoTrack}{DemoTrack}}}
+\DoxyCodeLine{00012\ \{}
+\DoxyCodeLine{00013\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{typeAliases_8hpp_a795752c370b18a89f42e00cbce86534f}{Vector<Clip>}}\ demoTrack\_\ \{\};}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{float}\ maxPlayTime\_\ \{\ 0.\ \};}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classDemoTrack_a5f403c2dde7da50435dd356d583c8736}{DemoTrack}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{classDemoTrack_afc9ace0937fe631f9c8e0732b4f6bf72}{\string~DemoTrack}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{classDemoTrack_a45f94df5b2394a0758608baaff55a783}{addFXToTrack}}(\ \mbox{\hyperlink{classDemoFX}{DemoFX}}\&\ p\_demo,\ \textcolor{keywordtype}{float}\ p\_timeStart,\ \textcolor{keywordtype}{float}\ p\_duration\ )\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{typeAliases_8hpp_a795752c370b18a89f42e00cbce86534f}{Vector<PlayingClip>}}}
+\DoxyCodeLine{00028\ \ \ \ \ \mbox{\hyperlink{classDemoTrack_a66da798ce21a1776c20b90d98491c31c}{getPlayingFXs}}()\ noexcept;}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ inline}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classDemoTrack_a32bd2ef5c61b564484c39b73fae01ce1}{getMaxPlayTime}}()\ \{\ \textcolor{keywordflow}{return}\ maxPlayTime\_;\ \};}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \};}
+
+\end{DoxyCode}

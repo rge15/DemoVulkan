@@ -1,0 +1,63 @@
+\hypertarget{Renderer_8hpp_source}{}\doxysection{Renderer.\+hpp}
+\label{Renderer_8hpp_source}\index{src/Engine/Renderer.hpp@{src/Engine/Renderer.hpp}}
+\mbox{\hyperlink{Renderer_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{Driver_8hpp}{Engine/Driver.hpp}}>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{RendererCmp_8hpp}{Engine/Render/RendererCmp.hpp}}>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{BasicPipelineLayout_8hpp}{Engine/Render/BasicPipelineLayout.hpp}}>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{ImagePipelineLayout_8hpp}{Engine/Render/ImagePipelineLayout.hpp}}>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{BasicRenderPass_8hpp}{Engine/Render/BasicRenderPass.hpp}}>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{PipelineFrameBuffers_8hpp}{Engine/Render/PipelineFrameBuffers.hpp}}>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{renderConcepts_8hpp}{utilities/Engine/renderConcepts.hpp}}>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{Renderer_8hpp_a7c311ba242c0232dd177e3adc9ee22fc}{LayoutTypes}}}
+\DoxyCodeLine{00011\ \{}
+\DoxyCodeLine{00012\ \ \ \ \ \mbox{\hyperlink{Renderer_8hpp_a7c311ba242c0232dd177e3adc9ee22fca99226199806409f6f0de2004e3e59eb6}{BasicLayout}}\ =\ 0,}
+\DoxyCodeLine{00013\ \ \ \ \ \mbox{\hyperlink{Renderer_8hpp_a7c311ba242c0232dd177e3adc9ee22fcaa3196cc6dc4550d6ad377e73a36c9b3b}{ImageLayout}}\ =\ 1}
+\DoxyCodeLine{00014\ \};}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ Layouts>\ \ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classRenderer}{Renderer}}}
+\DoxyCodeLine{00018\ \{}
+\DoxyCodeLine{00019\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ \mbox{\hyperlink{Renderer_8hpp_a7c311ba242c0232dd177e3adc9ee22fc}{LayoutTypes}}>}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{using\ }PipelineLayouts\ =\ \mbox{\hyperlink{typeAliases_8hpp_ace31744b6ccbf161b5aee06a35acb57b}{Tuple<\ UniqPtr<LayoutTypes>}}...\ >;}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{classDriver}{Driver}}\&\ driver\_;}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ PipelineLayouts<Layouts...>\ renderLayoutTuple\_;}
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{typeAliases_8hpp_a11afc303034b19c0c7977fc57f94296a}{UniqPtr<BasicRenderPass>}}\ renderPass\_\ \{\ \textcolor{keyword}{nullptr}\ \};}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \mbox{\hyperlink{typeAliases_8hpp_a11afc303034b19c0c7977fc57f94296a}{UniqPtr<PipelineFrameBuffers>}}\ framebuffer\_\ \{\ \textcolor{keyword}{nullptr}\ \};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00031\ \ \ \ \ \mbox{\hyperlink{classRenderer_a1b6c9d93d98610a801f7fddc392abf9e}{Renderer}}(\ \mbox{\hyperlink{classDriver}{Driver}}\&\ p\_driver\ );}
+\DoxyCodeLine{00032\ \ \ \ \ }
+\DoxyCodeLine{00033\ \ \ \ \ \mbox{\hyperlink{classRenderer_a5f38b00c3c44d8ac5b2af9fbdc75cfb3}{\string~Renderer}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{classRenderer_a9152aaa8349050af6005e119a0214894}{initRenderPass}}(\ uint32\_t\ p\_imageId,\ VkCommandBuffer\&\ p\_cmd)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00039\ \ \ \ \ \mbox{\hyperlink{classRenderer_adbebbf6ed6be9fbfda767a1ed0a29038}{initializeLayouts}}();}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{inline}}
+\DoxyCodeLine{00042\ \ \ \ \ \mbox{\hyperlink{classBasicRenderPass}{BasicRenderPass}}\&}
+\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{classRenderer_a6d0da2d82a7bfe7364df395969a2988d}{getRenderPass}}()\{\ \textcolor{keywordflow}{return}\ *renderPass\_.get();\ \};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{inline}}
+\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{classPipelineFrameBuffers}{PipelineFrameBuffers}}\&}
+\DoxyCodeLine{00047\ \ \ \ \ \mbox{\hyperlink{classRenderer_a63c900b61cfca6b559330cfe8b228811}{getFrameBuffer}}()\{\ \textcolor{keywordflow}{return}\ *framebuffer\_.get();\ \};}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00050\ \ \ \ \ T\&\ \mbox{\hyperlink{classRenderer_aeba91c968e3626e59a9b7b879b712054}{getPipeLayoutMng}}();}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ VkPipelineLayout\&}
+\DoxyCodeLine{00053\ \ \ \ \ \mbox{\hyperlink{classRenderer_a9362ee3d86d7e16601bce5486938f365}{getLayout}}(\ \mbox{\hyperlink{Renderer_8hpp_a7c311ba242c0232dd177e3adc9ee22fc}{LayoutTypes}}\ p\_type\ );}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \};}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Renderer_8tpp}{Renderer.tpp}}"{}}}
+
+\end{DoxyCode}

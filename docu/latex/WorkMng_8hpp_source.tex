@@ -1,0 +1,64 @@
+\hypertarget{WorkMng_8hpp_source}{}\doxysection{Work\+Mng.\+hpp}
+\label{WorkMng_8hpp_source}\index{src/Engine/DrawerMng/WorkMng.hpp@{src/Engine/DrawerMng/WorkMng.hpp}}
+\mbox{\hyperlink{WorkMng_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{typeAliases_8hpp}{utilities/typeAliases.hpp}}>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{CommandMng_8hpp}{Engine/DrawerMng/CommandMng.hpp}}>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{PipelineFrameBuffers_8hpp}{Engine/Render/PipelineFrameBuffers.hpp}}>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{SwapchainMng_8hpp}{Engine/Driver/SwapchainMng.hpp}}>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{DeviceMng_8hpp}{Engine/Driver/DeviceMng.hpp}}>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classWorkMng}{WorkMng}}}
+\DoxyCodeLine{00009\ \{}
+\DoxyCodeLine{00010\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00011\ \ \ \ \ VkDevice\&\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ device\_;}
+\DoxyCodeLine{00012\ \ \ \ \ }
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ \ \ \ DeviceMng\&\ \ \ \ \ \ \ \ \ \ \ \ \ \ deviceMng\_;}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ \ \ \ SwapchainMng\&\ \ \ \ \ \ \ \ \ \ \ swapMng\_;}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ \ \ \ CommandMng\&\ \ \ \ \ \ \ \ \ \ \ \ \ \ drawer\_;}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ \ \ \ PipelineFrameBuffers\&\ \ \ frameBuffers\_;}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ \ \ \ */}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ VkFence\ \ \ \ \ cmdBufferAvailable\_\ \{\ VK\_NULL\_HANDLE\ \};}
+\DoxyCodeLine{00021\ \ \ \ \ VkSemaphore\ imgAvailable\_\ \ \ \ \ \ \ \{\ VK\_NULL\_HANDLE\ \};}
+\DoxyCodeLine{00022\ \ \ \ \ VkSemaphore\ imgRendered\_\ \ \ \ \ \ \ \ \{\ VK\_NULL\_HANDLE\ \};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{comment}{//WorkMng(DeviceMng\&\ p\_deviceMng,\ SwapchainMng\&\ p\_swapMng,\ CommandMng\&\ p\_drawer,\ PipelineFrameBuffers\&\ p\_buffers\ )\ noexcept;}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classWorkMng}{WorkMng}}(VkDevice\&\ p\_deviceMng\ )\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \mbox{\hyperlink{classWorkMng_ad2bb977d4d410e6caa07fe8aad248b29}{\string~WorkMng}}();}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{classWorkMng_a129a90668f6bf1d7982d9ee018a240ff}{drawFrame}}();}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ uint32\_t}
+\DoxyCodeLine{00037\ \ \ \ \ \mbox{\hyperlink{classWorkMng_a3827776bb6d3ef057a4c3fd861f128d7}{getFrameBufferIndex}}(\ VkSwapchainKHR\&\ p\_swap\ );}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00040\ \ \ \ \ \mbox{\hyperlink{classWorkMng_af5558cba9fc0a1da911ce0f809349f67}{waitBufferSync}}()\ noexcept;}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ inline}
+\DoxyCodeLine{00043\ \ \ \ \ VkSemaphore\&\ \mbox{\hyperlink{classWorkMng_ac929c104667321bfa479281de198a4a5}{getImgAvailableSemaphore}}()\{\ \textcolor{keywordflow}{return}\ imgAvailable\_;\ \};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{inline}}
+\DoxyCodeLine{00046\ \ \ \ \ VkSemaphore\&\ \mbox{\hyperlink{classWorkMng_a54f009c438c543aa049b22219ea7e970}{getImgRenderedSemaphore}}()\{\ \textcolor{keywordflow}{return}\ imgRendered\_;\ \};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keyword}{inline}}
+\DoxyCodeLine{00049\ \ \ \ \ VkFence\&\ \mbox{\hyperlink{classWorkMng_a6bd471ade0ebfa6198b11da6768bfe6f}{getCmdAvailableFence}}()\{\ \textcolor{keywordflow}{return}\ cmdBufferAvailable\_;\ \};}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00053\ \ \ \ \ createSyncObjects();}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00056\ \ \ \ \ submitCommands(\ uint32\_t\ p\_imageId\ )\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \};}
+
+\end{DoxyCode}

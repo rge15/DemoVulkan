@@ -1,0 +1,56 @@
+\hypertarget{DrawerMng_8hpp_source}{}\doxysection{Drawer\+Mng.\+hpp}
+\label{DrawerMng_8hpp_source}\index{src/Engine/DrawerMng.hpp@{src/Engine/DrawerMng.hpp}}
+\mbox{\hyperlink{DrawerMng_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{Driver_8hpp}{Engine/Driver.hpp}}>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{RendererCmp_8hpp}{Engine/Render/RendererCmp.hpp}}>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{CommandMng_8hpp}{Engine/DrawerMng/CommandMng.hpp}}>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{WorkMng_8hpp}{Engine/DrawerMng/WorkMng.hpp}}>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{DemoTrack_8hpp}{Engine/Resources/DemoTrack.hpp}}>}\ }
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classDrawerMng}{DrawerMng}}}
+\DoxyCodeLine{00013\ \{}
+\DoxyCodeLine{00014\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{classDriver}{Driver}}\&\ \ \ \ \ driver\_;}
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{classRenderer}{RendererType}}\&\ \ \ renderer\_;}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{typeAliases_8hpp_a11afc303034b19c0c7977fc57f94296a}{UniqPtr<CommandMng>}}\ command\_\ \ \ \ \{\ \textcolor{keyword}{nullptr}\ \};}
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{typeAliases_8hpp_a11afc303034b19c0c7977fc57f94296a}{UniqPtr<WorkMng>}}\ \ \ \ work\_\ \ \ \ \ \ \ \{\ \textcolor{keyword}{nullptr}\ \};}
+\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{typeAliases_8hpp_a11afc303034b19c0c7977fc57f94296a}{UniqPtr<DemoTrack>}}\ \ track\_\ \ \ \ \ \ \{\ \textcolor{keyword}{nullptr}\ \};}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classDrawerMng}{DrawerMng}}(\mbox{\hyperlink{classDriver}{Driver}}\&\ p\_driver,\ \mbox{\hyperlink{classRenderer}{RendererType}}\&\ p\_renderer)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{classDrawerMng_aba1dda3e1c9140d112e11a04b0479fdc}{\string~DrawerMng}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00028\ \ \ \ \ \mbox{\hyperlink{classDrawerMng_a4f1fe84d3463b4a069b63b7fd5e8ad07}{drawFrame}}()\ noexcept;}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ inline}
+\DoxyCodeLine{00031\ \ \ \ \ \mbox{\hyperlink{classDemoTrack}{DemoTrack}}\&\ \mbox{\hyperlink{classDrawerMng_aa1e7f791b89177f658e9a88434e386dc}{getTrack}}()\{\ \textcolor{keywordflow}{return}\ *track\_.get();\ \};}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{void}\ initCommander();}
+\DoxyCodeLine{00036\ \ \ \ \ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{void}\ initWorker();}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ uint32\_t}
+\DoxyCodeLine{00040\ \ \ \ \ getReadyToRecord()\ noexcept;}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ uint32\_t}
+\DoxyCodeLine{00043\ \ \ \ \ getFrameBufferId()\ noexcept;}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00046\ \ \ \ \ recordCommand(\ uint32\_t\ p\_imageId,\ \mbox{\hyperlink{typeAliases_8hpp_a795752c370b18a89f42e00cbce86534f}{Vector}}<\mbox{\hyperlink{DemoTrack_8hpp_af72c4721cc9f7b2912a3a9e2bec01a95}{PlayingClip}}>\&\ p\_demos\ )\ noexcept;}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00049\ \ \ \ \ submitCommands(\ uint32\_t\ p\_imageId\ )\ noexcept;}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00052\ \ \ \ \ bindLayoutData(\ VkCommandBuffer\&\ p\_cmd,\ \mbox{\hyperlink{Renderer_8hpp_a7c311ba242c0232dd177e3adc9ee22fc}{LayoutTypes}}\ p\_type,\ \textcolor{keywordtype}{float}\ p\_relativeTime\ );}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \};}
+
+\end{DoxyCode}

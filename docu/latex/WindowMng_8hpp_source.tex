@@ -1,0 +1,42 @@
+\hypertarget{WindowMng_8hpp_source}{}\doxysection{Window\+Mng.\+hpp}
+\label{WindowMng_8hpp_source}\index{src/Engine/Driver/WindowMng.hpp@{src/Engine/Driver/WindowMng.hpp}}
+\mbox{\hyperlink{WindowMng_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{graphicInclude_8hpp}{utilities/Includes/graphicInclude.hpp}}>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{typeAliases_8hpp}{utilities/typeAliases.hpp}}>}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classWindowMng}{WindowMng}}}
+\DoxyCodeLine{00006\ \{}
+\DoxyCodeLine{00007\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00008\ \ \ \ \ }
+\DoxyCodeLine{00009\ \ \ \ \ \mbox{\hyperlink{typeAliases_8hpp_a11afc303034b19c0c7977fc57f94296a}{UniqPtr}}<GLFWwindow,\ void\ (*)(GLFWwindow*)>\ window\_\ \{\textcolor{keyword}{nullptr},\ \textcolor{keyword}{nullptr}\};}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \ \ \ \ uint32\_t\ width\_,\ heigth\_;}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{classWindowMng}{WindowMng}}(\textcolor{keyword}{const}\ uint32\_t\ p\_w\ =\ 1280,\ \textcolor{keyword}{const}\ uint32\_t\ p\_h\ =\ 720)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{classWindowMng_a0df0cf014f5d73b1c6ce4c7b66d286e4}{\string~WindowMng}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classWindowMng_a7d567040e059ccd625c47c143ea8a268}{deleteWindow}}(\ GLFWwindow*\ p\_window\ )}
+\DoxyCodeLine{00018\ \ \ \ \ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ glfwDestroyWindow(\ p\_window\ );}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ glfwTerminate();}
+\DoxyCodeLine{00021\ \ \ \ \ \}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{inline}}
+\DoxyCodeLine{00024\ \ \ \ \ GLFWwindow\&\ \mbox{\hyperlink{classWindowMng_a7374f7a9c195a7cd74b518849623c25f}{getWindow}}()}
+\DoxyCodeLine{00025\ \ \ \ \ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *window\_.get();}
+\DoxyCodeLine{00027\ \ \ \ \ \}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{inline}}
+\DoxyCodeLine{00030\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{classWindowMng_a36a0fdc6b254b2e5358fe37d24c7398a}{getWidth}}()\{\ \textcolor{keywordflow}{return}\ width\_;\ \};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{inline}}
+\DoxyCodeLine{00033\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{classWindowMng_a8f1d942ce2267c0dc384b54834f5a5d6}{getHeigth}}()\{\ \textcolor{keywordflow}{return}\ heigth\_;\ \};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \};}
+\DoxyCodeLine{00036\ }
+
+\end{DoxyCode}

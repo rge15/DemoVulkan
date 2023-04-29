@@ -1,0 +1,46 @@
+\hypertarget{BaseRenderPass_8hpp_source}{}\doxysection{Base\+Render\+Pass.\+hpp}
+\label{BaseRenderPass_8hpp_source}\index{src/Engine/Render/BaseRenderPass.hpp@{src/Engine/Render/BaseRenderPass.hpp}}
+\mbox{\hyperlink{BaseRenderPass_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{BaseRenderRSC_8hpp}{BaseRenderRSC.hpp}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{SwapchainMng_8hpp}{Engine/Driver/SwapchainMng.hpp}}>}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classBaseRenderPass}{BaseRenderPass}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classBaseRenderRSC}{BaseRenderRSC}}}
+\DoxyCodeLine{00006\ \{}
+\DoxyCodeLine{00007\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00008\ \ \ \ \ VkDevice\&\ \mbox{\hyperlink{classBaseRenderPass_a515e60ef90ea47488b6298f2b4bcda28}{device\_}};}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classSwapchainMng}{SwapchainMng}}\&\ \mbox{\hyperlink{classBaseRenderPass_ac21dc185bba0a027e8cd2a5f7d2b7ed3}{swapMng\_}};}
+\DoxyCodeLine{00010\ \ \ \ \ }
+\DoxyCodeLine{00011\ \ \ \ \ VkAttachmentDescription\ \mbox{\hyperlink{classBaseRenderPass_ad3ed6b702ca900cd1d8bee2f883b9e27}{attachmentDesc\_}}\ \{\};}
+\DoxyCodeLine{00012\ \ \ \ \ VkAttachmentReference\ \ \ \mbox{\hyperlink{classBaseRenderPass_aa4e594daf92f461febc1b2d85f32686a}{attachmentReference\_}}\ \{\};}
+\DoxyCodeLine{00013\ \ \ \ \ VkSubpassDescription\ \ \ \ \mbox{\hyperlink{classBaseRenderPass_a230645dd222d15d16fd69fcee34ae654}{subpassDesc\_}}\ \{\};}
+\DoxyCodeLine{00014\ \ \ \ \ VkRenderPassCreateInfo\ \ \mbox{\hyperlink{classBaseRenderPass_acef05b7f410b88df1a3053fe07ed5443}{createInfo\_}}\ \{\};}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ VkRenderPass\ \mbox{\hyperlink{classBaseRenderPass_a552767a6de3e250eebd34d9b673998cb}{renderPass\_}}\ \{\ VK\_NULL\_HANDLE\ \};}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{classBaseRenderPass}{BaseRenderPass}}(\ VkDevice\&\ p\_device,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classSwapchainMng}{SwapchainMng}}\&\ p\_swapMng\ )\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{classBaseRenderPass_a8faef77e19ef8d58cbfc22e2a23ced41}{createRenderPass}}()\ noexcept;}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{classBaseRenderPass_a7a5556b0e24fd7d9896c3edaba58038a}{initBaseCreateInfo}}()\ noexcept;}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{classBaseRenderPass_a7bcfa8b800fee2af29c2ea5f68e9cf68}{initBaseAttachementInfo}}()\ noexcept;}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00030\ \ \ \ \ \mbox{\hyperlink{classBaseRenderPass_a4b08af75aa8cd22487fa06a721e1a46f}{initBaseSupbassInfo}}()\ noexcept;}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ public:}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \string~\mbox{\hyperlink{classBaseRenderPass}{BaseRenderPass}}();}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ inline}
+\DoxyCodeLine{00037\ \ \ \ \ VkRenderPass\&}
+\DoxyCodeLine{00038\ \ \ \ \ \mbox{\hyperlink{classBaseRenderPass_a4a0191c1b1e858054f847c5244adf6b8}{getRenderPass}}()\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classBaseRenderPass_a552767a6de3e250eebd34d9b673998cb}{renderPass\_}};\ \};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \};}
+
+\end{DoxyCode}

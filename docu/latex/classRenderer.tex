@@ -1,0 +1,93 @@
+\hypertarget{classRenderer}{}\doxysection{Renderer\texorpdfstring{$<$}{<} Layouts \texorpdfstring{$>$}{>} Class Template Reference}
+\label{classRenderer}\index{Renderer$<$ Layouts $>$@{Renderer$<$ Layouts $>$}}
+
+
+{\ttfamily \#include $<$Renderer.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classRenderer_a1b6c9d93d98610a801f7fddc392abf9e}{Renderer}} (\mbox{\hyperlink{classDriver}{Driver}} \&p\+\_\+driver)
+\item 
+\mbox{\hyperlink{classRenderer_a5f38b00c3c44d8ac5b2af9fbdc75cfb3}{$\sim$\+Renderer}} ()=default
+\item 
+void \mbox{\hyperlink{classRenderer_a9152aaa8349050af6005e119a0214894}{init\+Render\+Pass}} (uint32\+\_\+t p\+\_\+image\+Id, Vk\+Command\+Buffer \&p\+\_\+cmd) noexcept
+\item 
+void \mbox{\hyperlink{classRenderer_adbebbf6ed6be9fbfda767a1ed0a29038}{initialize\+Layouts}} ()
+\item 
+\mbox{\hyperlink{classBasicRenderPass}{Basic\+Render\+Pass}} \& \mbox{\hyperlink{classRenderer_a6d0da2d82a7bfe7364df395969a2988d}{get\+Render\+Pass}} ()
+\item 
+\mbox{\hyperlink{classPipelineFrameBuffers}{Pipeline\+Frame\+Buffers}} \& \mbox{\hyperlink{classRenderer_a63c900b61cfca6b559330cfe8b228811}{get\+Frame\+Buffer}} ()
+\item 
+{\footnotesize template$<$typename T $>$ }\\T \& \mbox{\hyperlink{classRenderer_aeba91c968e3626e59a9b7b879b712054}{get\+Pipe\+Layout\+Mng}} ()
+\item 
+Vk\+Pipeline\+Layout \& \mbox{\hyperlink{classRenderer_a9362ee3d86d7e16601bce5486938f365}{get\+Layout}} (\mbox{\hyperlink{Renderer_8hpp_a7c311ba242c0232dd177e3adc9ee22fc}{Layout\+Types}} p\+\_\+type)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classRenderer_a1b6c9d93d98610a801f7fddc392abf9e}\label{classRenderer_a1b6c9d93d98610a801f7fddc392abf9e}} 
+\index{Renderer$<$ Layouts $>$@{Renderer$<$ Layouts $>$}!Renderer@{Renderer}}
+\index{Renderer@{Renderer}!Renderer$<$ Layouts $>$@{Renderer$<$ Layouts $>$}}
+\doxysubsubsection{\texorpdfstring{Renderer()}{Renderer()}}
+{\footnotesize\ttfamily template$<$typename... Layouts$>$ \\
+\mbox{\hyperlink{classRenderer}{Renderer}}$<$ Layouts $>$\mbox{\hyperlink{classRenderer}{\+::\+Renderer}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classDriver}{Driver}} \&}]{p\+\_\+driver }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classRenderer_a5f38b00c3c44d8ac5b2af9fbdc75cfb3}\label{classRenderer_a5f38b00c3c44d8ac5b2af9fbdc75cfb3}} 
+\index{Renderer$<$ Layouts $>$@{Renderer$<$ Layouts $>$}!````~Renderer@{$\sim$Renderer}}
+\index{````~Renderer@{$\sim$Renderer}!Renderer$<$ Layouts $>$@{Renderer$<$ Layouts $>$}}
+\doxysubsubsection{\texorpdfstring{$\sim$Renderer()}{~Renderer()}}
+{\footnotesize\ttfamily template$<$typename... Layouts$>$ \\
+\mbox{\hyperlink{classRenderer}{Renderer}}$<$ Layouts $>$\+::$\sim$\mbox{\hyperlink{classRenderer}{Renderer}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classRenderer_a63c900b61cfca6b559330cfe8b228811}\label{classRenderer_a63c900b61cfca6b559330cfe8b228811}} 
+\index{Renderer$<$ Layouts $>$@{Renderer$<$ Layouts $>$}!getFrameBuffer@{getFrameBuffer}}
+\index{getFrameBuffer@{getFrameBuffer}!Renderer$<$ Layouts $>$@{Renderer$<$ Layouts $>$}}
+\doxysubsubsection{\texorpdfstring{getFrameBuffer()}{getFrameBuffer()}}
+{\footnotesize\ttfamily template$<$typename... Layouts$>$ \\
+\mbox{\hyperlink{classPipelineFrameBuffers}{Pipeline\+Frame\+Buffers}} \& \mbox{\hyperlink{classRenderer}{Renderer}}$<$ Layouts $>$\+::get\+Frame\+Buffer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classRenderer_a9362ee3d86d7e16601bce5486938f365}\label{classRenderer_a9362ee3d86d7e16601bce5486938f365}} 
+\index{Renderer$<$ Layouts $>$@{Renderer$<$ Layouts $>$}!getLayout@{getLayout}}
+\index{getLayout@{getLayout}!Renderer$<$ Layouts $>$@{Renderer$<$ Layouts $>$}}
+\doxysubsubsection{\texorpdfstring{getLayout()}{getLayout()}}
+{\footnotesize\ttfamily template$<$typename... Layouts$>$ \\
+Vk\+Pipeline\+Layout \& \mbox{\hyperlink{classRenderer}{Renderer}}$<$ Layouts $>$\+::get\+Layout (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{Renderer_8hpp_a7c311ba242c0232dd177e3adc9ee22fc}{Layout\+Types}}}]{p\+\_\+type }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classRenderer_aeba91c968e3626e59a9b7b879b712054}\label{classRenderer_aeba91c968e3626e59a9b7b879b712054}} 
+\index{Renderer$<$ Layouts $>$@{Renderer$<$ Layouts $>$}!getPipeLayoutMng@{getPipeLayoutMng}}
+\index{getPipeLayoutMng@{getPipeLayoutMng}!Renderer$<$ Layouts $>$@{Renderer$<$ Layouts $>$}}
+\doxysubsubsection{\texorpdfstring{getPipeLayoutMng()}{getPipeLayoutMng()}}
+{\footnotesize\ttfamily template$<$typename... Layouts$>$ \\
+template$<$typename T $>$ \\
+T \& \mbox{\hyperlink{classRenderer}{Renderer}}$<$ Layouts $>$\+::get\+Pipe\+Layout\+Mng (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classRenderer_a6d0da2d82a7bfe7364df395969a2988d}\label{classRenderer_a6d0da2d82a7bfe7364df395969a2988d}} 
+\index{Renderer$<$ Layouts $>$@{Renderer$<$ Layouts $>$}!getRenderPass@{getRenderPass}}
+\index{getRenderPass@{getRenderPass}!Renderer$<$ Layouts $>$@{Renderer$<$ Layouts $>$}}
+\doxysubsubsection{\texorpdfstring{getRenderPass()}{getRenderPass()}}
+{\footnotesize\ttfamily template$<$typename... Layouts$>$ \\
+\mbox{\hyperlink{classBasicRenderPass}{Basic\+Render\+Pass}} \& \mbox{\hyperlink{classRenderer}{Renderer}}$<$ Layouts $>$\+::get\+Render\+Pass (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classRenderer_adbebbf6ed6be9fbfda767a1ed0a29038}\label{classRenderer_adbebbf6ed6be9fbfda767a1ed0a29038}} 
+\index{Renderer$<$ Layouts $>$@{Renderer$<$ Layouts $>$}!initializeLayouts@{initializeLayouts}}
+\index{initializeLayouts@{initializeLayouts}!Renderer$<$ Layouts $>$@{Renderer$<$ Layouts $>$}}
+\doxysubsubsection{\texorpdfstring{initializeLayouts()}{initializeLayouts()}}
+{\footnotesize\ttfamily template$<$typename... Layouts$>$ \\
+void \mbox{\hyperlink{classRenderer}{Renderer}}$<$ Layouts $>$\+::initialize\+Layouts (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classRenderer_a9152aaa8349050af6005e119a0214894}\label{classRenderer_a9152aaa8349050af6005e119a0214894}} 
+\index{Renderer$<$ Layouts $>$@{Renderer$<$ Layouts $>$}!initRenderPass@{initRenderPass}}
+\index{initRenderPass@{initRenderPass}!Renderer$<$ Layouts $>$@{Renderer$<$ Layouts $>$}}
+\doxysubsubsection{\texorpdfstring{initRenderPass()}{initRenderPass()}}
+{\footnotesize\ttfamily template$<$typename... Layouts$>$ \\
+void \mbox{\hyperlink{classRenderer}{Renderer}}$<$ Layouts $>$\+::init\+Render\+Pass (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{p\+\_\+image\+Id,  }\item[{Vk\+Command\+Buffer \&}]{p\+\_\+cmd }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Engine/\mbox{\hyperlink{Renderer_8hpp}{Renderer.\+hpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,39 @@
+\hypertarget{BasePipelineLayout_8hpp_source}{}\doxysection{Base\+Pipeline\+Layout.\+hpp}
+\label{BasePipelineLayout_8hpp_source}\index{src/Engine/Render/BasePipelineLayout.hpp@{src/Engine/Render/BasePipelineLayout.hpp}}
+\mbox{\hyperlink{BasePipelineLayout_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{BaseRenderRSC_8hpp}{BaseRenderRSC.hpp}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{SwapchainMng_8hpp}{Engine/Driver/SwapchainMng.hpp}}>}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classBasePipelineLayout}{BasePipelineLayout}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classBaseRenderRSC}{BaseRenderRSC}}}
+\DoxyCodeLine{00006\ \{}
+\DoxyCodeLine{00007\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00008\ \ \ \ \ VkDevice\&\ \mbox{\hyperlink{classBasePipelineLayout_a31d9403327fc746a42fc044691714308}{device\_}};}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classSwapchainMng}{SwapchainMng}}\&\ \mbox{\hyperlink{classBasePipelineLayout_a2db858d47c66be98f101a06e7649ddf8}{swapMng\_}};}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \ \ \ \ VkPipelineLayoutCreateInfo\ \mbox{\hyperlink{classBasePipelineLayout_af19e0f8abd18a5f4a5cdf23fce8a858e}{createInfo\_}}\ \{\};}
+\DoxyCodeLine{00012\ \ \ \ \ VkPipelineLayout\ \mbox{\hyperlink{classBasePipelineLayout_af2a90d9a7d68be7f6b87111b81737b5a}{pipeLayout\_}}\ \{\ VK\_NULL\_HANDLE\ \};}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{classBasePipelineLayout}{BasePipelineLayout}}(\ VkDevice\&\ p\_device,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classSwapchainMng}{SwapchainMng}}\&\ p\_swapMng\ )\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{classBasePipelineLayout_a381b7ba29e2f8a8d101653f44510cfe3}{initBaseCreateInfo}}()\ noexcept;}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ virtual}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classBasePipelineLayout_a7e50850ecf37f72f4675b2554c2d9a31}{bindLayoutCmdData}}(\ VkCommandBuffer\&\ p\_cmd,\ \textcolor{keywordtype}{float}\ p\_relTime\ )\ =\ 0;}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ public:}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \string~\mbox{\hyperlink{classBasePipelineLayout}{BasePipelineLayout}}();}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ inline}
+\DoxyCodeLine{00027\ \ \ \ \ VkPipelineLayout\&}
+\DoxyCodeLine{00028\ \ \ \ \ \mbox{\hyperlink{classBasePipelineLayout_a3b370444450fd0b4260bf53d02f1e5f9}{getLayout}}()\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classBasePipelineLayout_af2a90d9a7d68be7f6b87111b81737b5a}{pipeLayout\_}};\ \};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00031\ \ \ \ \ \mbox{\hyperlink{classBasePipelineLayout_a24368741cc78630a5ec3ab7bbe255f23}{createPipelineLayout}}()\ noexcept;}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \};}
+
+\end{DoxyCode}

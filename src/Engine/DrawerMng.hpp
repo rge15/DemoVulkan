@@ -5,9 +5,14 @@
 #include <Engine/DrawerMng/WorkMng.hpp>
 #include <Engine/Resources/DemoTrack.hpp> 
 
+/**
+ * @brief DrawerMng that controls all the drawing process and syncronization between commands
+ */
+
 class DrawerMng
 {
 private:
+
     Driver&     driver_;
     RendererType&   renderer_;
 

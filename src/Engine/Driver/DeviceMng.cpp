@@ -149,7 +149,7 @@ DeviceMng::checkQueues( VkPhysicalDevice& p_phDevice ) noexcept
 //-----------------------------------------------------------------------------
 
 bool
-DeviceMng::checkQueueSuitability( VkPhysicalDevice p_device, VkQueueFamilyProperties p_queueFamily, uint32_t p_id ) noexcept
+DeviceMng::checkQueueSuitability( VkPhysicalDevice& p_device, VkQueueFamilyProperties& p_queueFamily, uint32_t p_id ) noexcept
 {
     VkBool32 presentSupport = VK_FALSE;
 

@@ -1,0 +1,136 @@
+\hypertarget{classBasePipelineLayout}{}\doxysection{Base\+Pipeline\+Layout Class Reference}
+\label{classBasePipelineLayout}\index{BasePipelineLayout@{BasePipelineLayout}}
+
+
+{\ttfamily \#include $<$Base\+Pipeline\+Layout.\+hpp$>$}
+
+Inheritance diagram for Base\+Pipeline\+Layout\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classBasePipelineLayout}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classBasePipelineLayout_a3b0fc7b09ea113c5ef91259474900c40}{$\sim$\+Base\+Pipeline\+Layout}} ()
+\item 
+Vk\+Pipeline\+Layout \& \mbox{\hyperlink{classBasePipelineLayout_a3b370444450fd0b4260bf53d02f1e5f9}{get\+Layout}} ()
+\item 
+void \mbox{\hyperlink{classBasePipelineLayout_a24368741cc78630a5ec3ab7bbe255f23}{create\+Pipeline\+Layout}} () noexcept
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{classBaseRenderRSC}{Base\+Render\+RSC}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{engineTypeAlias_8hpp_a19887e2fc4b23b6270ba2b8a90869fda}{Render\+RSCId}} \mbox{\hyperlink{classBaseRenderRSC_a1896a8051889a2e8666a50f3ce0c0581}{get\+Render\+RSCId}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classBasePipelineLayout_a2437b5b14698054b3508ca2e7c4f6613}{Base\+Pipeline\+Layout}} (Vk\+Device \&p\+\_\+device, const \mbox{\hyperlink{classSwapchainMng}{Swapchain\+Mng}} \&p\+\_\+swap\+Mng) noexcept
+\item 
+void \mbox{\hyperlink{classBasePipelineLayout_a381b7ba29e2f8a8d101653f44510cfe3}{init\+Base\+Create\+Info}} () noexcept
+\item 
+virtual void \mbox{\hyperlink{classBasePipelineLayout_a7e50850ecf37f72f4675b2554c2d9a31}{bind\+Layout\+Cmd\+Data}} (Vk\+Command\+Buffer \&p\+\_\+cmd, float p\+\_\+rel\+Time)=0
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Vk\+Device \& \mbox{\hyperlink{classBasePipelineLayout_a31d9403327fc746a42fc044691714308}{device\+\_\+}}
+\item 
+const \mbox{\hyperlink{classSwapchainMng}{Swapchain\+Mng}} \& \mbox{\hyperlink{classBasePipelineLayout_a2db858d47c66be98f101a06e7649ddf8}{swap\+Mng\+\_\+}}
+\item 
+Vk\+Pipeline\+Layout\+Create\+Info \mbox{\hyperlink{classBasePipelineLayout_af19e0f8abd18a5f4a5cdf23fce8a858e}{create\+Info\+\_\+}} \{\}
+\item 
+Vk\+Pipeline\+Layout \mbox{\hyperlink{classBasePipelineLayout_af2a90d9a7d68be7f6b87111b81737b5a}{pipe\+Layout\+\_\+}} \{ VK\+\_\+\+NULL\+\_\+\+HANDLE \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes inherited from \mbox{\hyperlink{classBaseRenderRSC}{Base\+Render\+RSC}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{engineTypeAlias_8hpp_a19887e2fc4b23b6270ba2b8a90869fda}{Render\+RSCId}} \mbox{\hyperlink{classBaseRenderRSC_a91fbda89dae1f331bf0a54340311a021}{rsc\+Id\+\_\+}} \{ \mbox{\hyperlink{classBaseRenderRSC_a4d6921ff5488ce3d48563c830638bc54}{RSCCounter\+\_\+}}++ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+\doxysubsubsection*{Static Protected Attributes inherited from \mbox{\hyperlink{classBaseRenderRSC}{Base\+Render\+RSC}}}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{engineTypeAlias_8hpp_a19887e2fc4b23b6270ba2b8a90869fda}{Render\+RSCId}} \mbox{\hyperlink{classBaseRenderRSC_a4d6921ff5488ce3d48563c830638bc54}{RSCCounter\+\_\+}} \{ 0 \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classBasePipelineLayout_a2437b5b14698054b3508ca2e7c4f6613}\label{classBasePipelineLayout_a2437b5b14698054b3508ca2e7c4f6613}} 
+\index{BasePipelineLayout@{BasePipelineLayout}!BasePipelineLayout@{BasePipelineLayout}}
+\index{BasePipelineLayout@{BasePipelineLayout}!BasePipelineLayout@{BasePipelineLayout}}
+\doxysubsubsection{\texorpdfstring{BasePipelineLayout()}{BasePipelineLayout()}}
+{\footnotesize\ttfamily Base\+Pipeline\+Layout\+::\+Base\+Pipeline\+Layout (\begin{DoxyParamCaption}\item[{Vk\+Device \&}]{p\+\_\+device,  }\item[{const \mbox{\hyperlink{classSwapchainMng}{Swapchain\+Mng}} \&}]{p\+\_\+swap\+Mng }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [noexcept]}}
+
+\mbox{\Hypertarget{classBasePipelineLayout_a3b0fc7b09ea113c5ef91259474900c40}\label{classBasePipelineLayout_a3b0fc7b09ea113c5ef91259474900c40}} 
+\index{BasePipelineLayout@{BasePipelineLayout}!````~BasePipelineLayout@{$\sim$BasePipelineLayout}}
+\index{````~BasePipelineLayout@{$\sim$BasePipelineLayout}!BasePipelineLayout@{BasePipelineLayout}}
+\doxysubsubsection{\texorpdfstring{$\sim$BasePipelineLayout()}{~BasePipelineLayout()}}
+{\footnotesize\ttfamily Base\+Pipeline\+Layout\+::$\sim$\+Base\+Pipeline\+Layout (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classBasePipelineLayout_a7e50850ecf37f72f4675b2554c2d9a31}\label{classBasePipelineLayout_a7e50850ecf37f72f4675b2554c2d9a31}} 
+\index{BasePipelineLayout@{BasePipelineLayout}!bindLayoutCmdData@{bindLayoutCmdData}}
+\index{bindLayoutCmdData@{bindLayoutCmdData}!BasePipelineLayout@{BasePipelineLayout}}
+\doxysubsubsection{\texorpdfstring{bindLayoutCmdData()}{bindLayoutCmdData()}}
+{\footnotesize\ttfamily virtual void Base\+Pipeline\+Layout\+::bind\+Layout\+Cmd\+Data (\begin{DoxyParamCaption}\item[{Vk\+Command\+Buffer \&}]{p\+\_\+cmd,  }\item[{float}]{p\+\_\+rel\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classBasicPipelineLayout_a317cd53746c6004c978b8c056ee12bf9}{Basic\+Pipeline\+Layout}}, and \mbox{\hyperlink{classImagePipelineLayout_aa4916862689f8ac2216f6e2c234daa7d}{Image\+Pipeline\+Layout}}.
+
+\mbox{\Hypertarget{classBasePipelineLayout_a24368741cc78630a5ec3ab7bbe255f23}\label{classBasePipelineLayout_a24368741cc78630a5ec3ab7bbe255f23}} 
+\index{BasePipelineLayout@{BasePipelineLayout}!createPipelineLayout@{createPipelineLayout}}
+\index{createPipelineLayout@{createPipelineLayout}!BasePipelineLayout@{BasePipelineLayout}}
+\doxysubsubsection{\texorpdfstring{createPipelineLayout()}{createPipelineLayout()}}
+{\footnotesize\ttfamily void Base\+Pipeline\+Layout\+::create\+Pipeline\+Layout (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+\mbox{\Hypertarget{classBasePipelineLayout_a3b370444450fd0b4260bf53d02f1e5f9}\label{classBasePipelineLayout_a3b370444450fd0b4260bf53d02f1e5f9}} 
+\index{BasePipelineLayout@{BasePipelineLayout}!getLayout@{getLayout}}
+\index{getLayout@{getLayout}!BasePipelineLayout@{BasePipelineLayout}}
+\doxysubsubsection{\texorpdfstring{getLayout()}{getLayout()}}
+{\footnotesize\ttfamily Vk\+Pipeline\+Layout \& Base\+Pipeline\+Layout\+::get\+Layout (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classBasePipelineLayout_a381b7ba29e2f8a8d101653f44510cfe3}\label{classBasePipelineLayout_a381b7ba29e2f8a8d101653f44510cfe3}} 
+\index{BasePipelineLayout@{BasePipelineLayout}!initBaseCreateInfo@{initBaseCreateInfo}}
+\index{initBaseCreateInfo@{initBaseCreateInfo}!BasePipelineLayout@{BasePipelineLayout}}
+\doxysubsubsection{\texorpdfstring{initBaseCreateInfo()}{initBaseCreateInfo()}}
+{\footnotesize\ttfamily void Base\+Pipeline\+Layout\+::init\+Base\+Create\+Info (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [noexcept]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classBasePipelineLayout_af19e0f8abd18a5f4a5cdf23fce8a858e}\label{classBasePipelineLayout_af19e0f8abd18a5f4a5cdf23fce8a858e}} 
+\index{BasePipelineLayout@{BasePipelineLayout}!createInfo\_@{createInfo\_}}
+\index{createInfo\_@{createInfo\_}!BasePipelineLayout@{BasePipelineLayout}}
+\doxysubsubsection{\texorpdfstring{createInfo\_}{createInfo\_}}
+{\footnotesize\ttfamily Vk\+Pipeline\+Layout\+Create\+Info Base\+Pipeline\+Layout\+::create\+Info\+\_\+ \{\}\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classBasePipelineLayout_a31d9403327fc746a42fc044691714308}\label{classBasePipelineLayout_a31d9403327fc746a42fc044691714308}} 
+\index{BasePipelineLayout@{BasePipelineLayout}!device\_@{device\_}}
+\index{device\_@{device\_}!BasePipelineLayout@{BasePipelineLayout}}
+\doxysubsubsection{\texorpdfstring{device\_}{device\_}}
+{\footnotesize\ttfamily Vk\+Device\& Base\+Pipeline\+Layout\+::device\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classBasePipelineLayout_af2a90d9a7d68be7f6b87111b81737b5a}\label{classBasePipelineLayout_af2a90d9a7d68be7f6b87111b81737b5a}} 
+\index{BasePipelineLayout@{BasePipelineLayout}!pipeLayout\_@{pipeLayout\_}}
+\index{pipeLayout\_@{pipeLayout\_}!BasePipelineLayout@{BasePipelineLayout}}
+\doxysubsubsection{\texorpdfstring{pipeLayout\_}{pipeLayout\_}}
+{\footnotesize\ttfamily Vk\+Pipeline\+Layout Base\+Pipeline\+Layout\+::pipe\+Layout\+\_\+ \{ VK\+\_\+\+NULL\+\_\+\+HANDLE \}\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classBasePipelineLayout_a2db858d47c66be98f101a06e7649ddf8}\label{classBasePipelineLayout_a2db858d47c66be98f101a06e7649ddf8}} 
+\index{BasePipelineLayout@{BasePipelineLayout}!swapMng\_@{swapMng\_}}
+\index{swapMng\_@{swapMng\_}!BasePipelineLayout@{BasePipelineLayout}}
+\doxysubsubsection{\texorpdfstring{swapMng\_}{swapMng\_}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classSwapchainMng}{Swapchain\+Mng}}\& Base\+Pipeline\+Layout\+::swap\+Mng\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Engine/\+Render/\mbox{\hyperlink{BasePipelineLayout_8hpp}{Base\+Pipeline\+Layout.\+hpp}}\item 
+src/\+Engine/\+Render/\mbox{\hyperlink{BasePipelineLayout_8cpp}{Base\+Pipeline\+Layout.\+cpp}}\end{DoxyCompactItemize}

@@ -2,10 +2,6 @@
 #include <Engine/Resources/DemoFX.hpp>
 #include <Engine/DemoEngine.hpp>
 
-//Let this darkness be
-//Orders of magnitude
-//The tale of blue bird and the dragon
-
 void
 InitDemoApp::run()
 {
