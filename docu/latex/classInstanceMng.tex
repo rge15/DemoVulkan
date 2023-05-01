@@ -1,44 +1,75 @@
-\hypertarget{classInstanceMng}{}\doxysection{Instance\+Mng Class Reference}
-\label{classInstanceMng}\index{InstanceMng@{InstanceMng}}
+\doxysection{Instance\+Mng Class Reference}
+\hypertarget{classInstanceMng}{}\label{classInstanceMng}\index{InstanceMng@{InstanceMng}}
+
+
+Class for Vulkan INstance creation and management.  
+
+
 
 
 {\ttfamily \#include $<$Instance\+Mng.\+hpp$>$}
 
-\doxysubsection*{Public Member Functions}
+\doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classInstanceMng_abf60b6d6609155f565f25c4a06eadcb6}{Instance\+Mng}} (const char $\ast$p\+\_\+app\+Name=\char`\"{}App\char`\"{}, const char $\ast$p\+\_\+engine\+Name=\char`\"{}Engine\char`\"{}, const uint32\+\_\+t p\+\_\+app\+Version=1, const uint32\+\_\+t p\+\_\+engine\+Version=1) noexcept
-\item 
+\mbox{\hyperlink{classInstanceMng_abf60b6d6609155f565f25c4a06eadcb6}{Instance\+Mng}} (const char $\ast$p\+\_\+app\+Name=\"{}App\"{}, const char $\ast$p\+\_\+engine\+Name=\"{}Engine\"{}, const uint32\+\_\+t p\+\_\+app\+Version=1, const uint32\+\_\+t p\+\_\+engine\+Version=1) noexcept
+\begin{DoxyCompactList}\small\item\em Construct a new Instance Mng object. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classInstanceMng_a37b4dd224da89db0a355f3dd28b63095}{$\sim$\+Instance\+Mng}} () noexcept
-\end{DoxyCompactItemize}
-\doxysubsection*{Public Attributes}
+\begin{DoxyCompactList}\small\item\em Destroy the Instance Mng object and his Vulkan Instance Handler. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 Vk\+Instance \mbox{\hyperlink{classInstanceMng_a536a51eeda3b3e693beeeff99a8ed71b}{vk\+Instance\+\_\+}} \{VK\+\_\+\+NULL\+\_\+\+HANDLE\}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Vulkan Instance handler. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Class for Vulkan INstance creation and management. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classInstanceMng_abf60b6d6609155f565f25c4a06eadcb6}\label{classInstanceMng_abf60b6d6609155f565f25c4a06eadcb6}} 
+\Hypertarget{classInstanceMng_abf60b6d6609155f565f25c4a06eadcb6}\label{classInstanceMng_abf60b6d6609155f565f25c4a06eadcb6} 
 \index{InstanceMng@{InstanceMng}!InstanceMng@{InstanceMng}}
 \index{InstanceMng@{InstanceMng}!InstanceMng@{InstanceMng}}
 \doxysubsubsection{\texorpdfstring{InstanceMng()}{InstanceMng()}}
-{\footnotesize\ttfamily Instance\+Mng\+::\+Instance\+Mng (\begin{DoxyParamCaption}\item[{const char $\ast$}]{p\+\_\+app\+Name = {\ttfamily \char`\"{}App\char`\"{}},  }\item[{const char $\ast$}]{p\+\_\+engine\+Name = {\ttfamily \char`\"{}Engine\char`\"{}},  }\item[{const uint32\+\_\+t}]{p\+\_\+app\+Version = {\ttfamily 1},  }\item[{const uint32\+\_\+t}]{p\+\_\+engine\+Version = {\ttfamily 1} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+{\footnotesize\ttfamily Instance\+Mng\+::\+Instance\+Mng (\begin{DoxyParamCaption}\item[{const char $\ast$}]{p\+\_\+app\+Name = {\ttfamily \"{}App\"{}},  }\item[{const char $\ast$}]{p\+\_\+engine\+Name = {\ttfamily \"{}Engine\"{}},  }\item[{const uint32\+\_\+t}]{p\+\_\+app\+Version = {\ttfamily 1},  }\item[{const uint32\+\_\+t}]{p\+\_\+engine\+Version = {\ttfamily 1} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
 
-\mbox{\Hypertarget{classInstanceMng_a37b4dd224da89db0a355f3dd28b63095}\label{classInstanceMng_a37b4dd224da89db0a355f3dd28b63095}} 
+
+
+Construct a new Instance Mng object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+app\+Name} & Application name \\
+\hline
+{\em p\+\_\+engine\+Name} & Engine name \\
+\hline
+{\em p\+\_\+app\+Version} & Version of the App \\
+\hline
+{\em p\+\_\+engine\+Version} & Version of the Engine \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classInstanceMng_a37b4dd224da89db0a355f3dd28b63095}\label{classInstanceMng_a37b4dd224da89db0a355f3dd28b63095} 
 \index{InstanceMng@{InstanceMng}!````~InstanceMng@{$\sim$InstanceMng}}
 \index{````~InstanceMng@{$\sim$InstanceMng}!InstanceMng@{InstanceMng}}
-\doxysubsubsection{\texorpdfstring{$\sim$InstanceMng()}{~InstanceMng()}}
+\doxysubsubsection{\texorpdfstring{$\sim$InstanceMng()}{\string~InstanceMng()}}
 {\footnotesize\ttfamily Instance\+Mng\+::$\sim$\+Instance\+Mng (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
 
 
 
+Destroy the Instance Mng object and his Vulkan Instance Handler. 
+
+
+
 \doxysubsection{Member Data Documentation}
-\mbox{\Hypertarget{classInstanceMng_a536a51eeda3b3e693beeeff99a8ed71b}\label{classInstanceMng_a536a51eeda3b3e693beeeff99a8ed71b}} 
+\Hypertarget{classInstanceMng_a536a51eeda3b3e693beeeff99a8ed71b}\label{classInstanceMng_a536a51eeda3b3e693beeeff99a8ed71b} 
 \index{InstanceMng@{InstanceMng}!vkInstance\_@{vkInstance\_}}
 \index{vkInstance\_@{vkInstance\_}!InstanceMng@{InstanceMng}}
 \doxysubsubsection{\texorpdfstring{vkInstance\_}{vkInstance\_}}
 {\footnotesize\ttfamily Vk\+Instance Instance\+Mng\+::vk\+Instance\+\_\+ \{VK\+\_\+\+NULL\+\_\+\+HANDLE\}}
+
+
+
+Vulkan Instance handler. 
 
 
 

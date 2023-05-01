@@ -1,42 +1,78 @@
-\hypertarget{classRenderPipelineMng}{}\doxysection{Render\+Pipeline\+Mng Class Reference}
-\label{classRenderPipelineMng}\index{RenderPipelineMng@{RenderPipelineMng}}
+\doxysection{Render\+Pipeline\+Mng Class Reference}
+\hypertarget{classRenderPipelineMng}{}\label{classRenderPipelineMng}\index{RenderPipelineMng@{RenderPipelineMng}}
+
+
+Class tha manages all the renderpipeline information.  
+
+
 
 
 {\ttfamily \#include $<$Render\+Pipeline\+Mng.\+hpp$>$}
 
-\doxysubsection*{Public Member Functions}
+\doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classRenderPipelineMng_a8f7238b30bca9fe3520b487a9fc72fb6}{Render\+Pipeline\+Mng}} (Vk\+Device \&p\+\_\+device, Vk\+Render\+Pass \&p\+\_\+render\+Pass, Vk\+Pipeline\+Layout \&p\+\_\+layout, const \mbox{\hyperlink{structGraphicPipelineConfig}{Graphic\+Pipeline\+Config}} \&p\+\_\+config, \mbox{\hyperlink{typeAliases_8hpp_a795752c370b18a89f42e00cbce86534f}{Vector}}$<$ Vk\+Pipeline\+Shader\+Stage\+Create\+Info $>$ p\+\_\+shader\+Stages) noexcept
-\item 
+\mbox{\hyperlink{classRenderPipelineMng_adb553131ff57190301c869660cc70ee3}{Render\+Pipeline\+Mng}} (Vk\+Device \&p\+\_\+device, Vk\+Render\+Pass \&p\+\_\+render\+Pass, Vk\+Pipeline\+Layout \&p\+\_\+layout, const \mbox{\hyperlink{structGraphicPipelineConfig}{Graphic\+Pipeline\+Config}} \&p\+\_\+config, \mbox{\hyperlink{typeAliases_8hpp_a795752c370b18a89f42e00cbce86534f}{Vector}}$<$ Vk\+Pipeline\+Shader\+Stage\+Create\+Info $>$ \&p\+\_\+shader\+Stages) noexcept
+\begin{DoxyCompactList}\small\item\em Construct a new Render Pipeline Mng object. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classRenderPipelineMng_ac9b5c0d526c7d4e2283a8991f5785c77}{$\sim$\+Render\+Pipeline\+Mng}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Destroy the Render Pipeline Mng. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classRenderPipelineMng_a391495d96f77e60c1b5240b85c8b84fe}{bind\+Pipeline\+And\+Dynamics}} (Vk\+Command\+Buffer \&p\+\_\+cmd, const Vk\+Swapchain\+Create\+Info\+KHR \&p\+\_\+swap\+Info)
-\end{DoxyCompactItemize}
-\doxysubsection*{Public Attributes}
+\begin{DoxyCompactList}\small\item\em Binds the dynamic states of the pipeline configuration. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 Vk\+Pipeline \mbox{\hyperlink{classRenderPipelineMng_a49a2f9454b2e60de6c797f6235c338d7}{pipeline\+\_\+}} \{ VK\+\_\+\+NULL\+\_\+\+HANDLE \}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Vulkan Handler of the Render Pipeline Obj. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class tha manages all the renderpipeline information. 
+
+Each \doxylink{classDemoFX}{Demo\+FX} will hold and create his specific renderpipeline \begin{DoxySeeAlso}{See also}
+\doxylink{classDemoFX}{Demo\+FX} 
+\end{DoxySeeAlso}
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classRenderPipelineMng_a8f7238b30bca9fe3520b487a9fc72fb6}\label{classRenderPipelineMng_a8f7238b30bca9fe3520b487a9fc72fb6}} 
+\Hypertarget{classRenderPipelineMng_adb553131ff57190301c869660cc70ee3}\label{classRenderPipelineMng_adb553131ff57190301c869660cc70ee3} 
 \index{RenderPipelineMng@{RenderPipelineMng}!RenderPipelineMng@{RenderPipelineMng}}
 \index{RenderPipelineMng@{RenderPipelineMng}!RenderPipelineMng@{RenderPipelineMng}}
 \doxysubsubsection{\texorpdfstring{RenderPipelineMng()}{RenderPipelineMng()}}
-{\footnotesize\ttfamily Render\+Pipeline\+Mng\+::\+Render\+Pipeline\+Mng (\begin{DoxyParamCaption}\item[{Vk\+Device \&}]{p\+\_\+device,  }\item[{Vk\+Render\+Pass \&}]{p\+\_\+render\+Pass,  }\item[{Vk\+Pipeline\+Layout \&}]{p\+\_\+layout,  }\item[{const \mbox{\hyperlink{structGraphicPipelineConfig}{Graphic\+Pipeline\+Config}} \&}]{p\+\_\+config,  }\item[{\mbox{\hyperlink{typeAliases_8hpp_a795752c370b18a89f42e00cbce86534f}{Vector}}$<$ Vk\+Pipeline\+Shader\+Stage\+Create\+Info $>$}]{p\+\_\+shader\+Stages }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+{\footnotesize\ttfamily Render\+Pipeline\+Mng\+::\+Render\+Pipeline\+Mng (\begin{DoxyParamCaption}\item[{Vk\+Device \&}]{p\+\_\+device,  }\item[{Vk\+Render\+Pass \&}]{p\+\_\+render\+Pass,  }\item[{Vk\+Pipeline\+Layout \&}]{p\+\_\+layout,  }\item[{const \mbox{\hyperlink{structGraphicPipelineConfig}{Graphic\+Pipeline\+Config}} \&}]{p\+\_\+config,  }\item[{\mbox{\hyperlink{typeAliases_8hpp_a795752c370b18a89f42e00cbce86534f}{Vector}}$<$ Vk\+Pipeline\+Shader\+Stage\+Create\+Info $>$ \&}]{p\+\_\+shader\+Stages }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
 
-\mbox{\Hypertarget{classRenderPipelineMng_ac9b5c0d526c7d4e2283a8991f5785c77}\label{classRenderPipelineMng_ac9b5c0d526c7d4e2283a8991f5785c77}} 
+
+
+Construct a new Render Pipeline Mng object. 
+
+Inits the creation info structure and creates the Vulkan Pipeline Obj
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+device} & Vulkan Device to create the pipeline with and to execute the pipeline \\
+\hline
+{\em p\+\_\+render\+Pass} & Renderpass to set the pipeline passes \\
+\hline
+{\em p\+\_\+layout} & Pipeline Layout to set the REnder Pipeline data layout \\
+\hline
+{\em p\+\_\+config} & States Configuration of the pipeline \\
+\hline
+{\em p\+\_\+shader\+Stages} & Shader\+Stages of the FX to draw with this pipeline \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classRenderPipelineMng_ac9b5c0d526c7d4e2283a8991f5785c77}\label{classRenderPipelineMng_ac9b5c0d526c7d4e2283a8991f5785c77} 
 \index{RenderPipelineMng@{RenderPipelineMng}!````~RenderPipelineMng@{$\sim$RenderPipelineMng}}
 \index{````~RenderPipelineMng@{$\sim$RenderPipelineMng}!RenderPipelineMng@{RenderPipelineMng}}
-\doxysubsubsection{\texorpdfstring{$\sim$RenderPipelineMng()}{~RenderPipelineMng()}}
+\doxysubsubsection{\texorpdfstring{$\sim$RenderPipelineMng()}{\string~RenderPipelineMng()}}
 {\footnotesize\ttfamily Render\+Pipeline\+Mng\+::$\sim$\+Render\+Pipeline\+Mng (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
+Destroy the Render Pipeline Mng. 
+
+Handles the pipeline destruction 
+
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classRenderPipelineMng_a391495d96f77e60c1b5240b85c8b84fe}\label{classRenderPipelineMng_a391495d96f77e60c1b5240b85c8b84fe}} 
+\Hypertarget{classRenderPipelineMng_a391495d96f77e60c1b5240b85c8b84fe}\label{classRenderPipelineMng_a391495d96f77e60c1b5240b85c8b84fe} 
 \index{RenderPipelineMng@{RenderPipelineMng}!bindPipelineAndDynamics@{bindPipelineAndDynamics}}
 \index{bindPipelineAndDynamics@{bindPipelineAndDynamics}!RenderPipelineMng@{RenderPipelineMng}}
 \doxysubsubsection{\texorpdfstring{bindPipelineAndDynamics()}{bindPipelineAndDynamics()}}
@@ -44,12 +80,30 @@ Vk\+Pipeline \mbox{\hyperlink{classRenderPipelineMng_a49a2f9454b2e60de6c797f6235
 
 
 
+Binds the dynamic states of the pipeline configuration. 
+
+This method is little bit hardcoded for these dynamic config stages \begin{DoxySeeAlso}{See also}
+\doxylink{structGraphicPipelineConfig}{Graphic\+Pipeline\+Config}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+cmd} & Command buffer to execute this pipeline with \\
+\hline
+{\em p\+\_\+swap\+Info} & Swpachain info to get data for the dynamic stages \\
+\hline
+\end{DoxyParams}
+
+
 \doxysubsection{Member Data Documentation}
-\mbox{\Hypertarget{classRenderPipelineMng_a49a2f9454b2e60de6c797f6235c338d7}\label{classRenderPipelineMng_a49a2f9454b2e60de6c797f6235c338d7}} 
+\Hypertarget{classRenderPipelineMng_a49a2f9454b2e60de6c797f6235c338d7}\label{classRenderPipelineMng_a49a2f9454b2e60de6c797f6235c338d7} 
 \index{RenderPipelineMng@{RenderPipelineMng}!pipeline\_@{pipeline\_}}
 \index{pipeline\_@{pipeline\_}!RenderPipelineMng@{RenderPipelineMng}}
 \doxysubsubsection{\texorpdfstring{pipeline\_}{pipeline\_}}
 {\footnotesize\ttfamily Vk\+Pipeline Render\+Pipeline\+Mng\+::pipeline\+\_\+ \{ VK\+\_\+\+NULL\+\_\+\+HANDLE \}}
+
+
+
+Vulkan Handler of the Render Pipeline Obj. 
 
 
 

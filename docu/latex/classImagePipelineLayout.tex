@@ -1,5 +1,10 @@
-\hypertarget{classImagePipelineLayout}{}\doxysection{Image\+Pipeline\+Layout Class Reference}
-\label{classImagePipelineLayout}\index{ImagePipelineLayout@{ImagePipelineLayout}}
+\doxysection{Image\+Pipeline\+Layout Class Reference}
+\hypertarget{classImagePipelineLayout}{}\label{classImagePipelineLayout}\index{ImagePipelineLayout@{ImagePipelineLayout}}
+
+
+Image Pipeline Layout which have a single descriptor set \& push constants.  
+
+
 
 
 {\ttfamily \#include $<$Image\+Pipeline\+Layout.\+hpp$>$}
@@ -10,83 +15,115 @@ Inheritance diagram for Image\+Pipeline\+Layout\+:\begin{figure}[H]
 \includegraphics[height=3.000000cm]{classImagePipelineLayout}
 \end{center}
 \end{figure}
-\doxysubsection*{Public Member Functions}
+\doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classImagePipelineLayout_a0a8a0f7f653536a027eeea3935c7173d}{Image\+Pipeline\+Layout}} (Vk\+Device \&p\+\_\+device, const \mbox{\hyperlink{classSwapchainMng}{Swapchain\+Mng}} \&p\+\_\+swap\+Mng)
-\item 
+\begin{DoxyCompactList}\small\item\em Construct a new Image Pipeline Layout object. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classImagePipelineLayout_aba094ec14df282929fd21dc6d5a27ba7}{$\sim$\+Image\+Pipeline\+Layout}} ()
-\item 
-void \mbox{\hyperlink{classImagePipelineLayout_ae22a1a44961ffc799af21eeeba07f26c}{send\+Push\+Constant\+Data}} (Vk\+Command\+Buffer \&p\+\_\+cmd, float p\+\_\+rel\+Time) noexcept
-\item 
+\begin{DoxyCompactList}\small\item\em Destroy the Image \& Image\+View of the manager. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classImagePipelineLayout_aa4916862689f8ac2216f6e2c234daa7d}{bind\+Layout\+Cmd\+Data}} (Vk\+Command\+Buffer \&p\+\_\+cmd, float p\+\_\+rel\+Time) override final
-\item 
+\begin{DoxyCompactList}\small\item\em Pure virtual overrided method for binding the information of the specific layout. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classImagePipelineLayout_a8c15996f4a9b7763876ac55cd5161a6d}{set\+Pipeline\+Image\+Barrier}} (Vk\+Command\+Buffer \&p\+\_\+cmd)
-\end{DoxyCompactItemize}
-\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{classBasePipelineLayout}{Base\+Pipeline\+Layout}}}
+\begin{DoxyCompactList}\small\item\em COnfigures the pipeline barrier for changing the image layout. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classBasePipelineLayout}{Base\+Pipeline\+Layout}}}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classBasePipelineLayout_a3b0fc7b09ea113c5ef91259474900c40}{$\sim$\+Base\+Pipeline\+Layout}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Destroy the Base Pipeline Layout object. \end{DoxyCompactList}\item 
 Vk\+Pipeline\+Layout \& \mbox{\hyperlink{classBasePipelineLayout_a3b370444450fd0b4260bf53d02f1e5f9}{get\+Layout}} ()
-\item 
-void \mbox{\hyperlink{classBasePipelineLayout_a24368741cc78630a5ec3ab7bbe255f23}{create\+Pipeline\+Layout}} () noexcept
-\end{DoxyCompactItemize}
-\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{classBaseRenderRSC}{Base\+Render\+RSC}}}
+\begin{DoxyCompactList}\small\item\em Get the Vulkan Pipeline Layout handler. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classBaseRenderRSC}{Base\+Render\+RSC}}}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{engineTypeAlias_8hpp_a19887e2fc4b23b6270ba2b8a90869fda}{Render\+RSCId}} \mbox{\hyperlink{classBaseRenderRSC_a1896a8051889a2e8666a50f3ce0c0581}{get\+Render\+RSCId}} ()
-\end{DoxyCompactItemize}
-\doxysubsection*{Additional Inherited Members}
-\doxysubsubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classBasePipelineLayout}{Base\+Pipeline\+Layout}}}
+\mbox{\hyperlink{engineTypeAlias_8hpp_a19887e2fc4b23b6270ba2b8a90869fda}{Render\+RSCId}} \mbox{\hyperlink{classBaseRenderRSC_a92091a26a81eee5c02ec96e5c6f0a82c}{get\+Render\+Rsc\+Id}} ()
+\begin{DoxyCompactList}\small\item\em Get the Render RSC Id object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classBasePipelineLayout}{Base\+Pipeline\+Layout}}}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classBasePipelineLayout_a2437b5b14698054b3508ca2e7c4f6613}{Base\+Pipeline\+Layout}} (Vk\+Device \&p\+\_\+device, const \mbox{\hyperlink{classSwapchainMng}{Swapchain\+Mng}} \&p\+\_\+swap\+Mng) noexcept
-\item 
+\begin{DoxyCompactList}\small\item\em Construct a new Base Pipeline Layout object. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classBasePipelineLayout_a381b7ba29e2f8a8d101653f44510cfe3}{init\+Base\+Create\+Info}} () noexcept
-\item 
+\begin{DoxyCompactList}\small\item\em Inits the base \& common creation info for all types of Pipeline\+Layouts. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classBasePipelineLayout_a7e50850ecf37f72f4675b2554c2d9a31}{bind\+Layout\+Cmd\+Data}} (Vk\+Command\+Buffer \&p\+\_\+cmd, float p\+\_\+rel\+Time)=0
-\end{DoxyCompactItemize}
-\doxysubsubsection*{Protected Attributes inherited from \mbox{\hyperlink{classBasePipelineLayout}{Base\+Pipeline\+Layout}}}
+\begin{DoxyCompactList}\small\item\em Pure virtual method for binding the information of the specific layout. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBasePipelineLayout_a24368741cc78630a5ec3ab7bbe255f23}{create\+Pipeline\+Layout}} () noexcept
+\begin{DoxyCompactList}\small\item\em Create the Pipeline Layout object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classBasePipelineLayout}{Base\+Pipeline\+Layout}}}
 \begin{DoxyCompactItemize}
 \item 
 Vk\+Device \& \mbox{\hyperlink{classBasePipelineLayout_a31d9403327fc746a42fc044691714308}{device\+\_\+}}
-\item 
+\begin{DoxyCompactList}\small\item\em Reference to the Vulkan Logical Device. \end{DoxyCompactList}\item 
 const \mbox{\hyperlink{classSwapchainMng}{Swapchain\+Mng}} \& \mbox{\hyperlink{classBasePipelineLayout_a2db858d47c66be98f101a06e7649ddf8}{swap\+Mng\+\_\+}}
-\item 
+\begin{DoxyCompactList}\small\item\em Reference to const Swapchain Manager. \end{DoxyCompactList}\item 
 Vk\+Pipeline\+Layout\+Create\+Info \mbox{\hyperlink{classBasePipelineLayout_af19e0f8abd18a5f4a5cdf23fce8a858e}{create\+Info\+\_\+}} \{\}
-\item 
+\begin{DoxyCompactList}\small\item\em Creation info for the Pipeline\+Layout. \end{DoxyCompactList}\item 
 Vk\+Pipeline\+Layout \mbox{\hyperlink{classBasePipelineLayout_af2a90d9a7d68be7f6b87111b81737b5a}{pipe\+Layout\+\_\+}} \{ VK\+\_\+\+NULL\+\_\+\+HANDLE \}
-\end{DoxyCompactItemize}
-\doxysubsubsection*{Protected Attributes inherited from \mbox{\hyperlink{classBaseRenderRSC}{Base\+Render\+RSC}}}
+\begin{DoxyCompactList}\small\item\em Handler of the pipeline layout. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classBaseRenderRSC}{Base\+Render\+RSC}}}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{engineTypeAlias_8hpp_a19887e2fc4b23b6270ba2b8a90869fda}{Render\+RSCId}} \mbox{\hyperlink{classBaseRenderRSC_a91fbda89dae1f331bf0a54340311a021}{rsc\+Id\+\_\+}} \{ \mbox{\hyperlink{classBaseRenderRSC_a4d6921ff5488ce3d48563c830638bc54}{RSCCounter\+\_\+}}++ \}
-\end{DoxyCompactItemize}
-\doxysubsubsection*{Static Protected Attributes inherited from \mbox{\hyperlink{classBaseRenderRSC}{Base\+Render\+RSC}}}
+\begin{DoxyCompactList}\small\item\em Render Rsc Id. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes inherited from \mbox{\hyperlink{classBaseRenderRSC}{Base\+Render\+RSC}}}
 \begin{DoxyCompactItemize}
 \item 
 static \mbox{\hyperlink{engineTypeAlias_8hpp_a19887e2fc4b23b6270ba2b8a90869fda}{Render\+RSCId}} \mbox{\hyperlink{classBaseRenderRSC_a4d6921ff5488ce3d48563c830638bc54}{RSCCounter\+\_\+}} \{ 0 \}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Common render rsc counter. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Image Pipeline Layout which have a single descriptor set \& push constants. 
+
+It contains base push constants for each shader as\+:
+
+
+\begin{DoxyItemize}
+\item Absolute\+Time \+: Total Time of execution of the program
+\item Relative\+Time \+: Total Time of execution of the demo
+\item Window\+Resolution \+: Resolution of the screen
+\end{DoxyItemize}
+
+The Descriptor set that contains manages 1 common image for reading/writing between all fotograms of the app
+
+This class PUBLIC inhers from \begin{DoxySeeAlso}{See also}
+\doxylink{classBasePipelineLayout}{Base\+Pipeline\+Layout} 
+\end{DoxySeeAlso}
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classImagePipelineLayout_a0a8a0f7f653536a027eeea3935c7173d}\label{classImagePipelineLayout_a0a8a0f7f653536a027eeea3935c7173d}} 
+\Hypertarget{classImagePipelineLayout_a0a8a0f7f653536a027eeea3935c7173d}\label{classImagePipelineLayout_a0a8a0f7f653536a027eeea3935c7173d} 
 \index{ImagePipelineLayout@{ImagePipelineLayout}!ImagePipelineLayout@{ImagePipelineLayout}}
 \index{ImagePipelineLayout@{ImagePipelineLayout}!ImagePipelineLayout@{ImagePipelineLayout}}
 \doxysubsubsection{\texorpdfstring{ImagePipelineLayout()}{ImagePipelineLayout()}}
 {\footnotesize\ttfamily Image\+Pipeline\+Layout\+::\+Image\+Pipeline\+Layout (\begin{DoxyParamCaption}\item[{Vk\+Device \&}]{p\+\_\+device,  }\item[{const \mbox{\hyperlink{classSwapchainMng}{Swapchain\+Mng}} \&}]{p\+\_\+swap\+Mng }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{classImagePipelineLayout_aba094ec14df282929fd21dc6d5a27ba7}\label{classImagePipelineLayout_aba094ec14df282929fd21dc6d5a27ba7}} 
+
+
+Construct a new Image Pipeline Layout object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+device} & \\
+\hline
+{\em p\+\_\+swap\+Mng} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classImagePipelineLayout_aba094ec14df282929fd21dc6d5a27ba7}\label{classImagePipelineLayout_aba094ec14df282929fd21dc6d5a27ba7} 
 \index{ImagePipelineLayout@{ImagePipelineLayout}!````~ImagePipelineLayout@{$\sim$ImagePipelineLayout}}
 \index{````~ImagePipelineLayout@{$\sim$ImagePipelineLayout}!ImagePipelineLayout@{ImagePipelineLayout}}
-\doxysubsubsection{\texorpdfstring{$\sim$ImagePipelineLayout()}{~ImagePipelineLayout()}}
+\doxysubsubsection{\texorpdfstring{$\sim$ImagePipelineLayout()}{\string~ImagePipelineLayout()}}
 {\footnotesize\ttfamily Image\+Pipeline\+Layout\+::$\sim$\+Image\+Pipeline\+Layout (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
+Destroy the Image \& Image\+View of the manager. 
+
+
+
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classImagePipelineLayout_aa4916862689f8ac2216f6e2c234daa7d}\label{classImagePipelineLayout_aa4916862689f8ac2216f6e2c234daa7d}} 
+\Hypertarget{classImagePipelineLayout_aa4916862689f8ac2216f6e2c234daa7d}\label{classImagePipelineLayout_aa4916862689f8ac2216f6e2c234daa7d} 
 \index{ImagePipelineLayout@{ImagePipelineLayout}!bindLayoutCmdData@{bindLayoutCmdData}}
 \index{bindLayoutCmdData@{bindLayoutCmdData}!ImagePipelineLayout@{ImagePipelineLayout}}
 \doxysubsubsection{\texorpdfstring{bindLayoutCmdData()}{bindLayoutCmdData()}}
@@ -94,20 +131,34 @@ static \mbox{\hyperlink{engineTypeAlias_8hpp_a19887e2fc4b23b6270ba2b8a90869fda}{
 
 
 
+Pure virtual overrided method for binding the information of the specific layout. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+cmd} & Reference to the command buffer to bind the info \\
+\hline
+{\em p\+\_\+rel\+Time} & (This param is a bit hard-\/coded) Total time of a individual demo in execution \\
+\hline
+\end{DoxyParams}
+
+
 Implements \mbox{\hyperlink{classBasePipelineLayout_a7e50850ecf37f72f4675b2554c2d9a31}{Base\+Pipeline\+Layout}}.
 
-\mbox{\Hypertarget{classImagePipelineLayout_ae22a1a44961ffc799af21eeeba07f26c}\label{classImagePipelineLayout_ae22a1a44961ffc799af21eeeba07f26c}} 
-\index{ImagePipelineLayout@{ImagePipelineLayout}!sendPushConstantData@{sendPushConstantData}}
-\index{sendPushConstantData@{sendPushConstantData}!ImagePipelineLayout@{ImagePipelineLayout}}
-\doxysubsubsection{\texorpdfstring{sendPushConstantData()}{sendPushConstantData()}}
-{\footnotesize\ttfamily void Image\+Pipeline\+Layout\+::send\+Push\+Constant\+Data (\begin{DoxyParamCaption}\item[{Vk\+Command\+Buffer \&}]{p\+\_\+cmd,  }\item[{float}]{p\+\_\+rel\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
-
-\mbox{\Hypertarget{classImagePipelineLayout_a8c15996f4a9b7763876ac55cd5161a6d}\label{classImagePipelineLayout_a8c15996f4a9b7763876ac55cd5161a6d}} 
+\Hypertarget{classImagePipelineLayout_a8c15996f4a9b7763876ac55cd5161a6d}\label{classImagePipelineLayout_a8c15996f4a9b7763876ac55cd5161a6d} 
 \index{ImagePipelineLayout@{ImagePipelineLayout}!setPipelineImageBarrier@{setPipelineImageBarrier}}
 \index{setPipelineImageBarrier@{setPipelineImageBarrier}!ImagePipelineLayout@{ImagePipelineLayout}}
 \doxysubsubsection{\texorpdfstring{setPipelineImageBarrier()}{setPipelineImageBarrier()}}
 {\footnotesize\ttfamily void Image\+Pipeline\+Layout\+::set\+Pipeline\+Image\+Barrier (\begin{DoxyParamCaption}\item[{Vk\+Command\+Buffer \&}]{p\+\_\+cmd }\end{DoxyParamCaption})}
 
+
+
+COnfigures the pipeline barrier for changing the image layout. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+cmd} & Reference to the command buffer to record in the barrier \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

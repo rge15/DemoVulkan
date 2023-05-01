@@ -1,58 +1,80 @@
-\hypertarget{classDrawerMng}{}\doxysection{Drawer\+Mng Class Reference}
-\label{classDrawerMng}\index{DrawerMng@{DrawerMng}}
+\doxysection{Drawer\+Mng Class Reference}
+\hypertarget{classDrawerMng}{}\label{classDrawerMng}\index{DrawerMng@{DrawerMng}}
 
 
-\mbox{\hyperlink{classDrawerMng}{Drawer\+Mng}} that controls all the drawing process and syncronization between commands.  
+\doxylink{classDrawerMng}{Drawer\+Mng} that controls all the drawing process and syncronization between commands.  
 
 
 
 
 {\ttfamily \#include $<$Drawer\+Mng.\+hpp$>$}
 
-\doxysubsection*{Public Member Functions}
+\doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classDrawerMng_af4dd9ff4cfef64bfa5a7e9c828173078}{Drawer\+Mng}} (\mbox{\hyperlink{classDriver}{Driver}} \&p\+\_\+driver, \mbox{\hyperlink{RendererCmp_8hpp_ae092e1aa2bd86b178d5c56c8fee33134}{Renderer\+Type}} \&p\+\_\+renderer) noexcept
-\item 
+\begin{DoxyCompactList}\small\item\em Construct a new Drawer Mng object. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classDrawerMng_aba1dda3e1c9140d112e11a04b0479fdc}{$\sim$\+Drawer\+Mng}} ()=default
 \item 
 void \mbox{\hyperlink{classDrawerMng_a4f1fe84d3463b4a069b63b7fd5e8ad07}{draw\+Frame}} () noexcept
-\item 
+\begin{DoxyCompactList}\small\item\em Manages the draw process of an entire fotogram. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classDemoTrack}{Demo\+Track}} \& \mbox{\hyperlink{classDrawerMng_aa1e7f791b89177f658e9a88434e386dc}{get\+Track}} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Get the \doxylink{classDemoTrack}{Demo\+Track}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-\mbox{\hyperlink{classDrawerMng}{Drawer\+Mng}} that controls all the drawing process and syncronization between commands. 
+\doxylink{classDrawerMng}{Drawer\+Mng} that controls all the drawing process and syncronization between commands. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classDrawerMng_af4dd9ff4cfef64bfa5a7e9c828173078}\label{classDrawerMng_af4dd9ff4cfef64bfa5a7e9c828173078}} 
+\Hypertarget{classDrawerMng_af4dd9ff4cfef64bfa5a7e9c828173078}\label{classDrawerMng_af4dd9ff4cfef64bfa5a7e9c828173078} 
 \index{DrawerMng@{DrawerMng}!DrawerMng@{DrawerMng}}
 \index{DrawerMng@{DrawerMng}!DrawerMng@{DrawerMng}}
 \doxysubsubsection{\texorpdfstring{DrawerMng()}{DrawerMng()}}
 {\footnotesize\ttfamily Drawer\+Mng\+::\+Drawer\+Mng (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classDriver}{Driver}} \&}]{p\+\_\+driver,  }\item[{\mbox{\hyperlink{RendererCmp_8hpp_ae092e1aa2bd86b178d5c56c8fee33134}{Renderer\+Type}} \&}]{p\+\_\+renderer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}, {\ttfamily [noexcept]}}
 
-\mbox{\Hypertarget{classDrawerMng_aba1dda3e1c9140d112e11a04b0479fdc}\label{classDrawerMng_aba1dda3e1c9140d112e11a04b0479fdc}} 
+
+
+Construct a new Drawer Mng object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+driver} & \doxylink{classDriver}{Driver} manager to use for components of the class \\
+\hline
+{\em p\+\_\+renderer} & \doxylink{classRenderer}{Renderer} manager to use for components of the class \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classDrawerMng_aba1dda3e1c9140d112e11a04b0479fdc}\label{classDrawerMng_aba1dda3e1c9140d112e11a04b0479fdc} 
 \index{DrawerMng@{DrawerMng}!````~DrawerMng@{$\sim$DrawerMng}}
 \index{````~DrawerMng@{$\sim$DrawerMng}!DrawerMng@{DrawerMng}}
-\doxysubsubsection{\texorpdfstring{$\sim$DrawerMng()}{~DrawerMng()}}
+\doxysubsubsection{\texorpdfstring{$\sim$DrawerMng()}{\string~DrawerMng()}}
 {\footnotesize\ttfamily Drawer\+Mng\+::$\sim$\+Drawer\+Mng (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
 
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classDrawerMng_a4f1fe84d3463b4a069b63b7fd5e8ad07}\label{classDrawerMng_a4f1fe84d3463b4a069b63b7fd5e8ad07}} 
+\Hypertarget{classDrawerMng_a4f1fe84d3463b4a069b63b7fd5e8ad07}\label{classDrawerMng_a4f1fe84d3463b4a069b63b7fd5e8ad07} 
 \index{DrawerMng@{DrawerMng}!drawFrame@{drawFrame}}
 \index{drawFrame@{drawFrame}!DrawerMng@{DrawerMng}}
 \doxysubsubsection{\texorpdfstring{drawFrame()}{drawFrame()}}
 {\footnotesize\ttfamily void Drawer\+Mng\+::draw\+Frame (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
 
-\mbox{\Hypertarget{classDrawerMng_aa1e7f791b89177f658e9a88434e386dc}\label{classDrawerMng_aa1e7f791b89177f658e9a88434e386dc}} 
+
+
+Manages the draw process of an entire fotogram. 
+
+\Hypertarget{classDrawerMng_aa1e7f791b89177f658e9a88434e386dc}\label{classDrawerMng_aa1e7f791b89177f658e9a88434e386dc} 
 \index{DrawerMng@{DrawerMng}!getTrack@{getTrack}}
 \index{getTrack@{getTrack}!DrawerMng@{DrawerMng}}
 \doxysubsubsection{\texorpdfstring{getTrack()}{getTrack()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classDemoTrack}{Demo\+Track}} \& Drawer\+Mng\+::get\+Track (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
+
+
+Get the \doxylink{classDemoTrack}{Demo\+Track}. 
+
+\begin{DoxyReturn}{Returns}
+\doxylink{classDemoTrack}{Demo\+Track}\& 
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

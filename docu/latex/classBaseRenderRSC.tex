@@ -1,5 +1,11 @@
-\hypertarget{classBaseRenderRSC}{}\doxysection{Base\+Render\+RSC Class Reference}
-\label{classBaseRenderRSC}\index{BaseRenderRSC@{BaseRenderRSC}}
+\doxysection{Base\+Render\+RSC Class Reference}
+\hypertarget{classBaseRenderRSC}{}\label{classBaseRenderRSC}\index{BaseRenderRSC@{BaseRenderRSC}}
+
+
+Base Render resources class for all Vulkan Render Resources such as Render Pass or Render Layout ~\newline
+  
+
+
 
 
 {\ttfamily \#include $<$Base\+Render\+RSC.\+hpp$>$}
@@ -10,44 +16,63 @@ Inheritance diagram for Base\+Render\+RSC\+:\begin{figure}[H]
 \includegraphics[height=3.000000cm]{classBaseRenderRSC}
 \end{center}
 \end{figure}
-\doxysubsection*{Public Member Functions}
+\doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{engineTypeAlias_8hpp_a19887e2fc4b23b6270ba2b8a90869fda}{Render\+RSCId}} \mbox{\hyperlink{classBaseRenderRSC_a1896a8051889a2e8666a50f3ce0c0581}{get\+Render\+RSCId}} ()
-\end{DoxyCompactItemize}
-\doxysubsection*{Protected Attributes}
+\mbox{\hyperlink{engineTypeAlias_8hpp_a19887e2fc4b23b6270ba2b8a90869fda}{Render\+RSCId}} \mbox{\hyperlink{classBaseRenderRSC_a92091a26a81eee5c02ec96e5c6f0a82c}{get\+Render\+Rsc\+Id}} ()
+\begin{DoxyCompactList}\small\item\em Get the Render RSC Id object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{engineTypeAlias_8hpp_a19887e2fc4b23b6270ba2b8a90869fda}{Render\+RSCId}} \mbox{\hyperlink{classBaseRenderRSC_a91fbda89dae1f331bf0a54340311a021}{rsc\+Id\+\_\+}} \{ \mbox{\hyperlink{classBaseRenderRSC_a4d6921ff5488ce3d48563c830638bc54}{RSCCounter\+\_\+}}++ \}
-\end{DoxyCompactItemize}
-\doxysubsection*{Static Protected Attributes}
+\begin{DoxyCompactList}\small\item\em Render Rsc Id. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
 static \mbox{\hyperlink{engineTypeAlias_8hpp_a19887e2fc4b23b6270ba2b8a90869fda}{Render\+RSCId}} \mbox{\hyperlink{classBaseRenderRSC_a4d6921ff5488ce3d48563c830638bc54}{RSCCounter\+\_\+}} \{ 0 \}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Common render rsc counter. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Base Render resources class for all Vulkan Render Resources such as Render Pass or Render Layout ~\newline
+ 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classBaseRenderRSC_a1896a8051889a2e8666a50f3ce0c0581}\label{classBaseRenderRSC_a1896a8051889a2e8666a50f3ce0c0581}} 
-\index{BaseRenderRSC@{BaseRenderRSC}!getRenderRSCId@{getRenderRSCId}}
-\index{getRenderRSCId@{getRenderRSCId}!BaseRenderRSC@{BaseRenderRSC}}
-\doxysubsubsection{\texorpdfstring{getRenderRSCId()}{getRenderRSCId()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{engineTypeAlias_8hpp_a19887e2fc4b23b6270ba2b8a90869fda}{Render\+RSCId}} Base\+Render\+RSC\+::get\+Render\+RSCId (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+\Hypertarget{classBaseRenderRSC_a92091a26a81eee5c02ec96e5c6f0a82c}\label{classBaseRenderRSC_a92091a26a81eee5c02ec96e5c6f0a82c} 
+\index{BaseRenderRSC@{BaseRenderRSC}!getRenderRscId@{getRenderRscId}}
+\index{getRenderRscId@{getRenderRscId}!BaseRenderRSC@{BaseRenderRSC}}
+\doxysubsubsection{\texorpdfstring{getRenderRscId()}{getRenderRscId()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{engineTypeAlias_8hpp_a19887e2fc4b23b6270ba2b8a90869fda}{Render\+RSCId}} Base\+Render\+RSC\+::get\+Render\+Rsc\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
+
+
+Get the Render RSC Id object. 
+
+\begin{DoxyReturn}{Returns}
+Render\+RSCId 
+\end{DoxyReturn}
 
 
 \doxysubsection{Member Data Documentation}
-\mbox{\Hypertarget{classBaseRenderRSC_a4d6921ff5488ce3d48563c830638bc54}\label{classBaseRenderRSC_a4d6921ff5488ce3d48563c830638bc54}} 
+\Hypertarget{classBaseRenderRSC_a4d6921ff5488ce3d48563c830638bc54}\label{classBaseRenderRSC_a4d6921ff5488ce3d48563c830638bc54} 
 \index{BaseRenderRSC@{BaseRenderRSC}!RSCCounter\_@{RSCCounter\_}}
 \index{RSCCounter\_@{RSCCounter\_}!BaseRenderRSC@{BaseRenderRSC}}
 \doxysubsubsection{\texorpdfstring{RSCCounter\_}{RSCCounter\_}}
 {\footnotesize\ttfamily \mbox{\hyperlink{engineTypeAlias_8hpp_a19887e2fc4b23b6270ba2b8a90869fda}{Render\+RSCId}} Base\+Render\+RSC\+::\+RSCCounter\+\_\+ \{ 0 \}\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [protected]}}
 
-\mbox{\Hypertarget{classBaseRenderRSC_a91fbda89dae1f331bf0a54340311a021}\label{classBaseRenderRSC_a91fbda89dae1f331bf0a54340311a021}} 
+
+
+Common render rsc counter. 
+
+\Hypertarget{classBaseRenderRSC_a91fbda89dae1f331bf0a54340311a021}\label{classBaseRenderRSC_a91fbda89dae1f331bf0a54340311a021} 
 \index{BaseRenderRSC@{BaseRenderRSC}!rscId\_@{rscId\_}}
 \index{rscId\_@{rscId\_}!BaseRenderRSC@{BaseRenderRSC}}
 \doxysubsubsection{\texorpdfstring{rscId\_}{rscId\_}}
 {\footnotesize\ttfamily \mbox{\hyperlink{engineTypeAlias_8hpp_a19887e2fc4b23b6270ba2b8a90869fda}{Render\+RSCId}} Base\+Render\+RSC\+::rsc\+Id\+\_\+ \{ \mbox{\hyperlink{classBaseRenderRSC_a4d6921ff5488ce3d48563c830638bc54}{RSCCounter\+\_\+}}++ \}\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Render Rsc Id. 
 
 
 

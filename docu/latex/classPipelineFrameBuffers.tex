@@ -1,42 +1,75 @@
-\hypertarget{classPipelineFrameBuffers}{}\doxysection{Pipeline\+Frame\+Buffers Class Reference}
-\label{classPipelineFrameBuffers}\index{PipelineFrameBuffers@{PipelineFrameBuffers}}
+\doxysection{Pipeline\+Frame\+Buffers Class Reference}
+\hypertarget{classPipelineFrameBuffers}{}\label{classPipelineFrameBuffers}\index{PipelineFrameBuffers@{PipelineFrameBuffers}}
+
+
+Class that manages a Vulkan framebuffer based on the only renderpass type created for the engine.  
+
+
 
 
 {\ttfamily \#include $<$Pipeline\+Frame\+Buffers.\+hpp$>$}
 
-\doxysubsection*{Public Member Functions}
+\doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classPipelineFrameBuffers_af14ab7c1c04dad5bf4e66cfdf63e11e3}{Pipeline\+Frame\+Buffers}} (Vk\+Device \&p\+\_\+device, Vk\+Render\+Pass \&p\+\_\+render\+Pass, \mbox{\hyperlink{classSwapchainMng}{Swapchain\+Mng}} \&p\+\_\+swap\+Chain\+Mng) noexcept
-\item 
+\begin{DoxyCompactList}\small\item\em Construct a new Pipeline Frame Buffers object. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classPipelineFrameBuffers_aed25dc1032502a486d849da5af7f11ed}{$\sim$\+Pipeline\+Frame\+Buffers}} ()
 \item 
 Vk\+Framebuffer \& \mbox{\hyperlink{classPipelineFrameBuffers_aec02d50c6d7b8f530fa0cc0b04fb18cc}{get\+Framebuffer\+By\+Index}} (uint32\+\_\+t p\+\_\+id)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Get the specific buffer of the framebuffer based on the buffer Index. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Class that manages a Vulkan framebuffer based on the only renderpass type created for the engine. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classPipelineFrameBuffers_af14ab7c1c04dad5bf4e66cfdf63e11e3}\label{classPipelineFrameBuffers_af14ab7c1c04dad5bf4e66cfdf63e11e3}} 
+\Hypertarget{classPipelineFrameBuffers_af14ab7c1c04dad5bf4e66cfdf63e11e3}\label{classPipelineFrameBuffers_af14ab7c1c04dad5bf4e66cfdf63e11e3} 
 \index{PipelineFrameBuffers@{PipelineFrameBuffers}!PipelineFrameBuffers@{PipelineFrameBuffers}}
 \index{PipelineFrameBuffers@{PipelineFrameBuffers}!PipelineFrameBuffers@{PipelineFrameBuffers}}
 \doxysubsubsection{\texorpdfstring{PipelineFrameBuffers()}{PipelineFrameBuffers()}}
 {\footnotesize\ttfamily Pipeline\+Frame\+Buffers\+::\+Pipeline\+Frame\+Buffers (\begin{DoxyParamCaption}\item[{Vk\+Device \&}]{p\+\_\+device,  }\item[{Vk\+Render\+Pass \&}]{p\+\_\+render\+Pass,  }\item[{\mbox{\hyperlink{classSwapchainMng}{Swapchain\+Mng}} \&}]{p\+\_\+swap\+Chain\+Mng }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
 
-\mbox{\Hypertarget{classPipelineFrameBuffers_aed25dc1032502a486d849da5af7f11ed}\label{classPipelineFrameBuffers_aed25dc1032502a486d849da5af7f11ed}} 
+
+
+Construct a new Pipeline Frame Buffers object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+device} & Vulkan Device for creating the framebuffer \\
+\hline
+{\em p\+\_\+render\+Pass} & Vulkan Render Pass to create the framebuffer from \\
+\hline
+{\em p\+\_\+swap\+Chain\+Mng} & Swapchain Manager for getting the images for the framebuffer \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classPipelineFrameBuffers_aed25dc1032502a486d849da5af7f11ed}\label{classPipelineFrameBuffers_aed25dc1032502a486d849da5af7f11ed} 
 \index{PipelineFrameBuffers@{PipelineFrameBuffers}!````~PipelineFrameBuffers@{$\sim$PipelineFrameBuffers}}
 \index{````~PipelineFrameBuffers@{$\sim$PipelineFrameBuffers}!PipelineFrameBuffers@{PipelineFrameBuffers}}
-\doxysubsubsection{\texorpdfstring{$\sim$PipelineFrameBuffers()}{~PipelineFrameBuffers()}}
+\doxysubsubsection{\texorpdfstring{$\sim$PipelineFrameBuffers()}{\string~PipelineFrameBuffers()}}
 {\footnotesize\ttfamily Pipeline\+Frame\+Buffers\+::$\sim$\+Pipeline\+Frame\+Buffers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classPipelineFrameBuffers_aec02d50c6d7b8f530fa0cc0b04fb18cc}\label{classPipelineFrameBuffers_aec02d50c6d7b8f530fa0cc0b04fb18cc}} 
+\Hypertarget{classPipelineFrameBuffers_aec02d50c6d7b8f530fa0cc0b04fb18cc}\label{classPipelineFrameBuffers_aec02d50c6d7b8f530fa0cc0b04fb18cc} 
 \index{PipelineFrameBuffers@{PipelineFrameBuffers}!getFramebufferByIndex@{getFramebufferByIndex}}
 \index{getFramebufferByIndex@{getFramebufferByIndex}!PipelineFrameBuffers@{PipelineFrameBuffers}}
 \doxysubsubsection{\texorpdfstring{getFramebufferByIndex()}{getFramebufferByIndex()}}
 {\footnotesize\ttfamily Vk\+Framebuffer \& Pipeline\+Frame\+Buffers\+::get\+Framebuffer\+By\+Index (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{p\+\_\+id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
+
+
+Get the specific buffer of the framebuffer based on the buffer Index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+id} & Index of th ebuffer to get \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vk\+Framebuffer\& 
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

@@ -1,92 +1,136 @@
-\hypertarget{structGraphicPipelineConfig}{}\doxysection{Graphic\+Pipeline\+Config Struct Reference}
-\label{structGraphicPipelineConfig}\index{GraphicPipelineConfig@{GraphicPipelineConfig}}
+\doxysection{Graphic\+Pipeline\+Config Struct Reference}
+\hypertarget{structGraphicPipelineConfig}{}\label{structGraphicPipelineConfig}\index{GraphicPipelineConfig@{GraphicPipelineConfig}}
+
+
+Class that contains all the basic Render Pipeline Configuration.  
+
+
 
 
 {\ttfamily \#include $<$Graphic\+Pipeline\+Config.\+hpp$>$}
 
-\doxysubsection*{Public Member Functions}
+\doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{structGraphicPipelineConfig_a1c8dec733173ef176ecd8cf555d48e4f}{Graphic\+Pipeline\+Config}} () noexcept
-\item 
+\begin{DoxyCompactList}\small\item\em Construct a new Graphic Pipeline Config object and inits all the config states. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{structGraphicPipelineConfig_a432465e3a028a2181ead1b30f5e52fe8}{$\sim$\+Graphic\+Pipeline\+Config}} ()=default
-\end{DoxyCompactItemize}
-\doxysubsection*{Public Attributes}
+\begin{DoxyCompactList}\small\item\em Destroy the Graphic Pipeline Config. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 Vk\+Pipeline\+Dynamic\+State\+Create\+Info \mbox{\hyperlink{structGraphicPipelineConfig_a8c9d5b8925a4a39f7d4aec8db03fc606}{dynamic\+Info\+\_\+}} \{\}
-\item 
+\begin{DoxyCompactList}\small\item\em Dynamic States info Config. \end{DoxyCompactList}\item 
 Vk\+Pipeline\+Vertex\+Input\+State\+Create\+Info \mbox{\hyperlink{structGraphicPipelineConfig_afde9f4c7bd3640ce343125d1b38457f8}{vertex\+Input\+Info\+\_\+}} \{\}
-\item 
+\begin{DoxyCompactList}\small\item\em Vertex Input Config. \end{DoxyCompactList}\item 
 Vk\+Pipeline\+Input\+Assembly\+State\+Create\+Info \mbox{\hyperlink{structGraphicPipelineConfig_afdbb0f0e4651c358619e36e4670c0b2d}{assembly\+Info\+\_\+}} \{\}
-\item 
+\begin{DoxyCompactList}\small\item\em Input Assembly Config. \end{DoxyCompactList}\item 
 Vk\+Pipeline\+Viewport\+State\+Create\+Info \mbox{\hyperlink{structGraphicPipelineConfig_ab72f9ea996c56761c1215c8ffecc3fd5}{viewport\+Scissor\+Info\+\_\+}} \{\}
-\item 
+\begin{DoxyCompactList}\small\item\em Viewport \& Scissor Config. \end{DoxyCompactList}\item 
 Vk\+Pipeline\+Rasterization\+State\+Create\+Info \mbox{\hyperlink{structGraphicPipelineConfig_a4bf2c1b81cafb7b612693920928dd218}{raster\+Info\+\_\+}} \{\}
-\item 
+\begin{DoxyCompactList}\small\item\em Raster Config. \end{DoxyCompactList}\item 
 Vk\+Pipeline\+Multisample\+State\+Create\+Info \mbox{\hyperlink{structGraphicPipelineConfig_a60dd0280a47bd5728b0ff60e1dd90e3e}{msaa\+Info\+\_\+}} \{\}
-\item 
+\begin{DoxyCompactList}\small\item\em Multisample Config. \end{DoxyCompactList}\item 
 Vk\+Pipeline\+Color\+Blend\+State\+Create\+Info \mbox{\hyperlink{structGraphicPipelineConfig_a3274982a44997179b773f845a898a58e}{color\+Info\+\_\+}} \{\}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Color Blend Config. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Class that contains all the basic Render Pipeline Configuration. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{structGraphicPipelineConfig_a1c8dec733173ef176ecd8cf555d48e4f}\label{structGraphicPipelineConfig_a1c8dec733173ef176ecd8cf555d48e4f}} 
+\Hypertarget{structGraphicPipelineConfig_a1c8dec733173ef176ecd8cf555d48e4f}\label{structGraphicPipelineConfig_a1c8dec733173ef176ecd8cf555d48e4f} 
 \index{GraphicPipelineConfig@{GraphicPipelineConfig}!GraphicPipelineConfig@{GraphicPipelineConfig}}
 \index{GraphicPipelineConfig@{GraphicPipelineConfig}!GraphicPipelineConfig@{GraphicPipelineConfig}}
 \doxysubsubsection{\texorpdfstring{GraphicPipelineConfig()}{GraphicPipelineConfig()}}
 {\footnotesize\ttfamily Graphic\+Pipeline\+Config\+::\+Graphic\+Pipeline\+Config (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
 
-\mbox{\Hypertarget{structGraphicPipelineConfig_a432465e3a028a2181ead1b30f5e52fe8}\label{structGraphicPipelineConfig_a432465e3a028a2181ead1b30f5e52fe8}} 
+
+
+Construct a new Graphic Pipeline Config object and inits all the config states. 
+
+\Hypertarget{structGraphicPipelineConfig_a432465e3a028a2181ead1b30f5e52fe8}\label{structGraphicPipelineConfig_a432465e3a028a2181ead1b30f5e52fe8} 
 \index{GraphicPipelineConfig@{GraphicPipelineConfig}!````~GraphicPipelineConfig@{$\sim$GraphicPipelineConfig}}
 \index{````~GraphicPipelineConfig@{$\sim$GraphicPipelineConfig}!GraphicPipelineConfig@{GraphicPipelineConfig}}
-\doxysubsubsection{\texorpdfstring{$\sim$GraphicPipelineConfig()}{~GraphicPipelineConfig()}}
+\doxysubsubsection{\texorpdfstring{$\sim$GraphicPipelineConfig()}{\string~GraphicPipelineConfig()}}
 {\footnotesize\ttfamily Graphic\+Pipeline\+Config\+::$\sim$\+Graphic\+Pipeline\+Config (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
 
 
 
+Destroy the Graphic Pipeline Config. 
+
+
+
 \doxysubsection{Member Data Documentation}
-\mbox{\Hypertarget{structGraphicPipelineConfig_afdbb0f0e4651c358619e36e4670c0b2d}\label{structGraphicPipelineConfig_afdbb0f0e4651c358619e36e4670c0b2d}} 
+\Hypertarget{structGraphicPipelineConfig_afdbb0f0e4651c358619e36e4670c0b2d}\label{structGraphicPipelineConfig_afdbb0f0e4651c358619e36e4670c0b2d} 
 \index{GraphicPipelineConfig@{GraphicPipelineConfig}!assemblyInfo\_@{assemblyInfo\_}}
 \index{assemblyInfo\_@{assemblyInfo\_}!GraphicPipelineConfig@{GraphicPipelineConfig}}
 \doxysubsubsection{\texorpdfstring{assemblyInfo\_}{assemblyInfo\_}}
 {\footnotesize\ttfamily Vk\+Pipeline\+Input\+Assembly\+State\+Create\+Info Graphic\+Pipeline\+Config\+::assembly\+Info\+\_\+ \{\}}
 
-\mbox{\Hypertarget{structGraphicPipelineConfig_a3274982a44997179b773f845a898a58e}\label{structGraphicPipelineConfig_a3274982a44997179b773f845a898a58e}} 
+
+
+Input Assembly Config. 
+
+\Hypertarget{structGraphicPipelineConfig_a3274982a44997179b773f845a898a58e}\label{structGraphicPipelineConfig_a3274982a44997179b773f845a898a58e} 
 \index{GraphicPipelineConfig@{GraphicPipelineConfig}!colorInfo\_@{colorInfo\_}}
 \index{colorInfo\_@{colorInfo\_}!GraphicPipelineConfig@{GraphicPipelineConfig}}
 \doxysubsubsection{\texorpdfstring{colorInfo\_}{colorInfo\_}}
 {\footnotesize\ttfamily Vk\+Pipeline\+Color\+Blend\+State\+Create\+Info Graphic\+Pipeline\+Config\+::color\+Info\+\_\+ \{\}}
 
-\mbox{\Hypertarget{structGraphicPipelineConfig_a8c9d5b8925a4a39f7d4aec8db03fc606}\label{structGraphicPipelineConfig_a8c9d5b8925a4a39f7d4aec8db03fc606}} 
+
+
+Color Blend Config. 
+
+\Hypertarget{structGraphicPipelineConfig_a8c9d5b8925a4a39f7d4aec8db03fc606}\label{structGraphicPipelineConfig_a8c9d5b8925a4a39f7d4aec8db03fc606} 
 \index{GraphicPipelineConfig@{GraphicPipelineConfig}!dynamicInfo\_@{dynamicInfo\_}}
 \index{dynamicInfo\_@{dynamicInfo\_}!GraphicPipelineConfig@{GraphicPipelineConfig}}
 \doxysubsubsection{\texorpdfstring{dynamicInfo\_}{dynamicInfo\_}}
 {\footnotesize\ttfamily Vk\+Pipeline\+Dynamic\+State\+Create\+Info Graphic\+Pipeline\+Config\+::dynamic\+Info\+\_\+ \{\}}
 
-\mbox{\Hypertarget{structGraphicPipelineConfig_a60dd0280a47bd5728b0ff60e1dd90e3e}\label{structGraphicPipelineConfig_a60dd0280a47bd5728b0ff60e1dd90e3e}} 
+
+
+Dynamic States info Config. 
+
+\Hypertarget{structGraphicPipelineConfig_a60dd0280a47bd5728b0ff60e1dd90e3e}\label{structGraphicPipelineConfig_a60dd0280a47bd5728b0ff60e1dd90e3e} 
 \index{GraphicPipelineConfig@{GraphicPipelineConfig}!msaaInfo\_@{msaaInfo\_}}
 \index{msaaInfo\_@{msaaInfo\_}!GraphicPipelineConfig@{GraphicPipelineConfig}}
 \doxysubsubsection{\texorpdfstring{msaaInfo\_}{msaaInfo\_}}
 {\footnotesize\ttfamily Vk\+Pipeline\+Multisample\+State\+Create\+Info Graphic\+Pipeline\+Config\+::msaa\+Info\+\_\+ \{\}}
 
-\mbox{\Hypertarget{structGraphicPipelineConfig_a4bf2c1b81cafb7b612693920928dd218}\label{structGraphicPipelineConfig_a4bf2c1b81cafb7b612693920928dd218}} 
+
+
+Multisample Config. 
+
+\Hypertarget{structGraphicPipelineConfig_a4bf2c1b81cafb7b612693920928dd218}\label{structGraphicPipelineConfig_a4bf2c1b81cafb7b612693920928dd218} 
 \index{GraphicPipelineConfig@{GraphicPipelineConfig}!rasterInfo\_@{rasterInfo\_}}
 \index{rasterInfo\_@{rasterInfo\_}!GraphicPipelineConfig@{GraphicPipelineConfig}}
 \doxysubsubsection{\texorpdfstring{rasterInfo\_}{rasterInfo\_}}
 {\footnotesize\ttfamily Vk\+Pipeline\+Rasterization\+State\+Create\+Info Graphic\+Pipeline\+Config\+::raster\+Info\+\_\+ \{\}}
 
-\mbox{\Hypertarget{structGraphicPipelineConfig_afde9f4c7bd3640ce343125d1b38457f8}\label{structGraphicPipelineConfig_afde9f4c7bd3640ce343125d1b38457f8}} 
+
+
+Raster Config. 
+
+\Hypertarget{structGraphicPipelineConfig_afde9f4c7bd3640ce343125d1b38457f8}\label{structGraphicPipelineConfig_afde9f4c7bd3640ce343125d1b38457f8} 
 \index{GraphicPipelineConfig@{GraphicPipelineConfig}!vertexInputInfo\_@{vertexInputInfo\_}}
 \index{vertexInputInfo\_@{vertexInputInfo\_}!GraphicPipelineConfig@{GraphicPipelineConfig}}
 \doxysubsubsection{\texorpdfstring{vertexInputInfo\_}{vertexInputInfo\_}}
 {\footnotesize\ttfamily Vk\+Pipeline\+Vertex\+Input\+State\+Create\+Info Graphic\+Pipeline\+Config\+::vertex\+Input\+Info\+\_\+ \{\}}
 
-\mbox{\Hypertarget{structGraphicPipelineConfig_ab72f9ea996c56761c1215c8ffecc3fd5}\label{structGraphicPipelineConfig_ab72f9ea996c56761c1215c8ffecc3fd5}} 
+
+
+Vertex Input Config. 
+
+\Hypertarget{structGraphicPipelineConfig_ab72f9ea996c56761c1215c8ffecc3fd5}\label{structGraphicPipelineConfig_ab72f9ea996c56761c1215c8ffecc3fd5} 
 \index{GraphicPipelineConfig@{GraphicPipelineConfig}!viewportScissorInfo\_@{viewportScissorInfo\_}}
 \index{viewportScissorInfo\_@{viewportScissorInfo\_}!GraphicPipelineConfig@{GraphicPipelineConfig}}
 \doxysubsubsection{\texorpdfstring{viewportScissorInfo\_}{viewportScissorInfo\_}}
 {\footnotesize\ttfamily Vk\+Pipeline\+Viewport\+State\+Create\+Info Graphic\+Pipeline\+Config\+::viewport\+Scissor\+Info\+\_\+ \{\}}
+
+
+
+Viewport \& Scissor Config. 
 
 
 

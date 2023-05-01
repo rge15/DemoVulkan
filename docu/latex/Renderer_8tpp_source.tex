@@ -1,0 +1,101 @@
+\doxysection{Renderer.\+tpp}
+\hypertarget{Renderer_8tpp_source}{}\label{Renderer_8tpp_source}\index{src/Engine/Renderer.tpp@{src/Engine/Renderer.tpp}}
+\mbox{\hyperlink{Renderer_8tpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ template<typename...\ Layouts>}
+\DoxyCodeLine{00002\ Renderer<Layouts...>::Renderer(Driver\&\ p\_driver)}
+\DoxyCodeLine{00003\ :\ driver\_\ \{\ p\_driver\ \}}
+\DoxyCodeLine{00004\ \{}
+\DoxyCodeLine{00005\ \ \ \ \ auto\&\ device\ \ \ \ =\ driver\_.getDeviceManager().getDevice();}
+\DoxyCodeLine{00006\ \ \ \ \ auto\&\ swapMng\ \ \ =\ driver\_.getSwapchainManager();}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \ \ \ \ renderPass\_\ =\ std::make\_unique<BasicRenderPass>(\ device,\ swapMng\ );}
+\DoxyCodeLine{00009\ \ \ \ \ auto\&\ rndPass\ =\ renderPass\_.get()-\/>getRenderPass();}
+\DoxyCodeLine{00010\ \ \ \ \ framebuffer\_\ =\ std::make\_unique<PipelineFrameBuffers>(\ device,\ rndPass,\ swapMng);}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \ \ \ \ initializeLayouts();}
+\DoxyCodeLine{00013\ \}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ //-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}
+\DoxyCodeLine{00016\ //-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ template<typename...\ Layouts>}
+\DoxyCodeLine{00019\ void}
+\DoxyCodeLine{00020\ Renderer<Layouts...>::initializeLayouts()}
+\DoxyCodeLine{00021\ \{}
+\DoxyCodeLine{00022\ \ \ \ \ auto\&\ device\ \ \ \ =\ driver\_.getDeviceManager().getDevice();}
+\DoxyCodeLine{00023\ \ \ \ \ auto\&\ swapMng\ \ \ =\ driver\_.getSwapchainManager();}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ auto\ initLayout\ =\ [\&]\ <typename\ T>\ ()}
+\DoxyCodeLine{00026\ \ \ \ \ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ std::get<UniqPtr<T>>(renderLayoutTuple\_)\ =\ std::make\_unique<T>(device,swapMng);}
+\DoxyCodeLine{00028\ \ \ \ \ \};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ (initLayout.template\ operator()<Layouts>(),...);}
+\DoxyCodeLine{00031\ \}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ //-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}
+\DoxyCodeLine{00035\ //-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ template<typename...\ Layouts>}
+\DoxyCodeLine{00038\ void}
+\DoxyCodeLine{00039\ Renderer<Layouts...>::initRenderPass(\ uint32\_t\ p\_imageId,\ VkCommandBuffer\&\ p\_cmd\ )\ noexcept}
+\DoxyCodeLine{00040\ \{}
+\DoxyCodeLine{00041\ \ \ \ \ auto\&\ vkRenderPass\ \ =\ renderPass\_.get()-\/>getRenderPass();}
+\DoxyCodeLine{00042\ \ \ \ \ auto\&\ frameBuffer\ \ \ =\ framebuffer\_.get()-\/>getFramebufferByIndex(\ p\_imageId\ );}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ auto\&\ swapInfo\ =\ driver\_.getSwapchainManager().getSwapchainInfo();}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ VkRenderPassBeginInfo\ \_beginInfo\ \{\};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \_beginInfo.sType\ =\ VK\_STRUCTURE\_TYPE\_RENDER\_PASS\_BEGIN\_INFO;}
+\DoxyCodeLine{00049\ \ \ \ \ \_beginInfo.pNext\ =\ nullptr;}
+\DoxyCodeLine{00050\ \ \ \ \ }
+\DoxyCodeLine{00051\ \ \ \ \ \_beginInfo.renderPass\ =\ vkRenderPass;}
+\DoxyCodeLine{00052\ \ \ \ \ \_beginInfo.framebuffer\ =\ frameBuffer;}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ \_beginInfo.renderArea.offset\ =\ \{\ 0,\ 0\ \};}
+\DoxyCodeLine{00055\ \ \ \ \ \_beginInfo.renderArea.extent\ =\ swapInfo.imageExtent;}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \_beginInfo.clearValueCount\ =\ 1;}
+\DoxyCodeLine{00058\ \ \ \ \ VkClearValue\ blackColor\ \{0.f,0.f,0.f,1.f\};}
+\DoxyCodeLine{00059\ \ \ \ \ \_beginInfo.pClearValues\ =\ \&blackColor;}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ vkCmdBeginRenderPass(\ p\_cmd,\ \&\_beginInfo,\ VK\_SUBPASS\_CONTENTS\_INLINE\ );}
+\DoxyCodeLine{00062\ \}}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ //-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}
+\DoxyCodeLine{00065\ //-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ template<typename...\ Layouts>}
+\DoxyCodeLine{00068\ template<typename\ T>}
+\DoxyCodeLine{00069\ T\&}
+\DoxyCodeLine{00070\ Renderer<Layouts...>::getPipeLayoutMng()}
+\DoxyCodeLine{00071\ \{}
+\DoxyCodeLine{00072\ \ \ \ \ return\ *std::get<UniqPtr<T>>(renderLayoutTuple\_).get();}
+\DoxyCodeLine{00073\ \}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ //-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}
+\DoxyCodeLine{00076\ //-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ template<typename...\ Layouts>}
+\DoxyCodeLine{00079\ VkPipelineLayout\&}
+\DoxyCodeLine{00080\ Renderer<Layouts...>::getLayout(\ LayoutTypes\ p\_type\ )}
+\DoxyCodeLine{00081\ \{}
+\DoxyCodeLine{00082\ \ \ \ \ if(p\_type\ ==\ LayoutTypes::BasicLayout)}
+\DoxyCodeLine{00083\ \ \ \ \ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ auto\&\ layoutMng\ =\ getPipeLayoutMng<BasicPipelineLayout>();}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ return\ layoutMng.getLayout();}
+\DoxyCodeLine{00086\ \ \ \ \ \}else\ if(\ p\_type\ ==\ LayoutTypes::ImageLayout\ )}
+\DoxyCodeLine{00087\ \ \ \ \ \{}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ auto\&\ layoutMng\ =\ getPipeLayoutMng<ImagePipelineLayout>();}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ return\ layoutMng.getLayout();}
+\DoxyCodeLine{00090\ \ \ \ \ \}else}
+\DoxyCodeLine{00091\ \ \ \ \ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ printf("{}There's\ no\ valid\ Layout\ of\ that\ type"{});}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ assert(false);}
+\DoxyCodeLine{00094\ \ \ \ \ \}}
+\DoxyCodeLine{00095\ \}}
+
+\end{DoxyCode}

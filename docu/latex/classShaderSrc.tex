@@ -1,42 +1,74 @@
-\hypertarget{classShaderSrc}{}\doxysection{Shader\+Src Class Reference}
-\label{classShaderSrc}\index{ShaderSrc@{ShaderSrc}}
+\doxysection{Shader\+Src Class Reference}
+\hypertarget{classShaderSrc}{}\label{classShaderSrc}\index{ShaderSrc@{ShaderSrc}}
+
+
+Class resource for managing all the information of each shader file.  
+
+
 
 
 {\ttfamily \#include $<$Shader\+Src.\+hpp$>$}
 
-\doxysubsection*{Public Member Functions}
+\doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classShaderSrc_a9d18decd013cf9818e02ae524c9a5a12}{Shader\+Src}} (Vk\+Device \&p\+\_\+device, \mbox{\hyperlink{typeAliases_8hpp_a5573b97b9e5129f61d289e037d7e806c}{String}} \&\&p\+\_\+file\+Path, Vk\+Shader\+Stage\+Flag\+Bits p\+\_\+shader\+Stage=VK\+\_\+\+SHADER\+\_\+\+STAGE\+\_\+\+VERTEX\+\_\+\+BIT) noexcept
-\item 
+\begin{DoxyCompactList}\small\item\em Construct a new Shader Src object. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classShaderSrc_a1fa73f090a5840ccb7c20bac72f09898}{$\sim$\+Shader\+Src}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Destroy the Shader Src object and destroys the shader module obj. \end{DoxyCompactList}\item 
 Vk\+Pipeline\+Shader\+Stage\+Create\+Info \mbox{\hyperlink{classShaderSrc_a88775b1695c52facc41cf4b937115d5c}{get\+Shader\+Stage\+Info}} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Get the Shader Stage Info object. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Class resource for managing all the information of each shader file. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classShaderSrc_a9d18decd013cf9818e02ae524c9a5a12}\label{classShaderSrc_a9d18decd013cf9818e02ae524c9a5a12}} 
+\Hypertarget{classShaderSrc_a9d18decd013cf9818e02ae524c9a5a12}\label{classShaderSrc_a9d18decd013cf9818e02ae524c9a5a12} 
 \index{ShaderSrc@{ShaderSrc}!ShaderSrc@{ShaderSrc}}
 \index{ShaderSrc@{ShaderSrc}!ShaderSrc@{ShaderSrc}}
 \doxysubsubsection{\texorpdfstring{ShaderSrc()}{ShaderSrc()}}
 {\footnotesize\ttfamily Shader\+Src\+::\+Shader\+Src (\begin{DoxyParamCaption}\item[{Vk\+Device \&}]{p\+\_\+device,  }\item[{\mbox{\hyperlink{typeAliases_8hpp_a5573b97b9e5129f61d289e037d7e806c}{String}} \&\&}]{p\+\_\+file\+Path,  }\item[{Vk\+Shader\+Stage\+Flag\+Bits}]{p\+\_\+shader\+Stage = {\ttfamily VK\+\_\+SHADER\+\_\+STAGE\+\_\+VERTEX\+\_\+BIT} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
 
-\mbox{\Hypertarget{classShaderSrc_a1fa73f090a5840ccb7c20bac72f09898}\label{classShaderSrc_a1fa73f090a5840ccb7c20bac72f09898}} 
+
+
+Construct a new Shader Src object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+device} & Device to create the shader with \\
+\hline
+{\em p\+\_\+file\+Path} & Path to the SPIR-\/V file with the shader binary \\
+\hline
+{\em p\+\_\+shader\+Stage} & Corresponding Shader Stage of the shader RSC (Vertex Shader by default) \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classShaderSrc_a1fa73f090a5840ccb7c20bac72f09898}\label{classShaderSrc_a1fa73f090a5840ccb7c20bac72f09898} 
 \index{ShaderSrc@{ShaderSrc}!````~ShaderSrc@{$\sim$ShaderSrc}}
 \index{````~ShaderSrc@{$\sim$ShaderSrc}!ShaderSrc@{ShaderSrc}}
-\doxysubsubsection{\texorpdfstring{$\sim$ShaderSrc()}{~ShaderSrc()}}
+\doxysubsubsection{\texorpdfstring{$\sim$ShaderSrc()}{\string~ShaderSrc()}}
 {\footnotesize\ttfamily Shader\+Src\+::$\sim$\+Shader\+Src (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
+Destroy the Shader Src object and destroys the shader module obj. 
+
+
+
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classShaderSrc_a88775b1695c52facc41cf4b937115d5c}\label{classShaderSrc_a88775b1695c52facc41cf4b937115d5c}} 
+\Hypertarget{classShaderSrc_a88775b1695c52facc41cf4b937115d5c}\label{classShaderSrc_a88775b1695c52facc41cf4b937115d5c} 
 \index{ShaderSrc@{ShaderSrc}!getShaderStageInfo@{getShaderStageInfo}}
 \index{getShaderStageInfo@{getShaderStageInfo}!ShaderSrc@{ShaderSrc}}
 \doxysubsubsection{\texorpdfstring{getShaderStageInfo()}{getShaderStageInfo()}}
 {\footnotesize\ttfamily Vk\+Pipeline\+Shader\+Stage\+Create\+Info Shader\+Src\+::get\+Shader\+Stage\+Info (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
+
+
+Get the Shader Stage Info object. 
+
+\begin{DoxyReturn}{Returns}
+Vk\+Pipeline\+Shader\+Stage\+Create\+Info 
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

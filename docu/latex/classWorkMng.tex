@@ -1,81 +1,123 @@
-\hypertarget{classWorkMng}{}\doxysection{Work\+Mng Class Reference}
-\label{classWorkMng}\index{WorkMng@{WorkMng}}
+\doxysection{Work\+Mng Class Reference}
+\hypertarget{classWorkMng}{}\label{classWorkMng}\index{WorkMng@{WorkMng}}
 
 
 {\ttfamily \#include $<$Work\+Mng.\+hpp$>$}
 
-\doxysubsection*{Public Member Functions}
+\doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classWorkMng_adc38c975ec30c720822f08d3bebc70bc}{Work\+Mng}} (Vk\+Device \&p\+\_\+device\+Mng) noexcept
-\item 
+\begin{DoxyCompactList}\small\item\em Construct a new Work Mng object. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classWorkMng_ad2bb977d4d410e6caa07fe8aad248b29}{$\sim$\+Work\+Mng}} ()
-\item 
-void \mbox{\hyperlink{classWorkMng_a129a90668f6bf1d7982d9ee018a240ff}{draw\+Frame}} ()
-\item 
-uint32\+\_\+t \mbox{\hyperlink{classWorkMng_a3827776bb6d3ef057a4c3fd861f128d7}{get\+Frame\+Buffer\+Index}} (Vk\+Swapchain\+KHR \&p\+\_\+swap)
-\item 
+\begin{DoxyCompactList}\small\item\em Destroy the Work Mng object. It destroys all the sync objets ( fence \& semaphores ) \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{classWorkMng_a0982582e59bc2f4dc4b26ee52ef6e9f9}{get\+Image\+Buffer\+Index}} (Vk\+Swapchain\+KHR \&p\+\_\+swap)
+\begin{DoxyCompactList}\small\item\em Get the next Swapchain Img Index for rendering into. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classWorkMng_af5558cba9fc0a1da911ce0f809349f67}{wait\+Buffer\+Sync}} () noexcept
-\item 
+\begin{DoxyCompactList}\small\item\em Method that syncs and waits for the fence objects. \end{DoxyCompactList}\item 
 Vk\+Semaphore \& \mbox{\hyperlink{classWorkMng_ac929c104667321bfa479281de198a4a5}{get\+Img\+Available\+Semaphore}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Get the Img Available Semaphore object. \end{DoxyCompactList}\item 
 Vk\+Semaphore \& \mbox{\hyperlink{classWorkMng_a54f009c438c543aa049b22219ea7e970}{get\+Img\+Rendered\+Semaphore}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Get the Img Rendered Semaphore object. \end{DoxyCompactList}\item 
 Vk\+Fence \& \mbox{\hyperlink{classWorkMng_a6bd471ade0ebfa6198b11da6768bfe6f}{get\+Cmd\+Available\+Fence}} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Get the Cmd Available Fence object. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classWorkMng_adc38c975ec30c720822f08d3bebc70bc}\label{classWorkMng_adc38c975ec30c720822f08d3bebc70bc}} 
+\Hypertarget{classWorkMng_adc38c975ec30c720822f08d3bebc70bc}\label{classWorkMng_adc38c975ec30c720822f08d3bebc70bc} 
 \index{WorkMng@{WorkMng}!WorkMng@{WorkMng}}
 \index{WorkMng@{WorkMng}!WorkMng@{WorkMng}}
 \doxysubsubsection{\texorpdfstring{WorkMng()}{WorkMng()}}
 {\footnotesize\ttfamily Work\+Mng\+::\+Work\+Mng (\begin{DoxyParamCaption}\item[{Vk\+Device \&}]{p\+\_\+device\+Mng }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}, {\ttfamily [noexcept]}}
 
-\mbox{\Hypertarget{classWorkMng_ad2bb977d4d410e6caa07fe8aad248b29}\label{classWorkMng_ad2bb977d4d410e6caa07fe8aad248b29}} 
+
+
+Construct a new Work Mng object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+device\+Mng} & Reference to the Vulkan Logical Device to synchronize \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classWorkMng_ad2bb977d4d410e6caa07fe8aad248b29}\label{classWorkMng_ad2bb977d4d410e6caa07fe8aad248b29} 
 \index{WorkMng@{WorkMng}!````~WorkMng@{$\sim$WorkMng}}
 \index{````~WorkMng@{$\sim$WorkMng}!WorkMng@{WorkMng}}
-\doxysubsubsection{\texorpdfstring{$\sim$WorkMng()}{~WorkMng()}}
+\doxysubsubsection{\texorpdfstring{$\sim$WorkMng()}{\string~WorkMng()}}
 {\footnotesize\ttfamily Work\+Mng\+::$\sim$\+Work\+Mng (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
-\doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classWorkMng_a129a90668f6bf1d7982d9ee018a240ff}\label{classWorkMng_a129a90668f6bf1d7982d9ee018a240ff}} 
-\index{WorkMng@{WorkMng}!drawFrame@{drawFrame}}
-\index{drawFrame@{drawFrame}!WorkMng@{WorkMng}}
-\doxysubsubsection{\texorpdfstring{drawFrame()}{drawFrame()}}
-{\footnotesize\ttfamily void Work\+Mng\+::draw\+Frame (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+Destroy the Work Mng object. It destroys all the sync objets ( fence \& semaphores ) 
 
-\mbox{\Hypertarget{classWorkMng_a6bd471ade0ebfa6198b11da6768bfe6f}\label{classWorkMng_a6bd471ade0ebfa6198b11da6768bfe6f}} 
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classWorkMng_a6bd471ade0ebfa6198b11da6768bfe6f}\label{classWorkMng_a6bd471ade0ebfa6198b11da6768bfe6f} 
 \index{WorkMng@{WorkMng}!getCmdAvailableFence@{getCmdAvailableFence}}
 \index{getCmdAvailableFence@{getCmdAvailableFence}!WorkMng@{WorkMng}}
 \doxysubsubsection{\texorpdfstring{getCmdAvailableFence()}{getCmdAvailableFence()}}
 {\footnotesize\ttfamily Vk\+Fence \& Work\+Mng\+::get\+Cmd\+Available\+Fence (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-\mbox{\Hypertarget{classWorkMng_a3827776bb6d3ef057a4c3fd861f128d7}\label{classWorkMng_a3827776bb6d3ef057a4c3fd861f128d7}} 
-\index{WorkMng@{WorkMng}!getFrameBufferIndex@{getFrameBufferIndex}}
-\index{getFrameBufferIndex@{getFrameBufferIndex}!WorkMng@{WorkMng}}
-\doxysubsubsection{\texorpdfstring{getFrameBufferIndex()}{getFrameBufferIndex()}}
-{\footnotesize\ttfamily uint32\+\_\+t Work\+Mng\+::get\+Frame\+Buffer\+Index (\begin{DoxyParamCaption}\item[{Vk\+Swapchain\+KHR \&}]{p\+\_\+swap }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{classWorkMng_ac929c104667321bfa479281de198a4a5}\label{classWorkMng_ac929c104667321bfa479281de198a4a5}} 
+
+Get the Cmd Available Fence object. 
+
+\begin{DoxyReturn}{Returns}
+Vk\+Fence\& 
+\end{DoxyReturn}
+\Hypertarget{classWorkMng_a0982582e59bc2f4dc4b26ee52ef6e9f9}\label{classWorkMng_a0982582e59bc2f4dc4b26ee52ef6e9f9} 
+\index{WorkMng@{WorkMng}!getImageBufferIndex@{getImageBufferIndex}}
+\index{getImageBufferIndex@{getImageBufferIndex}!WorkMng@{WorkMng}}
+\doxysubsubsection{\texorpdfstring{getImageBufferIndex()}{getImageBufferIndex()}}
+{\footnotesize\ttfamily uint32\+\_\+t Work\+Mng\+::get\+Image\+Buffer\+Index (\begin{DoxyParamCaption}\item[{Vk\+Swapchain\+KHR \&}]{p\+\_\+swap }\end{DoxyParamCaption})}
+
+
+
+Get the next Swapchain Img Index for rendering into. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+swap} & Vulkan Swapchain obj \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint32\+\_\+t Swapchain Image id to render 
+\end{DoxyReturn}
+\Hypertarget{classWorkMng_ac929c104667321bfa479281de198a4a5}\label{classWorkMng_ac929c104667321bfa479281de198a4a5} 
 \index{WorkMng@{WorkMng}!getImgAvailableSemaphore@{getImgAvailableSemaphore}}
 \index{getImgAvailableSemaphore@{getImgAvailableSemaphore}!WorkMng@{WorkMng}}
 \doxysubsubsection{\texorpdfstring{getImgAvailableSemaphore()}{getImgAvailableSemaphore()}}
 {\footnotesize\ttfamily Vk\+Semaphore \& Work\+Mng\+::get\+Img\+Available\+Semaphore (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-\mbox{\Hypertarget{classWorkMng_a54f009c438c543aa049b22219ea7e970}\label{classWorkMng_a54f009c438c543aa049b22219ea7e970}} 
+
+
+Get the Img Available Semaphore object. 
+
+\begin{DoxyReturn}{Returns}
+Vk\+Semaphore\& 
+\end{DoxyReturn}
+\Hypertarget{classWorkMng_a54f009c438c543aa049b22219ea7e970}\label{classWorkMng_a54f009c438c543aa049b22219ea7e970} 
 \index{WorkMng@{WorkMng}!getImgRenderedSemaphore@{getImgRenderedSemaphore}}
 \index{getImgRenderedSemaphore@{getImgRenderedSemaphore}!WorkMng@{WorkMng}}
 \doxysubsubsection{\texorpdfstring{getImgRenderedSemaphore()}{getImgRenderedSemaphore()}}
 {\footnotesize\ttfamily Vk\+Semaphore \& Work\+Mng\+::get\+Img\+Rendered\+Semaphore (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-\mbox{\Hypertarget{classWorkMng_af5558cba9fc0a1da911ce0f809349f67}\label{classWorkMng_af5558cba9fc0a1da911ce0f809349f67}} 
+
+
+Get the Img Rendered Semaphore object. 
+
+\begin{DoxyReturn}{Returns}
+Vk\+Semaphore\& 
+\end{DoxyReturn}
+\Hypertarget{classWorkMng_af5558cba9fc0a1da911ce0f809349f67}\label{classWorkMng_af5558cba9fc0a1da911ce0f809349f67} 
 \index{WorkMng@{WorkMng}!waitBufferSync@{waitBufferSync}}
 \index{waitBufferSync@{waitBufferSync}!WorkMng@{WorkMng}}
 \doxysubsubsection{\texorpdfstring{waitBufferSync()}{waitBufferSync()}}
 {\footnotesize\ttfamily void Work\+Mng\+::wait\+Buffer\+Sync (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Method that syncs and waits for the fence objects. 
 
 
 

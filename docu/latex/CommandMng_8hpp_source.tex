@@ -1,5 +1,5 @@
-\hypertarget{CommandMng_8hpp_source}{}\doxysection{Command\+Mng.\+hpp}
-\label{CommandMng_8hpp_source}\index{src/Engine/DrawerMng/CommandMng.hpp@{src/Engine/DrawerMng/CommandMng.hpp}}
+\doxysection{Command\+Mng.\+hpp}
+\hypertarget{CommandMng_8hpp_source}{}\label{CommandMng_8hpp_source}\index{src/Engine/DrawerMng/CommandMng.hpp@{src/Engine/DrawerMng/CommandMng.hpp}}
 \mbox{\hyperlink{CommandMng_8hpp}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
@@ -12,45 +12,46 @@
 \DoxyCodeLine{00011\ \textcolor{keyword}{private}:}
 \DoxyCodeLine{00012\ }
 \DoxyCodeLine{00014\ \ \ \ \ VkDevice\&\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ device\_;}
-\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structDeviceQueueFamilies}{DeviceQueueFamilies}}\&\ \ queueFamilyId\_;}
-\DoxyCodeLine{00016\ }
-\DoxyCodeLine{00017\ \ \ \ \ VkCommandPool\ \ \ pool\_\ \ \ \ \ \ \ \{\ VK\_NULL\_HANDLE\ \};}
-\DoxyCodeLine{00018\ \ \ \ \ VkCommandBuffer\ cmdBuffer\_\ \ \{\ VK\_NULL\_HANDLE\ \};}
-\DoxyCodeLine{00019\ }
-\DoxyCodeLine{00020\ \ \ \ \ VkCommandBufferBeginInfo\ beginRecordInfo\_\ \{\};}
-\DoxyCodeLine{00021\ }
-\DoxyCodeLine{00022\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structDeviceQueueFamilies}{DeviceQueueFamilies}}\&\ \ queueFamilyId\_;}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00020\ \ \ \ \ VkCommandPool\ \ \ pool\_\ \ \ \ \ \ \ \{\ VK\_NULL\_HANDLE\ \};}
+\DoxyCodeLine{00022\ \ \ \ \ VkCommandBuffer\ cmdBuffer\_\ \ \{\ VK\_NULL\_HANDLE\ \};}
 \DoxyCodeLine{00023\ }
-\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classCommandMng}{CommandMng}}(\ }
-\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ VkDevice\&\ p\_device,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structDeviceQueueFamilies}{DeviceQueueFamilies}}\&\ p\_queueFamilyId}
-\DoxyCodeLine{00026\ \ \ \ \ )\ \textcolor{keyword}{noexcept};}
-\DoxyCodeLine{00027\ }
-\DoxyCodeLine{00028\ \ \ \ \ \mbox{\hyperlink{classCommandMng_aed15061791026328bc90b418900db97c}{\string~CommandMng}}();}
-\DoxyCodeLine{00029\ }
-\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{inline}}
-\DoxyCodeLine{00031\ \ \ \ \ VkCommandBuffer\&}
-\DoxyCodeLine{00032\ \ \ \ \ \mbox{\hyperlink{classCommandMng_af97492a28939da455c0826472df900fe}{getCmdBuffer}}()\ \{\ \textcolor{keywordflow}{return}\ cmdBuffer\_;\ \};}
-\DoxyCodeLine{00033\ }
-\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{void}}
-\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{classCommandMng_a1d91359ad36406a69051428bac0f52c0}{beginRecording}}()\ noexcept;}
-\DoxyCodeLine{00036\ }
-\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{void}}
-\DoxyCodeLine{00038\ \ \ \ \ \mbox{\hyperlink{classCommandMng_a0e8a894354c4dff1b676701ce931f460}{endRecording}}()\ noexcept;}
-\DoxyCodeLine{00039\ }
-\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{void}}
-\DoxyCodeLine{00041\ \ \ \ \ \mbox{\hyperlink{classCommandMng_a967b13f0e265bc33b06693cb92e718a0}{submitSingle}}(\ VkQueue\&\ p\_queue\ )\ noexcept;}
-\DoxyCodeLine{00042\ }
-\DoxyCodeLine{00043\ private:}
-\DoxyCodeLine{00044\ }
-\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{void}}
-\DoxyCodeLine{00046\ \ \ \ \ createCommandPool()\ noexcept;}
-\DoxyCodeLine{00047\ }
-\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{void}}
-\DoxyCodeLine{00049\ \ \ \ \ allocateCommandBuffer()\ noexcept;}
-\DoxyCodeLine{00050\ }
-\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{void}}
-\DoxyCodeLine{00052\ \ \ \ \ initCommandBufferRecordingInfo()\ noexcept;}
-\DoxyCodeLine{00053\ }
-\DoxyCodeLine{00054\ \};}
+\DoxyCodeLine{00025\ \ \ \ \ VkCommandBufferBeginInfo\ beginRecordInfo\_\ \{\};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classCommandMng}{CommandMng}}(\ }
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ VkDevice\&\ p\_device,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structDeviceQueueFamilies}{DeviceQueueFamilies}}\&\ p\_queueFamilyId}
+\DoxyCodeLine{00037\ \ \ \ \ )\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00042\ \ \ \ \ \mbox{\hyperlink{classCommandMng_aed15061791026328bc90b418900db97c}{\string~CommandMng}}();}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keyword}{inline}}
+\DoxyCodeLine{00050\ \ \ \ \ VkCommandBuffer\&}
+\DoxyCodeLine{00051\ \ \ \ \ \mbox{\hyperlink{classCommandMng_af97492a28939da455c0826472df900fe}{getCmdBuffer}}()\ \{\ \textcolor{keywordflow}{return}\ cmdBuffer\_;\ \};}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00057\ \ \ \ \ \mbox{\hyperlink{classCommandMng_a1d91359ad36406a69051428bac0f52c0}{beginRecording}}()\ noexcept;}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00063\ \ \ \ \ \mbox{\hyperlink{classCommandMng_a0e8a894354c4dff1b676701ce931f460}{endRecording}}()\ noexcept;}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00071\ \ \ \ \ \mbox{\hyperlink{classCommandMng_a967b13f0e265bc33b06693cb92e718a0}{submitSingle}}(\ VkQueue\&\ p\_queue\ )\ noexcept;}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ private:}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00079\ \ \ \ \ createCommandPool()\ noexcept;}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00085\ \ \ \ \ allocateCommandBuffer()\ noexcept;}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00091\ \ \ \ \ initCommandBufferRecordingInfo()\ noexcept;}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \};}
 
 \end{DoxyCode}

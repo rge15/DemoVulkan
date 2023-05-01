@@ -1,5 +1,5 @@
-\hypertarget{classCommandMng}{}\doxysection{Command\+Mng Class Reference}
-\label{classCommandMng}\index{CommandMng@{CommandMng}}
+\doxysection{Command\+Mng Class Reference}
+\hypertarget{classCommandMng}{}\label{classCommandMng}\index{CommandMng@{CommandMng}}
 
 
 Class for handling Vulkan Commands both for memory and for recording and sending work.  
@@ -9,66 +9,105 @@ Class for handling Vulkan Commands both for memory and for recording and sending
 
 {\ttfamily \#include $<$Command\+Mng.\+hpp$>$}
 
-\doxysubsection*{Public Member Functions}
+\doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classCommandMng_a60cbe07c638ddc36b98a875698e772ce}{Command\+Mng}} (Vk\+Device \&p\+\_\+device, const \mbox{\hyperlink{structDeviceQueueFamilies}{Device\+Queue\+Families}} \&p\+\_\+queue\+Family\+Id) noexcept
-\item 
+\begin{DoxyCompactList}\small\item\em Construct a new Command Mng object. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classCommandMng_aed15061791026328bc90b418900db97c}{$\sim$\+Command\+Mng}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Destroy the Command Mng object, frees the Command Memory Pool and destroys the Command Buffer. \end{DoxyCompactList}\item 
 Vk\+Command\+Buffer \& \mbox{\hyperlink{classCommandMng_af97492a28939da455c0826472df900fe}{get\+Cmd\+Buffer}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Get the Cmd Buffer object that handles this instance of \doxylink{classCommandMng}{Command\+Mng}. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classCommandMng_a1d91359ad36406a69051428bac0f52c0}{begin\+Recording}} () noexcept
-\item 
+\begin{DoxyCompactList}\small\item\em Starts a single Vulkan recording process. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classCommandMng_a0e8a894354c4dff1b676701ce931f460}{end\+Recording}} () noexcept
-\item 
+\begin{DoxyCompactList}\small\item\em Ends a Vulkan recording process. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classCommandMng_a967b13f0e265bc33b06693cb92e718a0}{submit\+Single}} (Vk\+Queue \&p\+\_\+queue) noexcept
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Submits a single time command on the specifies queue with no addition command info. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 Class for handling Vulkan Commands both for memory and for recording and sending work. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classCommandMng_a60cbe07c638ddc36b98a875698e772ce}\label{classCommandMng_a60cbe07c638ddc36b98a875698e772ce}} 
+\Hypertarget{classCommandMng_a60cbe07c638ddc36b98a875698e772ce}\label{classCommandMng_a60cbe07c638ddc36b98a875698e772ce} 
 \index{CommandMng@{CommandMng}!CommandMng@{CommandMng}}
 \index{CommandMng@{CommandMng}!CommandMng@{CommandMng}}
 \doxysubsubsection{\texorpdfstring{CommandMng()}{CommandMng()}}
 {\footnotesize\ttfamily Command\+Mng\+::\+Command\+Mng (\begin{DoxyParamCaption}\item[{Vk\+Device \&}]{p\+\_\+device,  }\item[{const \mbox{\hyperlink{structDeviceQueueFamilies}{Device\+Queue\+Families}} \&}]{p\+\_\+queue\+Family\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}, {\ttfamily [noexcept]}}
 
-\mbox{\Hypertarget{classCommandMng_aed15061791026328bc90b418900db97c}\label{classCommandMng_aed15061791026328bc90b418900db97c}} 
+
+
+Construct a new Command Mng object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+device} & Reference to Vulkan Logical Device in which execute the work submited by this class \\
+\hline
+{\em p\+\_\+queue\+Family\+Id} & Reference to get the device queue Ids for each queue type \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classCommandMng_aed15061791026328bc90b418900db97c}\label{classCommandMng_aed15061791026328bc90b418900db97c} 
 \index{CommandMng@{CommandMng}!````~CommandMng@{$\sim$CommandMng}}
 \index{````~CommandMng@{$\sim$CommandMng}!CommandMng@{CommandMng}}
-\doxysubsubsection{\texorpdfstring{$\sim$CommandMng()}{~CommandMng()}}
+\doxysubsubsection{\texorpdfstring{$\sim$CommandMng()}{\string~CommandMng()}}
 {\footnotesize\ttfamily Command\+Mng\+::$\sim$\+Command\+Mng (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
+Destroy the Command Mng object, frees the Command Memory Pool and destroys the Command Buffer. 
+
+
+
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classCommandMng_a1d91359ad36406a69051428bac0f52c0}\label{classCommandMng_a1d91359ad36406a69051428bac0f52c0}} 
+\Hypertarget{classCommandMng_a1d91359ad36406a69051428bac0f52c0}\label{classCommandMng_a1d91359ad36406a69051428bac0f52c0} 
 \index{CommandMng@{CommandMng}!beginRecording@{beginRecording}}
 \index{beginRecording@{beginRecording}!CommandMng@{CommandMng}}
 \doxysubsubsection{\texorpdfstring{beginRecording()}{beginRecording()}}
 {\footnotesize\ttfamily void Command\+Mng\+::begin\+Recording (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
 
-\mbox{\Hypertarget{classCommandMng_a0e8a894354c4dff1b676701ce931f460}\label{classCommandMng_a0e8a894354c4dff1b676701ce931f460}} 
+
+
+Starts a single Vulkan recording process. 
+
+\Hypertarget{classCommandMng_a0e8a894354c4dff1b676701ce931f460}\label{classCommandMng_a0e8a894354c4dff1b676701ce931f460} 
 \index{CommandMng@{CommandMng}!endRecording@{endRecording}}
 \index{endRecording@{endRecording}!CommandMng@{CommandMng}}
 \doxysubsubsection{\texorpdfstring{endRecording()}{endRecording()}}
 {\footnotesize\ttfamily void Command\+Mng\+::end\+Recording (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
 
-\mbox{\Hypertarget{classCommandMng_af97492a28939da455c0826472df900fe}\label{classCommandMng_af97492a28939da455c0826472df900fe}} 
+
+
+Ends a Vulkan recording process. 
+
+\Hypertarget{classCommandMng_af97492a28939da455c0826472df900fe}\label{classCommandMng_af97492a28939da455c0826472df900fe} 
 \index{CommandMng@{CommandMng}!getCmdBuffer@{getCmdBuffer}}
 \index{getCmdBuffer@{getCmdBuffer}!CommandMng@{CommandMng}}
 \doxysubsubsection{\texorpdfstring{getCmdBuffer()}{getCmdBuffer()}}
 {\footnotesize\ttfamily Vk\+Command\+Buffer \& Command\+Mng\+::get\+Cmd\+Buffer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-\mbox{\Hypertarget{classCommandMng_a967b13f0e265bc33b06693cb92e718a0}\label{classCommandMng_a967b13f0e265bc33b06693cb92e718a0}} 
+
+
+Get the Cmd Buffer object that handles this instance of \doxylink{classCommandMng}{Command\+Mng}. 
+
+\begin{DoxyReturn}{Returns}
+Vk\+Command\+Buffer\& 
+\end{DoxyReturn}
+\Hypertarget{classCommandMng_a967b13f0e265bc33b06693cb92e718a0}\label{classCommandMng_a967b13f0e265bc33b06693cb92e718a0} 
 \index{CommandMng@{CommandMng}!submitSingle@{submitSingle}}
 \index{submitSingle@{submitSingle}!CommandMng@{CommandMng}}
 \doxysubsubsection{\texorpdfstring{submitSingle()}{submitSingle()}}
 {\footnotesize\ttfamily void Command\+Mng\+::submit\+Single (\begin{DoxyParamCaption}\item[{Vk\+Queue \&}]{p\+\_\+queue }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
 
+
+
+Submits a single time command on the specifies queue with no addition command info. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+queue} & Vulkan Queue Handler to execute the command on \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

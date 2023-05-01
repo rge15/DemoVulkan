@@ -1,5 +1,5 @@
-\hypertarget{Driver_8hpp_source}{}\doxysection{Driver.\+hpp}
-\label{Driver_8hpp_source}\index{src/Engine/Driver.hpp@{src/Engine/Driver.hpp}}
+\doxysection{Driver.\+hpp}
+\hypertarget{Driver_8hpp_source}{}\label{Driver_8hpp_source}\index{src/Engine/Driver.hpp@{src/Engine/Driver.hpp}}
 \mbox{\hyperlink{Driver_8hpp}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
@@ -10,28 +10,29 @@
 \DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{SwapchainMng_8hpp}{Engine/Driver/SwapchainMng.hpp}}>}}
 \DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{WindowMng_8hpp}{Engine/Driver/WindowMng.hpp}}>}}
 \DoxyCodeLine{00008\ }
-\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classDriver}{Driver}}}
-\DoxyCodeLine{00010\ \{}
-\DoxyCodeLine{00011\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00012\ \ \ \ \ \mbox{\hyperlink{typeAliases_8hpp_a11afc303034b19c0c7977fc57f94296a}{UniqPtr<InstanceMng>}}\ \ \ \ instanceMng\_\ \ \ \{\ \textcolor{keyword}{nullptr}\ \};}
-\DoxyCodeLine{00013\ \ \ \ \ \mbox{\hyperlink{typeAliases_8hpp_a11afc303034b19c0c7977fc57f94296a}{UniqPtr<WindowMng>}}\ \ \ \ \ \ windowMng\_\ \ \ \ \ \{\ \textcolor{keyword}{nullptr}\ \};}
-\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{typeAliases_8hpp_a11afc303034b19c0c7977fc57f94296a}{UniqPtr<SurfaceMng>}}\ \ \ \ \ surfaceMng\_\ \ \ \ \{\ \textcolor{keyword}{nullptr}\ \};}
-\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{typeAliases_8hpp_a11afc303034b19c0c7977fc57f94296a}{UniqPtr<DeviceMng>}}\ \ \ \ \ \ deviceMng\_\ \ \ \ \ \{\ \textcolor{keyword}{nullptr}\ \};}
-\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{typeAliases_8hpp_a11afc303034b19c0c7977fc57f94296a}{UniqPtr<SwapchainMng>}}\ \ \ swapchainMng\_\ \ \{\ \textcolor{keyword}{nullptr}\ \};}
-\DoxyCodeLine{00017\ }
-\DoxyCodeLine{00018\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classDriver_af0658d103e3e810a8e9ef0a53bb2e261}{Driver}}();}
-\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{classDriver_aa02a47e041b5ef187871bfc441b12db8}{\string~Driver}}()\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00021\ }
-\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classInstanceMng}{InstanceMng}}\&\ \mbox{\hyperlink{classDriver_a00dfcab93a93f9e660237f061b68fa49}{getInstanceManager}}()\ \{\ \textcolor{keywordflow}{return}\ *instanceMng\_.get();\ \};}
-\DoxyCodeLine{00023\ \ \ \ \ }
-\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classDeviceMng}{DeviceMng}}\&\ \mbox{\hyperlink{classDriver_a5727dff368654a2029489a0ee2c0e948}{getDeviceManager}}()\ \{\ \textcolor{keywordflow}{return}\ *deviceMng\_.get();\ \};}
-\DoxyCodeLine{00025\ \ \ \ \ }
-\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classWindowMng}{WindowMng}}\&\ \mbox{\hyperlink{classDriver_a1c2ca7585a1af114a5d2450dbf491f39}{getWindowManager}}()\ \{\ \textcolor{keywordflow}{return}\ *windowMng\_.get();\ \};}
-\DoxyCodeLine{00027\ \ \ \ \ }
-\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classSurfaceMng}{SurfaceMng}}\&\ \mbox{\hyperlink{classDriver_a489fd8b925299c0fd259a71d26922ce5}{getSurfaceManager}}()\ \{\ \textcolor{keywordflow}{return}\ *surfaceMng\_.get();\ \};}
-\DoxyCodeLine{00029\ \ \ \ \ }
-\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classSwapchainMng}{SwapchainMng}}\&\ \mbox{\hyperlink{classDriver_a757b5146f804305993766238c5180cf4}{getSwapchainManager}}()\ \{\ \textcolor{keywordflow}{return}\ *swapchainMng\_.get();\ \};}
-\DoxyCodeLine{00031\ \};}
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classDriver}{Driver}}}
+\DoxyCodeLine{00013\ \{}
+\DoxyCodeLine{00014\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{typeAliases_8hpp_a11afc303034b19c0c7977fc57f94296a}{UniqPtr<InstanceMng>}}\ \ \ \ instanceMng\_\ \ \ \{\ \textcolor{keyword}{nullptr}\ \};}
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{typeAliases_8hpp_a11afc303034b19c0c7977fc57f94296a}{UniqPtr<WindowMng>}}\ \ \ \ \ \ windowMng\_\ \ \ \ \ \{\ \textcolor{keyword}{nullptr}\ \};}
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{typeAliases_8hpp_a11afc303034b19c0c7977fc57f94296a}{UniqPtr<SurfaceMng>}}\ \ \ \ \ surfaceMng\_\ \ \ \ \{\ \textcolor{keyword}{nullptr}\ \};}
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{typeAliases_8hpp_a11afc303034b19c0c7977fc57f94296a}{UniqPtr<DeviceMng>}}\ \ \ \ \ \ deviceMng\_\ \ \ \ \ \{\ \textcolor{keyword}{nullptr}\ \};}
+\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{typeAliases_8hpp_a11afc303034b19c0c7977fc57f94296a}{UniqPtr<SwapchainMng>}}\ \ \ swapchainMng\_\ \ \{\ \textcolor{keyword}{nullptr}\ \};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classDriver_af0658d103e3e810a8e9ef0a53bb2e261}{Driver}}();}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{classDriver_aa02a47e041b5ef187871bfc441b12db8}{\string~Driver}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classInstanceMng}{InstanceMng}}\&\ \mbox{\hyperlink{classDriver_a00dfcab93a93f9e660237f061b68fa49}{getInstanceManager}}()\ \{\ \textcolor{keywordflow}{return}\ *instanceMng\_.get();\ \};}
+\DoxyCodeLine{00043\ \ \ \ \ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classDeviceMng}{DeviceMng}}\&\ \mbox{\hyperlink{classDriver_a5727dff368654a2029489a0ee2c0e948}{getDeviceManager}}()\ \{\ \textcolor{keywordflow}{return}\ *deviceMng\_.get();\ \};}
+\DoxyCodeLine{00050\ \ \ \ \ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classWindowMng}{WindowMng}}\&\ \mbox{\hyperlink{classDriver_a1c2ca7585a1af114a5d2450dbf491f39}{getWindowManager}}()\ \{\ \textcolor{keywordflow}{return}\ *windowMng\_.get();\ \};}
+\DoxyCodeLine{00057\ \ \ \ \ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classSurfaceMng}{SurfaceMng}}\&\ \mbox{\hyperlink{classDriver_a489fd8b925299c0fd259a71d26922ce5}{getSurfaceManager}}()\ \{\ \textcolor{keywordflow}{return}\ *surfaceMng\_.get();\ \};}
+\DoxyCodeLine{00064\ \ \ \ \ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classSwapchainMng}{SwapchainMng}}\&\ \mbox{\hyperlink{classDriver_a757b5146f804305993766238c5180cf4}{getSwapchainManager}}()\ \{\ \textcolor{keywordflow}{return}\ *swapchainMng\_.get();\ \};}
+\DoxyCodeLine{00071\ \};}
 
 \end{DoxyCode}

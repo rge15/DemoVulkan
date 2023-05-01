@@ -1,10 +1,10 @@
-\hypertarget{structTimer}{}\doxysection{Timer Struct Reference}
-\label{structTimer}\index{Timer@{Timer}}
+\doxysection{Timer Struct Reference}
+\hypertarget{structTimer}{}\label{structTimer}\index{Timer@{Timer}}
 
 
 {\ttfamily \#include $<$Timer.\+hpp$>$}
 
-\doxysubsection*{Public Member Functions}
+\doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 double \mbox{\hyperlink{structTimer_a3b6abd6a9b22095140db58d6ac8d9655}{ellapsed\+Time}} () const noexcept
@@ -18,13 +18,13 @@ bool \mbox{\hyperlink{structTimer_ae3bd05bd946a046226c27040e454f676}{update}} ()
 void \mbox{\hyperlink{structTimer_a864bf1331ec61d1e944d8d9591d19f98}{reset}} (int p\+\_\+frame\+Rate=0) noexcept
 \begin{DoxyCompactList}\small\item\em Resets the timer ans sets a new framerate if wanted. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{structTimer_aafe1672e4bb23c73f08a73838a848d08}{set\+Manual\+Refresh\+Rate}} (double p\+\_\+refresh\+Rate) noexcept
-\end{DoxyCompactItemize}
-\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactList}\small\item\em Sets the refresh rate manually. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 static \mbox{\hyperlink{structTimer}{Timer}} \& \mbox{\hyperlink{structTimer_a8357f90f20707f9693fc713319de923a}{get\+Instance}} ()
 \end{DoxyCompactItemize}
-\doxysubsection*{Public Attributes}
+\doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{chronoTypeAlias_8hpp_a71b69b10c124915c9ee7e27b50c9879f}{time\+Point}} \mbox{\hyperlink{structTimer_a0f63b5a0e2a29601ef37695d513618d9}{\+\_\+init\+Time}} = demo\+Clock\+::now()
@@ -36,7 +36,7 @@ double \mbox{\hyperlink{structTimer_a93f72b0654e373f97d43d2e4034bb432}{\+\_\+las
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{structTimer_a445e1afe1a12f257491099b40c97b646}\label{structTimer_a445e1afe1a12f257491099b40c97b646}} 
+\Hypertarget{structTimer_a445e1afe1a12f257491099b40c97b646}\label{structTimer_a445e1afe1a12f257491099b40c97b646} 
 \index{Timer@{Timer}!deltaTime@{deltaTime}}
 \index{deltaTime@{deltaTime}!Timer@{Timer}}
 \doxysubsubsection{\texorpdfstring{deltaTime()}{deltaTime()}}
@@ -49,7 +49,7 @@ Gives the ellapsed time in seconds from the last rendered frame.
 \begin{DoxyReturn}{Returns}
 Delta time since the last rendered frame 
 \end{DoxyReturn}
-\mbox{\Hypertarget{structTimer_adb402e6bbff03ca7d8e07c9fd4077470}\label{structTimer_adb402e6bbff03ca7d8e07c9fd4077470}} 
+\Hypertarget{structTimer_adb402e6bbff03ca7d8e07c9fd4077470}\label{structTimer_adb402e6bbff03ca7d8e07c9fd4077470} 
 \index{Timer@{Timer}!ellapsedSeconds@{ellapsedSeconds}}
 \index{ellapsedSeconds@{ellapsedSeconds}!Timer@{Timer}}
 \doxysubsubsection{\texorpdfstring{ellapsedSeconds()}{ellapsedSeconds()}}
@@ -62,7 +62,7 @@ Gives the total ellapsed time in seconds.
 \begin{DoxyReturn}{Returns}
 Seconds ellapsed from the init/reset of the timer 
 \end{DoxyReturn}
-\mbox{\Hypertarget{structTimer_a3b6abd6a9b22095140db58d6ac8d9655}\label{structTimer_a3b6abd6a9b22095140db58d6ac8d9655}} 
+\Hypertarget{structTimer_a3b6abd6a9b22095140db58d6ac8d9655}\label{structTimer_a3b6abd6a9b22095140db58d6ac8d9655} 
 \index{Timer@{Timer}!ellapsedTime@{ellapsedTime}}
 \index{ellapsedTime@{ellapsedTime}!Timer@{Timer}}
 \doxysubsubsection{\texorpdfstring{ellapsedTime()}{ellapsedTime()}}
@@ -75,13 +75,13 @@ Gives the total ellapsed time in nanoseconds.
 \begin{DoxyReturn}{Returns}
 Nanoseconds ellapsed from the init/reset of the timer 
 \end{DoxyReturn}
-\mbox{\Hypertarget{structTimer_a8357f90f20707f9693fc713319de923a}\label{structTimer_a8357f90f20707f9693fc713319de923a}} 
+\Hypertarget{structTimer_a8357f90f20707f9693fc713319de923a}\label{structTimer_a8357f90f20707f9693fc713319de923a} 
 \index{Timer@{Timer}!getInstance@{getInstance}}
 \index{getInstance@{getInstance}!Timer@{Timer}}
 \doxysubsubsection{\texorpdfstring{getInstance()}{getInstance()}}
 {\footnotesize\ttfamily static \mbox{\hyperlink{structTimer}{Timer}} \& Timer\+::get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
 
-\mbox{\Hypertarget{structTimer_a864bf1331ec61d1e944d8d9591d19f98}\label{structTimer_a864bf1331ec61d1e944d8d9591d19f98}} 
+\Hypertarget{structTimer_a864bf1331ec61d1e944d8d9591d19f98}\label{structTimer_a864bf1331ec61d1e944d8d9591d19f98} 
 \index{Timer@{Timer}!reset@{reset}}
 \index{reset@{reset}!Timer@{Timer}}
 \doxysubsubsection{\texorpdfstring{reset()}{reset()}}
@@ -96,13 +96,22 @@ Resets the timer ans sets a new framerate if wanted.
 {\em p\+\_\+framerate} & New framerate if wanted to be set. If 0 doesn\textquotesingle{}t update. \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{structTimer_aafe1672e4bb23c73f08a73838a848d08}\label{structTimer_aafe1672e4bb23c73f08a73838a848d08}} 
+\Hypertarget{structTimer_aafe1672e4bb23c73f08a73838a848d08}\label{structTimer_aafe1672e4bb23c73f08a73838a848d08} 
 \index{Timer@{Timer}!setManualRefreshRate@{setManualRefreshRate}}
 \index{setManualRefreshRate@{setManualRefreshRate}!Timer@{Timer}}
 \doxysubsubsection{\texorpdfstring{setManualRefreshRate()}{setManualRefreshRate()}}
 {\footnotesize\ttfamily void Timer\+::set\+Manual\+Refresh\+Rate (\begin{DoxyParamCaption}\item[{double}]{p\+\_\+refresh\+Rate }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
 
-\mbox{\Hypertarget{structTimer_ae3bd05bd946a046226c27040e454f676}\label{structTimer_ae3bd05bd946a046226c27040e454f676}} 
+
+
+Sets the refresh rate manually. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+refresh\+Rate} & New refresh rate to set \\
+\hline
+\end{DoxyParams}
+\Hypertarget{structTimer_ae3bd05bd946a046226c27040e454f676}\label{structTimer_ae3bd05bd946a046226c27040e454f676} 
 \index{Timer@{Timer}!update@{update}}
 \index{update@{update}!Timer@{Timer}}
 \doxysubsubsection{\texorpdfstring{update()}{update()}}
@@ -118,19 +127,19 @@ True if it passed the \+\_\+refresh\+Time
 
 
 \doxysubsection{Member Data Documentation}
-\mbox{\Hypertarget{structTimer_a0f63b5a0e2a29601ef37695d513618d9}\label{structTimer_a0f63b5a0e2a29601ef37695d513618d9}} 
+\Hypertarget{structTimer_a0f63b5a0e2a29601ef37695d513618d9}\label{structTimer_a0f63b5a0e2a29601ef37695d513618d9} 
 \index{Timer@{Timer}!\_initTime@{\_initTime}}
 \index{\_initTime@{\_initTime}!Timer@{Timer}}
 \doxysubsubsection{\texorpdfstring{\_initTime}{\_initTime}}
 {\footnotesize\ttfamily \mbox{\hyperlink{chronoTypeAlias_8hpp_a71b69b10c124915c9ee7e27b50c9879f}{time\+Point}} Timer\+::\+\_\+init\+Time = demo\+Clock\+::now()}
 
-\mbox{\Hypertarget{structTimer_a93f72b0654e373f97d43d2e4034bb432}\label{structTimer_a93f72b0654e373f97d43d2e4034bb432}} 
+\Hypertarget{structTimer_a93f72b0654e373f97d43d2e4034bb432}\label{structTimer_a93f72b0654e373f97d43d2e4034bb432} 
 \index{Timer@{Timer}!\_lastTime@{\_lastTime}}
 \index{\_lastTime@{\_lastTime}!Timer@{Timer}}
 \doxysubsubsection{\texorpdfstring{\_lastTime}{\_lastTime}}
 {\footnotesize\ttfamily double Timer\+::\+\_\+last\+Time \{ 0.f \}}
 
-\mbox{\Hypertarget{structTimer_a6a84ca7d2515e5ceee1b20a53074847e}\label{structTimer_a6a84ca7d2515e5ceee1b20a53074847e}} 
+\Hypertarget{structTimer_a6a84ca7d2515e5ceee1b20a53074847e}\label{structTimer_a6a84ca7d2515e5ceee1b20a53074847e} 
 \index{Timer@{Timer}!\_refreshTime@{\_refreshTime}}
 \index{\_refreshTime@{\_refreshTime}!Timer@{Timer}}
 \doxysubsubsection{\texorpdfstring{\_refreshTime}{\_refreshTime}}

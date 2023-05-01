@@ -1,31 +1,40 @@
-\hypertarget{DemoTrack_8hpp}{}\doxysection{src/\+Engine/\+Resources/\+Demo\+Track.hpp File Reference}
-\label{DemoTrack_8hpp}\index{src/Engine/Resources/DemoTrack.hpp@{src/Engine/Resources/DemoTrack.hpp}}
+\doxysection{src/\+Engine/\+Resources/\+Demo\+Track.hpp File Reference}
+\hypertarget{DemoTrack_8hpp}{}\label{DemoTrack_8hpp}\index{src/Engine/Resources/DemoTrack.hpp@{src/Engine/Resources/DemoTrack.hpp}}
 {\ttfamily \#include $<$Engine/\+Resources/\+Demo\+FX.\+hpp$>$}\newline
 {\ttfamily \#include $<$utilities/\+Timer/\+Timer.\+hpp$>$}\newline
-\doxysubsection*{Classes}
+{\ttfamily \#include $<$utilities/\+Engine/engine\+Type\+Alias.\+hpp$>$}\newline
+\doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
 class \mbox{\hyperlink{classDemoTrack}{Demo\+Track}}
-\end{DoxyCompactItemize}
-\doxysubsection*{Typedefs}
+\begin{DoxyCompactList}\small\item\em Class that acts like a Track/\+Queue of all the \doxylink{classDemoFX}{Demo\+FX} to play. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
 using \mbox{\hyperlink{DemoTrack_8hpp_aa8dad84ded7cde730fbed9467a84d616}{Clip}} = \mbox{\hyperlink{typeAliases_8hpp_ace31744b6ccbf161b5aee06a35acb57b}{Tuple}}$<$ \mbox{\hyperlink{classDemoFX}{Demo\+FX}} \&, float, float $>$
-\item 
+\begin{DoxyCompactList}\small\item\em Clip Tuple of \+: Demo to play, starting point, final point. \end{DoxyCompactList}\item 
 using \mbox{\hyperlink{DemoTrack_8hpp_af72c4721cc9f7b2912a3a9e2bec01a95}{Playing\+Clip}} = \mbox{\hyperlink{typeAliases_8hpp_ace31744b6ccbf161b5aee06a35acb57b}{Tuple}}$<$ \mbox{\hyperlink{classDemoFX}{Demo\+FX}} \&, float $>$
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Playing clip of \+: Demo playing, relative\+Playing\+Time. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Typedef Documentation}
-\mbox{\Hypertarget{DemoTrack_8hpp_aa8dad84ded7cde730fbed9467a84d616}\label{DemoTrack_8hpp_aa8dad84ded7cde730fbed9467a84d616}} 
+\Hypertarget{DemoTrack_8hpp_aa8dad84ded7cde730fbed9467a84d616}\label{DemoTrack_8hpp_aa8dad84ded7cde730fbed9467a84d616} 
 \index{DemoTrack.hpp@{DemoTrack.hpp}!Clip@{Clip}}
 \index{Clip@{Clip}!DemoTrack.hpp@{DemoTrack.hpp}}
 \doxysubsubsection{\texorpdfstring{Clip}{Clip}}
 {\footnotesize\ttfamily using \mbox{\hyperlink{DemoTrack_8hpp_aa8dad84ded7cde730fbed9467a84d616}{Clip}} =  \mbox{\hyperlink{typeAliases_8hpp_ace31744b6ccbf161b5aee06a35acb57b}{Tuple}}$<$\mbox{\hyperlink{classDemoFX}{Demo\+FX}}\&, float, float$>$}
 
-\mbox{\Hypertarget{DemoTrack_8hpp_af72c4721cc9f7b2912a3a9e2bec01a95}\label{DemoTrack_8hpp_af72c4721cc9f7b2912a3a9e2bec01a95}} 
+
+
+Clip Tuple of \+: Demo to play, starting point, final point. 
+
+\Hypertarget{DemoTrack_8hpp_af72c4721cc9f7b2912a3a9e2bec01a95}\label{DemoTrack_8hpp_af72c4721cc9f7b2912a3a9e2bec01a95} 
 \index{DemoTrack.hpp@{DemoTrack.hpp}!PlayingClip@{PlayingClip}}
 \index{PlayingClip@{PlayingClip}!DemoTrack.hpp@{DemoTrack.hpp}}
 \doxysubsubsection{\texorpdfstring{PlayingClip}{PlayingClip}}
 {\footnotesize\ttfamily using \mbox{\hyperlink{DemoTrack_8hpp_af72c4721cc9f7b2912a3a9e2bec01a95}{Playing\+Clip}} =  \mbox{\hyperlink{typeAliases_8hpp_ace31744b6ccbf161b5aee06a35acb57b}{Tuple}}$<$\mbox{\hyperlink{classDemoFX}{Demo\+FX}}\&, float$>$}
+
+
+
+Playing clip of \+: Demo playing, relative\+Playing\+Time. 
 

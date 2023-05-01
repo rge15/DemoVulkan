@@ -1,5 +1,5 @@
-\hypertarget{DemoFX_8hpp_source}{}\doxysection{Demo\+FX.\+hpp}
-\label{DemoFX_8hpp_source}\index{src/Engine/Resources/DemoFX.hpp@{src/Engine/Resources/DemoFX.hpp}}
+\doxysection{Demo\+FX.\+hpp}
+\hypertarget{DemoFX_8hpp_source}{}\label{DemoFX_8hpp_source}\index{src/Engine/Resources/DemoFX.hpp@{src/Engine/Resources/DemoFX.hpp}}
 \mbox{\hyperlink{DemoFX_8hpp}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
@@ -10,49 +10,49 @@
 \DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{RenderPipelineMng_8hpp}{Engine/Resources/RenderPipelineMng.hpp}}>}}
 \DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{RendererCmp_8hpp}{Engine/Render/RendererCmp.hpp}}>}}
 \DoxyCodeLine{00008\ }
-\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classDemoFX}{DemoFX}}}
-\DoxyCodeLine{00010\ \{}
-\DoxyCodeLine{00011\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00012\ \ \ \ \ \mbox{\hyperlink{classDriver}{Driver}}\&\ driver\_;}
-\DoxyCodeLine{00013\ \ \ \ \ \mbox{\hyperlink{classRenderer}{RendererType}}\&\ renderer\_;}
-\DoxyCodeLine{00014\ }
-\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{Renderer_8hpp_a7c311ba242c0232dd177e3adc9ee22fc}{LayoutTypes}}\ pipelineLayoutId;}
-\DoxyCodeLine{00016\ }
-\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{structGraphicPipelineConfig}{GraphicPipelineConfig}}\ pipelineConfig\ \{\};}
-\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{typeAliases_8hpp_a11afc303034b19c0c7977fc57f94296a}{UniqPtr<ShaderSrc>}}\ vertexShader\_\ \ \ \ \{\ \textcolor{keyword}{nullptr}\ \};}
-\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{typeAliases_8hpp_a11afc303034b19c0c7977fc57f94296a}{UniqPtr<ShaderSrc>}}\ fragmentShader\_\ \ \{\ \textcolor{keyword}{nullptr}\ \};}
-\DoxyCodeLine{00020\ }
-\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{typeAliases_8hpp_a11afc303034b19c0c7977fc57f94296a}{UniqPtr<RenderPipelineMng>}}\ renderPipeline\_\ \{\ \textcolor{keyword}{nullptr}\ \};}
-\DoxyCodeLine{00022\ }
-\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{engineTypeAlias_8hpp_a528e4a0e55c4c8184a2b4104ac999743}{ShaderStagesVector}}\ shaderStages\_\ \{\};}
-\DoxyCodeLine{00024\ }
-\DoxyCodeLine{00025\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classDemoFX}{DemoFX}}(\mbox{\hyperlink{classDriver}{Driver}}\&\ p\_driver,\ \mbox{\hyperlink{classRenderer}{RendererType}}\&\ p\_renderer,\ \mbox{\hyperlink{Renderer_8hpp_a7c311ba242c0232dd177e3adc9ee22fc}{LayoutTypes}}\ p\_layType)\ \textcolor{keyword}{noexcept};}
-\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{classDemoFX_a0c8745362e0a363329b005ce1a4e95ee}{\string~DemoFX}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00009\ \textcolor{comment}{//TODO\ :\ Make\ it\ template\ and\ make\ the\ render\ layout\ selection\ on\ compiletime}}
+\DoxyCodeLine{00010\ \textcolor{comment}{//TODO\ :\ Make\ a\ Resource\ Manager\ and\ don't\ make\ the\ FX\ manage\ the\ shader}}
+\DoxyCodeLine{00011\ \textcolor{comment}{//TODO\ :\ Make\ to\ specify\ the\ shaders\ on\ constructor}}
+\DoxyCodeLine{00021\ \textcolor{comment}{}\textcolor{keyword}{class\ }\mbox{\hyperlink{classDemoFX}{DemoFX}}}
+\DoxyCodeLine{00022\ \{}
+\DoxyCodeLine{00023\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{classDriver}{Driver}}\&\ driver\_;}
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{classRenderer}{RendererType}}\&\ renderer\_;}
 \DoxyCodeLine{00028\ }
-\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{structGraphicPipelineConfig}{GraphicPipelineConfig}}\&\ \mbox{\hyperlink{classDemoFX_ae9f0fe8e7962be04ee253d6b1931a229}{getPipeConfig}}()\{\ \textcolor{keywordflow}{return}\ pipelineConfig;\ \};}
-\DoxyCodeLine{00030\ }
-\DoxyCodeLine{00031\ \ \ \ \ \mbox{\hyperlink{classRenderPipelineMng}{RenderPipelineMng}}\&\ \mbox{\hyperlink{classDemoFX_a70ba5f98974ef0526e37db2fec66e63d}{getRenderPipelieneMng}}();}
-\DoxyCodeLine{00032\ }
-\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classDemoFX_aab6406717e0a2f09166c8ef7da75dd81}{setVertexShader}}(\ std::string\_view\ p\_shaderPath\ )\ \textcolor{keyword}{noexcept};}
-\DoxyCodeLine{00034\ }
-\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classDemoFX_a0b23cf4da2964f0bfbc1dd2b7db98e58}{setFragmentShader}}(\ std::string\_view\ p\_shaderPath\ )\ \textcolor{keyword}{noexcept};}
-\DoxyCodeLine{00036\ }
-\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classDemoFX_ad62d2b830f1038227ab8a6bf753bef4c}{prepareToRender}}()\ noexcept;}
+\DoxyCodeLine{00030\ \ \ \ \ \mbox{\hyperlink{Renderer_8hpp_a7c311ba242c0232dd177e3adc9ee22fc}{LayoutTypes}}\ pipelineLayoutId;}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00033\ \ \ \ \ \mbox{\hyperlink{structGraphicPipelineConfig}{GraphicPipelineConfig}}\ pipelineConfig\ \{\};}
+\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{typeAliases_8hpp_a11afc303034b19c0c7977fc57f94296a}{UniqPtr<ShaderSrc>}}\ vertexShader\_\ \ \ \ \{\ \textcolor{keyword}{nullptr}\ \};}
+\DoxyCodeLine{00037\ \ \ \ \ \mbox{\hyperlink{typeAliases_8hpp_a11afc303034b19c0c7977fc57f94296a}{UniqPtr<ShaderSrc>}}\ fragmentShader\_\ \ \{\ \textcolor{keyword}{nullptr}\ \};}
 \DoxyCodeLine{00038\ }
-\DoxyCodeLine{00039\ \ \ \ \ inline}
-\DoxyCodeLine{00040\ \ \ \ \ \mbox{\hyperlink{classRenderer}{RendererType}}\&}
-\DoxyCodeLine{00041\ \ \ \ \ \mbox{\hyperlink{classDemoFX_af885f1c8646217501674029b999cc8c3}{getDemoRenderer}}()\{\ \textcolor{keywordflow}{return}\ renderer\_;\ \};}
-\DoxyCodeLine{00042\ }
-\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{Renderer_8hpp_a7c311ba242c0232dd177e3adc9ee22fc}{LayoutTypes}}}
-\DoxyCodeLine{00044\ \ \ \ \ \mbox{\hyperlink{classDemoFX_a3e88debb5f2bf4a5f55c31cfda355f4d}{getLayoutId}}()\ const\ noexcept;}
-\DoxyCodeLine{00045\ }
-\DoxyCodeLine{00046\ private:}
-\DoxyCodeLine{00047\ }
-\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{void}\ prepareShaderStages()\ noexcept;}
-\DoxyCodeLine{00049\ }
-\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{void}\ createRenderPipeline()\ noexcept;}
-\DoxyCodeLine{00051\ }
-\DoxyCodeLine{00052\ \};}
+\DoxyCodeLine{00040\ \ \ \ \ \mbox{\hyperlink{typeAliases_8hpp_a11afc303034b19c0c7977fc57f94296a}{UniqPtr<RenderPipelineMng>}}\ renderPipeline\_\ \{\ \textcolor{keyword}{nullptr}\ \};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{engineTypeAlias_8hpp_a528e4a0e55c4c8184a2b4104ac999743}{ShaderStagesVector}}\ shaderStages\_\ \{\};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classDemoFX}{DemoFX}}(\mbox{\hyperlink{classDriver}{Driver}}\&\ p\_driver,\ \mbox{\hyperlink{classRenderer}{RendererType}}\&\ p\_renderer,\ \mbox{\hyperlink{Renderer_8hpp_a7c311ba242c0232dd177e3adc9ee22fc}{LayoutTypes}}\ p\_layType)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00057\ \ \ \ \ \mbox{\hyperlink{classDemoFX_a0c8745362e0a363329b005ce1a4e95ee}{\string~DemoFX}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{structGraphicPipelineConfig}{GraphicPipelineConfig}}\&\ \mbox{\hyperlink{classDemoFX_ae9f0fe8e7962be04ee253d6b1931a229}{getPipeConfig}}()\{\ \textcolor{keywordflow}{return}\ pipelineConfig;\ \};}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00073\ \ \ \ \ \mbox{\hyperlink{classRenderPipelineMng}{RenderPipelineMng}}\&\ \mbox{\hyperlink{classDemoFX_a70ba5f98974ef0526e37db2fec66e63d}{getRenderPipelieneMng}}();}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classDemoFX_aab6406717e0a2f09166c8ef7da75dd81}{setVertexShader}}(\ std::string\_view\ p\_shaderPath\ )\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classDemoFX_a0b23cf4da2964f0bfbc1dd2b7db98e58}{setFragmentShader}}(\ std::string\_view\ p\_shaderPath\ )\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classDemoFX_ad62d2b830f1038227ab8a6bf753bef4c}{prepareToRender}}()\ noexcept;}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00100\ \ \ \ \ \mbox{\hyperlink{Renderer_8hpp_a7c311ba242c0232dd177e3adc9ee22fc}{LayoutTypes}}}
+\DoxyCodeLine{00101\ \ \ \ \ \mbox{\hyperlink{classDemoFX_a3e88debb5f2bf4a5f55c31cfda355f4d}{getLayoutId}}()\ const\ noexcept;}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ private:}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keywordtype}{void}\ prepareShaderStages()\ noexcept;}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordtype}{void}\ createRenderPipeline()\ noexcept;}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \};}
 
 \end{DoxyCode}

@@ -1,5 +1,5 @@
-\hypertarget{Renderer_8hpp}{}\doxysection{src/\+Engine/\+Renderer.hpp File Reference}
-\label{Renderer_8hpp}\index{src/Engine/Renderer.hpp@{src/Engine/Renderer.hpp}}
+\doxysection{src/\+Engine/\+Renderer.hpp File Reference}
+\hypertarget{Renderer_8hpp}{}\label{Renderer_8hpp}\index{src/Engine/Renderer.hpp@{src/Engine/Renderer.hpp}}
 {\ttfamily \#include $<$Engine/\+Driver.\+hpp$>$}\newline
 {\ttfamily \#include $<$Engine/\+Render/\+Renderer\+Cmp.\+hpp$>$}\newline
 {\ttfamily \#include $<$Engine/\+Render/\+Basic\+Pipeline\+Layout.\+hpp$>$}\newline
@@ -7,34 +7,38 @@
 {\ttfamily \#include $<$Engine/\+Render/\+Basic\+Render\+Pass.\+hpp$>$}\newline
 {\ttfamily \#include $<$Engine/\+Render/\+Pipeline\+Frame\+Buffers.\+hpp$>$}\newline
 {\ttfamily \#include $<$utilities/\+Engine/render\+Concepts.\+hpp$>$}\newline
-{\ttfamily \#include \char`\"{}Renderer.\+tpp\char`\"{}}\newline
-\doxysubsection*{Classes}
+{\ttfamily \#include \"{}Renderer.\+tpp\"{}}\newline
+\doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
 class \mbox{\hyperlink{classRenderer}{Renderer$<$ Layouts $>$}}
-\end{DoxyCompactItemize}
-\doxysubsection*{Enumerations}
+\begin{DoxyCompactList}\small\item\em \doxylink{classRenderer}{Renderer} class that holds all the render components that the engine can use fo rendering process. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
 \begin{DoxyCompactItemize}
 \item 
 enum class \mbox{\hyperlink{Renderer_8hpp_a7c311ba242c0232dd177e3adc9ee22fc}{Layout\+Types}} \{ \mbox{\hyperlink{Renderer_8hpp_a7c311ba242c0232dd177e3adc9ee22fca99226199806409f6f0de2004e3e59eb6}{Basic\+Layout}} = 0
 , \mbox{\hyperlink{Renderer_8hpp_a7c311ba242c0232dd177e3adc9ee22fcaa3196cc6dc4550d6ad377e73a36c9b3b}{Image\+Layout}} = 1
  \}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Enum class of the different types of layouts. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Enumeration Type Documentation}
-\mbox{\Hypertarget{Renderer_8hpp_a7c311ba242c0232dd177e3adc9ee22fc}\label{Renderer_8hpp_a7c311ba242c0232dd177e3adc9ee22fc}} 
+\Hypertarget{Renderer_8hpp_a7c311ba242c0232dd177e3adc9ee22fc}\label{Renderer_8hpp_a7c311ba242c0232dd177e3adc9ee22fc} 
 \index{Renderer.hpp@{Renderer.hpp}!LayoutTypes@{LayoutTypes}}
 \index{LayoutTypes@{LayoutTypes}!Renderer.hpp@{Renderer.hpp}}
 \doxysubsubsection{\texorpdfstring{LayoutTypes}{LayoutTypes}}
 {\footnotesize\ttfamily enum class \mbox{\hyperlink{Renderer_8hpp_a7c311ba242c0232dd177e3adc9ee22fc}{Layout\+Types}}\hspace{0.3cm}{\ttfamily [strong]}}
 
+
+
+Enum class of the different types of layouts. 
+
 \begin{DoxyEnumFields}{Enumerator}
-\raisebox{\heightof{T}}[0pt][0pt]{\index{BasicLayout@{BasicLayout}!Renderer.hpp@{Renderer.hpp}}\index{Renderer.hpp@{Renderer.hpp}!BasicLayout@{BasicLayout}}}\mbox{\Hypertarget{Renderer_8hpp_a7c311ba242c0232dd177e3adc9ee22fca99226199806409f6f0de2004e3e59eb6}\label{Renderer_8hpp_a7c311ba242c0232dd177e3adc9ee22fca99226199806409f6f0de2004e3e59eb6}} 
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BasicLayout@{BasicLayout}!Renderer.hpp@{Renderer.hpp}}\index{Renderer.hpp@{Renderer.hpp}!BasicLayout@{BasicLayout}}}\Hypertarget{Renderer_8hpp_a7c311ba242c0232dd177e3adc9ee22fca99226199806409f6f0de2004e3e59eb6}\label{Renderer_8hpp_a7c311ba242c0232dd177e3adc9ee22fca99226199806409f6f0de2004e3e59eb6} 
 Basic\+Layout&\\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{ImageLayout@{ImageLayout}!Renderer.hpp@{Renderer.hpp}}\index{Renderer.hpp@{Renderer.hpp}!ImageLayout@{ImageLayout}}}\mbox{\Hypertarget{Renderer_8hpp_a7c311ba242c0232dd177e3adc9ee22fcaa3196cc6dc4550d6ad377e73a36c9b3b}\label{Renderer_8hpp_a7c311ba242c0232dd177e3adc9ee22fcaa3196cc6dc4550d6ad377e73a36c9b3b}} 
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ImageLayout@{ImageLayout}!Renderer.hpp@{Renderer.hpp}}\index{Renderer.hpp@{Renderer.hpp}!ImageLayout@{ImageLayout}}}\Hypertarget{Renderer_8hpp_a7c311ba242c0232dd177e3adc9ee22fcaa3196cc6dc4550d6ad377e73a36c9b3b}\label{Renderer_8hpp_a7c311ba242c0232dd177e3adc9ee22fcaa3196cc6dc4550d6ad377e73a36c9b3b} 
 Image\+Layout&\\
 \hline
 

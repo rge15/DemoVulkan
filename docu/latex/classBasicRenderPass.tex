@@ -1,5 +1,10 @@
-\hypertarget{classBasicRenderPass}{}\doxysection{Basic\+Render\+Pass Class Reference}
-\label{classBasicRenderPass}\index{BasicRenderPass@{BasicRenderPass}}
+\doxysection{Basic\+Render\+Pass Class Reference}
+\hypertarget{classBasicRenderPass}{}\label{classBasicRenderPass}\index{BasicRenderPass@{BasicRenderPass}}
+
+
+Basic Render Pass which doesn\textquotesingle{}t have description sets.  
+
+
 
 
 {\ttfamily \#include $<$Basic\+Render\+Pass.\+hpp$>$}
@@ -10,82 +15,107 @@ Inheritance diagram for Basic\+Render\+Pass\+:\begin{figure}[H]
 \includegraphics[height=3.000000cm]{classBasicRenderPass}
 \end{center}
 \end{figure}
-\doxysubsection*{Public Member Functions}
+\doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classBasicRenderPass_a35d81beb8a366eb1a55f73e5894a7c6c}{Basic\+Render\+Pass}} (Vk\+Device \&p\+\_\+device, const \mbox{\hyperlink{classSwapchainMng}{Swapchain\+Mng}} \&p\+\_\+swap\+Mng)
-\item 
+\begin{DoxyCompactList}\small\item\em Construct a new Basic Render Pass object. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classBasicRenderPass_aacf4c56b0ff5778486e3876bbede25c4}{$\sim$\+Basic\+Render\+Pass}} ()=default
-\end{DoxyCompactItemize}
-\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{classBaseRenderPass}{Base\+Render\+Pass}}}
+\begin{DoxyCompactList}\small\item\em Destroy the Basic Render Pass object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classBaseRenderPass}{Base\+Render\+Pass}}}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classBaseRenderPass_aabb8cb774adbd041e51f2f4e3d86c396}{$\sim$\+Base\+Render\+Pass}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Destroy the Base Render Pass object. \end{DoxyCompactList}\item 
 Vk\+Render\+Pass \& \mbox{\hyperlink{classBaseRenderPass_a4a0191c1b1e858054f847c5244adf6b8}{get\+Render\+Pass}} ()
-\end{DoxyCompactItemize}
-\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{classBaseRenderRSC}{Base\+Render\+RSC}}}
+\begin{DoxyCompactList}\small\item\em Get the Vulkan Render Pass handler. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classBaseRenderRSC}{Base\+Render\+RSC}}}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{engineTypeAlias_8hpp_a19887e2fc4b23b6270ba2b8a90869fda}{Render\+RSCId}} \mbox{\hyperlink{classBaseRenderRSC_a1896a8051889a2e8666a50f3ce0c0581}{get\+Render\+RSCId}} ()
-\end{DoxyCompactItemize}
-\doxysubsection*{Additional Inherited Members}
-\doxysubsubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classBaseRenderPass}{Base\+Render\+Pass}}}
+\mbox{\hyperlink{engineTypeAlias_8hpp_a19887e2fc4b23b6270ba2b8a90869fda}{Render\+RSCId}} \mbox{\hyperlink{classBaseRenderRSC_a92091a26a81eee5c02ec96e5c6f0a82c}{get\+Render\+Rsc\+Id}} ()
+\begin{DoxyCompactList}\small\item\em Get the Render RSC Id object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classBaseRenderPass}{Base\+Render\+Pass}}}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classBaseRenderPass_ad214497cdb8817d79d832298e9683d9f}{Base\+Render\+Pass}} (Vk\+Device \&p\+\_\+device, const \mbox{\hyperlink{classSwapchainMng}{Swapchain\+Mng}} \&p\+\_\+swap\+Mng) noexcept
-\item 
+\begin{DoxyCompactList}\small\item\em Construct a new Base Render Pass object. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classBaseRenderPass_a8faef77e19ef8d58cbfc22e2a23ced41}{create\+Render\+Pass}} () noexcept
-\item 
+\begin{DoxyCompactList}\small\item\em Create the Render Pass object. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classBaseRenderPass_a7a5556b0e24fd7d9896c3edaba58038a}{init\+Base\+Create\+Info}} () noexcept
-\item 
+\begin{DoxyCompactList}\small\item\em Inits the base \& common creation info for all types of Render Pass. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classBaseRenderPass_a7bcfa8b800fee2af29c2ea5f68e9cf68}{init\+Base\+Attachement\+Info}} () noexcept
-\item 
+\begin{DoxyCompactList}\small\item\em Inits the base attachment info for all Render Passes. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classBaseRenderPass_a4b08af75aa8cd22487fa06a721e1a46f}{init\+Base\+Supbass\+Info}} () noexcept
-\end{DoxyCompactItemize}
-\doxysubsubsection*{Protected Attributes inherited from \mbox{\hyperlink{classBaseRenderPass}{Base\+Render\+Pass}}}
+\begin{DoxyCompactList}\small\item\em Inits the base subpass info such as dependencies for all the Render Passes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classBaseRenderPass}{Base\+Render\+Pass}}}
 \begin{DoxyCompactItemize}
 \item 
 Vk\+Device \& \mbox{\hyperlink{classBaseRenderPass_a515e60ef90ea47488b6298f2b4bcda28}{device\+\_\+}}
-\item 
+\begin{DoxyCompactList}\small\item\em Reference to the Vulkan Logical Device. \end{DoxyCompactList}\item 
 const \mbox{\hyperlink{classSwapchainMng}{Swapchain\+Mng}} \& \mbox{\hyperlink{classBaseRenderPass_ac21dc185bba0a027e8cd2a5f7d2b7ed3}{swap\+Mng\+\_\+}}
-\item 
+\begin{DoxyCompactList}\small\item\em Reference to const Swapchain Manager. \end{DoxyCompactList}\item 
 Vk\+Attachment\+Description \mbox{\hyperlink{classBaseRenderPass_ad3ed6b702ca900cd1d8bee2f883b9e27}{attachment\+Desc\+\_\+}} \{\}
-\item 
+\begin{DoxyCompactList}\small\item\em Render Pass attachment description. \end{DoxyCompactList}\item 
 Vk\+Attachment\+Reference \mbox{\hyperlink{classBaseRenderPass_aa4e594daf92f461febc1b2d85f32686a}{attachment\+Reference\+\_\+}} \{\}
-\item 
+\begin{DoxyCompactList}\small\item\em Render Pass attachment references. \end{DoxyCompactList}\item 
 Vk\+Subpass\+Description \mbox{\hyperlink{classBaseRenderPass_a230645dd222d15d16fd69fcee34ae654}{subpass\+Desc\+\_\+}} \{\}
-\item 
+\begin{DoxyCompactList}\small\item\em Render Pass sub-\/passes description. \end{DoxyCompactList}\item 
 Vk\+Render\+Pass\+Create\+Info \mbox{\hyperlink{classBaseRenderPass_acef05b7f410b88df1a3053fe07ed5443}{create\+Info\+\_\+}} \{\}
-\item 
+\begin{DoxyCompactList}\small\item\em Creation info for the Render\+Pass. \end{DoxyCompactList}\item 
 Vk\+Render\+Pass \mbox{\hyperlink{classBaseRenderPass_a552767a6de3e250eebd34d9b673998cb}{render\+Pass\+\_\+}} \{ VK\+\_\+\+NULL\+\_\+\+HANDLE \}
-\end{DoxyCompactItemize}
-\doxysubsubsection*{Protected Attributes inherited from \mbox{\hyperlink{classBaseRenderRSC}{Base\+Render\+RSC}}}
+\begin{DoxyCompactList}\small\item\em Vulkan Render Pass handler. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classBaseRenderRSC}{Base\+Render\+RSC}}}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{engineTypeAlias_8hpp_a19887e2fc4b23b6270ba2b8a90869fda}{Render\+RSCId}} \mbox{\hyperlink{classBaseRenderRSC_a91fbda89dae1f331bf0a54340311a021}{rsc\+Id\+\_\+}} \{ \mbox{\hyperlink{classBaseRenderRSC_a4d6921ff5488ce3d48563c830638bc54}{RSCCounter\+\_\+}}++ \}
-\end{DoxyCompactItemize}
-\doxysubsubsection*{Static Protected Attributes inherited from \mbox{\hyperlink{classBaseRenderRSC}{Base\+Render\+RSC}}}
+\begin{DoxyCompactList}\small\item\em Render Rsc Id. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes inherited from \mbox{\hyperlink{classBaseRenderRSC}{Base\+Render\+RSC}}}
 \begin{DoxyCompactItemize}
 \item 
 static \mbox{\hyperlink{engineTypeAlias_8hpp_a19887e2fc4b23b6270ba2b8a90869fda}{Render\+RSCId}} \mbox{\hyperlink{classBaseRenderRSC_a4d6921ff5488ce3d48563c830638bc54}{RSCCounter\+\_\+}} \{ 0 \}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Common render rsc counter. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Basic Render Pass which doesn\textquotesingle{}t have description sets. 
+
+This engine version just have a basic renderpass with no supbasses
+
+This class PUBLIC inhers from \begin{DoxySeeAlso}{See also}
+\doxylink{classBaseRenderPass}{Base\+Render\+Pass} 
+\end{DoxySeeAlso}
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classBasicRenderPass_a35d81beb8a366eb1a55f73e5894a7c6c}\label{classBasicRenderPass_a35d81beb8a366eb1a55f73e5894a7c6c}} 
+\Hypertarget{classBasicRenderPass_a35d81beb8a366eb1a55f73e5894a7c6c}\label{classBasicRenderPass_a35d81beb8a366eb1a55f73e5894a7c6c} 
 \index{BasicRenderPass@{BasicRenderPass}!BasicRenderPass@{BasicRenderPass}}
 \index{BasicRenderPass@{BasicRenderPass}!BasicRenderPass@{BasicRenderPass}}
 \doxysubsubsection{\texorpdfstring{BasicRenderPass()}{BasicRenderPass()}}
 {\footnotesize\ttfamily Basic\+Render\+Pass\+::\+Basic\+Render\+Pass (\begin{DoxyParamCaption}\item[{Vk\+Device \&}]{p\+\_\+device,  }\item[{const \mbox{\hyperlink{classSwapchainMng}{Swapchain\+Mng}} \&}]{p\+\_\+swap\+Mng }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{classBasicRenderPass_aacf4c56b0ff5778486e3876bbede25c4}\label{classBasicRenderPass_aacf4c56b0ff5778486e3876bbede25c4}} 
+
+
+Construct a new Basic Render Pass object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+device} & Vulkan Logical device to create the Render Pass from \\
+\hline
+{\em p\+\_\+swap\+Mng} & Swapchain Mng for getting info relative for Render Pass creation \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classBasicRenderPass_aacf4c56b0ff5778486e3876bbede25c4}\label{classBasicRenderPass_aacf4c56b0ff5778486e3876bbede25c4} 
 \index{BasicRenderPass@{BasicRenderPass}!````~BasicRenderPass@{$\sim$BasicRenderPass}}
 \index{````~BasicRenderPass@{$\sim$BasicRenderPass}!BasicRenderPass@{BasicRenderPass}}
-\doxysubsubsection{\texorpdfstring{$\sim$BasicRenderPass()}{~BasicRenderPass()}}
+\doxysubsubsection{\texorpdfstring{$\sim$BasicRenderPass()}{\string~BasicRenderPass()}}
 {\footnotesize\ttfamily Basic\+Render\+Pass\+::$\sim$\+Basic\+Render\+Pass (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
 
 
+
+Destroy the Basic Render Pass object. 
+
+Base render pass class manages Vulkan Render Pass destruction 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

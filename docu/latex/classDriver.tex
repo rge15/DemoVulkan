@@ -1,74 +1,125 @@
-\hypertarget{classDriver}{}\doxysection{Driver Class Reference}
-\label{classDriver}\index{Driver@{Driver}}
+\doxysection{Driver Class Reference}
+\hypertarget{classDriver}{}\label{classDriver}\index{Driver@{Driver}}
+
+
+Class that manages all the Vulkan use and driver conexion.  
+
+
 
 
 {\ttfamily \#include $<$Driver.\+hpp$>$}
 
-\doxysubsection*{Public Member Functions}
+\doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classDriver_af0658d103e3e810a8e9ef0a53bb2e261}{Driver}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Construct a new \doxylink{classDriver}{Driver} object and inits all the contining managers. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classDriver_aa02a47e041b5ef187871bfc441b12db8}{$\sim$\+Driver}} ()=default
-\item 
+\begin{DoxyCompactList}\small\item\em Destroy the \doxylink{classDriver}{Driver} object. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classInstanceMng}{Instance\+Mng}} \& \mbox{\hyperlink{classDriver_a00dfcab93a93f9e660237f061b68fa49}{get\+Instance\+Manager}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Get the Instance Manager object. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classDeviceMng}{Device\+Mng}} \& \mbox{\hyperlink{classDriver_a5727dff368654a2029489a0ee2c0e948}{get\+Device\+Manager}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Get the Device Manager object. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classWindowMng}{Window\+Mng}} \& \mbox{\hyperlink{classDriver_a1c2ca7585a1af114a5d2450dbf491f39}{get\+Window\+Manager}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Get the Window Manager object. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classSurfaceMng}{Surface\+Mng}} \& \mbox{\hyperlink{classDriver_a489fd8b925299c0fd259a71d26922ce5}{get\+Surface\+Manager}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Get the Surface Manager object. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classSwapchainMng}{Swapchain\+Mng}} \& \mbox{\hyperlink{classDriver_a757b5146f804305993766238c5180cf4}{get\+Swapchain\+Manager}} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Get the Swapchain Manager object. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Class that manages all the Vulkan use and driver conexion. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classDriver_af0658d103e3e810a8e9ef0a53bb2e261}\label{classDriver_af0658d103e3e810a8e9ef0a53bb2e261}} 
+\Hypertarget{classDriver_af0658d103e3e810a8e9ef0a53bb2e261}\label{classDriver_af0658d103e3e810a8e9ef0a53bb2e261} 
 \index{Driver@{Driver}!Driver@{Driver}}
 \index{Driver@{Driver}!Driver@{Driver}}
 \doxysubsubsection{\texorpdfstring{Driver()}{Driver()}}
 {\footnotesize\ttfamily Driver\+::\+Driver (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
 
-\mbox{\Hypertarget{classDriver_aa02a47e041b5ef187871bfc441b12db8}\label{classDriver_aa02a47e041b5ef187871bfc441b12db8}} 
+
+
+Construct a new \doxylink{classDriver}{Driver} object and inits all the contining managers. 
+
+\Hypertarget{classDriver_aa02a47e041b5ef187871bfc441b12db8}\label{classDriver_aa02a47e041b5ef187871bfc441b12db8} 
 \index{Driver@{Driver}!````~Driver@{$\sim$Driver}}
 \index{````~Driver@{$\sim$Driver}!Driver@{Driver}}
-\doxysubsubsection{\texorpdfstring{$\sim$Driver()}{~Driver()}}
+\doxysubsubsection{\texorpdfstring{$\sim$Driver()}{\string~Driver()}}
 {\footnotesize\ttfamily Driver\+::$\sim$\+Driver (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
 
 
 
+Destroy the \doxylink{classDriver}{Driver} object. 
+
+
+
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classDriver_a5727dff368654a2029489a0ee2c0e948}\label{classDriver_a5727dff368654a2029489a0ee2c0e948}} 
+\Hypertarget{classDriver_a5727dff368654a2029489a0ee2c0e948}\label{classDriver_a5727dff368654a2029489a0ee2c0e948} 
 \index{Driver@{Driver}!getDeviceManager@{getDeviceManager}}
 \index{getDeviceManager@{getDeviceManager}!Driver@{Driver}}
 \doxysubsubsection{\texorpdfstring{getDeviceManager()}{getDeviceManager()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classDeviceMng}{Device\+Mng}} \& Driver\+::get\+Device\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-\mbox{\Hypertarget{classDriver_a00dfcab93a93f9e660237f061b68fa49}\label{classDriver_a00dfcab93a93f9e660237f061b68fa49}} 
+
+
+Get the Device Manager object. 
+
+\begin{DoxyReturn}{Returns}
+\doxylink{classDeviceMng}{Device\+Mng}\& 
+\end{DoxyReturn}
+\Hypertarget{classDriver_a00dfcab93a93f9e660237f061b68fa49}\label{classDriver_a00dfcab93a93f9e660237f061b68fa49} 
 \index{Driver@{Driver}!getInstanceManager@{getInstanceManager}}
 \index{getInstanceManager@{getInstanceManager}!Driver@{Driver}}
 \doxysubsubsection{\texorpdfstring{getInstanceManager()}{getInstanceManager()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classInstanceMng}{Instance\+Mng}} \& Driver\+::get\+Instance\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-\mbox{\Hypertarget{classDriver_a489fd8b925299c0fd259a71d26922ce5}\label{classDriver_a489fd8b925299c0fd259a71d26922ce5}} 
+
+
+Get the Instance Manager object. 
+
+\begin{DoxyReturn}{Returns}
+\doxylink{classInstanceMng}{Instance\+Mng}\& 
+\end{DoxyReturn}
+\Hypertarget{classDriver_a489fd8b925299c0fd259a71d26922ce5}\label{classDriver_a489fd8b925299c0fd259a71d26922ce5} 
 \index{Driver@{Driver}!getSurfaceManager@{getSurfaceManager}}
 \index{getSurfaceManager@{getSurfaceManager}!Driver@{Driver}}
 \doxysubsubsection{\texorpdfstring{getSurfaceManager()}{getSurfaceManager()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classSurfaceMng}{Surface\+Mng}} \& Driver\+::get\+Surface\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-\mbox{\Hypertarget{classDriver_a757b5146f804305993766238c5180cf4}\label{classDriver_a757b5146f804305993766238c5180cf4}} 
+
+
+Get the Surface Manager object. 
+
+\begin{DoxyReturn}{Returns}
+\doxylink{classSurfaceMng}{Surface\+Mng}\& 
+\end{DoxyReturn}
+\Hypertarget{classDriver_a757b5146f804305993766238c5180cf4}\label{classDriver_a757b5146f804305993766238c5180cf4} 
 \index{Driver@{Driver}!getSwapchainManager@{getSwapchainManager}}
 \index{getSwapchainManager@{getSwapchainManager}!Driver@{Driver}}
 \doxysubsubsection{\texorpdfstring{getSwapchainManager()}{getSwapchainManager()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classSwapchainMng}{Swapchain\+Mng}} \& Driver\+::get\+Swapchain\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-\mbox{\Hypertarget{classDriver_a1c2ca7585a1af114a5d2450dbf491f39}\label{classDriver_a1c2ca7585a1af114a5d2450dbf491f39}} 
+
+
+Get the Swapchain Manager object. 
+
+\begin{DoxyReturn}{Returns}
+\doxylink{classSwapchainMng}{Swapchain\+Mng}\& 
+\end{DoxyReturn}
+\Hypertarget{classDriver_a1c2ca7585a1af114a5d2450dbf491f39}\label{classDriver_a1c2ca7585a1af114a5d2450dbf491f39} 
 \index{Driver@{Driver}!getWindowManager@{getWindowManager}}
 \index{getWindowManager@{getWindowManager}!Driver@{Driver}}
 \doxysubsubsection{\texorpdfstring{getWindowManager()}{getWindowManager()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classWindowMng}{Window\+Mng}} \& Driver\+::get\+Window\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
+
+
+Get the Window Manager object. 
+
+\begin{DoxyReturn}{Returns}
+\doxylink{classWindowMng}{Window\+Mng}\& 
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

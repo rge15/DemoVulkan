@@ -1,5 +1,5 @@
-\hypertarget{renderConcepts_8hpp_source}{}\doxysection{render\+Concepts.\+hpp}
-\label{renderConcepts_8hpp_source}\index{src/utilities/Engine/renderConcepts.hpp@{src/utilities/Engine/renderConcepts.hpp}}
+\doxysection{render\+Concepts.\+hpp}
+\hypertarget{renderConcepts_8hpp_source}{}\label{renderConcepts_8hpp_source}\index{src/utilities/Engine/renderConcepts.hpp@{src/utilities/Engine/renderConcepts.hpp}}
 \mbox{\hyperlink{renderConcepts_8hpp}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
@@ -7,10 +7,10 @@
 \DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{BaseRenderPass_8hpp}{Engine/Render/BaseRenderPass.hpp}}>}}
 \DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{BasePipelineLayout_8hpp}{Engine/Render/BasePipelineLayout.hpp}}>}}
 \DoxyCodeLine{00005\ }
-\DoxyCodeLine{00006\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00007\ \textcolor{keyword}{concept\ }\mbox{\hyperlink{conceptRenderPassObj}{RenderPassObj}}\ =\ std::is\_base\_of<\ BaseRenderPass\ ,T>::value;}
-\DoxyCodeLine{00008\ }
-\DoxyCodeLine{00009\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00010\ \textcolor{keyword}{concept\ }\mbox{\hyperlink{conceptPipeLayoutObj}{PipeLayoutObj}}\ =\ std::is\_base\_of<\ BasePipelineLayout\ ,T>::value;}
+\DoxyCodeLine{00007\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00008\ \textcolor{keyword}{concept\ }\mbox{\hyperlink{conceptRenderPassObj}{RenderPassObj}}\ =\ std::is\_base\_of<\ BaseRenderPass\ ,T>::value;}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00012\ \textcolor{keyword}{concept\ }\mbox{\hyperlink{conceptPipeLayoutObj}{PipeLayoutObj}}\ =\ std::is\_base\_of<\ BasePipelineLayout\ ,T>::value;}
 
 \end{DoxyCode}
