@@ -116,9 +116,6 @@ DrawerMng::recordCommand( uint32_t p_imageId, Vector<PlayingClip>& p_demos ) noe
     auto& cmd       = command_.get()->getCmdBuffer();
     auto& swapInfo  = driver_.getSwapchainManager().getSwapchainInfo();
     
-    //TODO : A cambiar
-    //TODO : El renderer necesitará el id del renderPass sacado de la DemoFX
-    //TODO : El layout se obtendrá por el id de la DemoFX como el renderpass
     renderer_.initRenderPass( p_imageId, cmd );
 
     for(auto& demoClip : p_demos)
@@ -131,10 +128,6 @@ DrawerMng::recordCommand( uint32_t p_imageId, Vector<PlayingClip>& p_demos ) noe
         renderPipelineMng.bindPipelineAndDynamics( cmd, swapInfo );
 
         bindLayoutData( cmd, layoutType, relativeTime );
-
-        //renderLayout.bindLayoutCmdData( cmd );
-        //TODO : Ver de que el renderLayout tenga algún prepareData overrideado o algo.
-        //renderLayout.sendPushConstantData( cmd, relativeTime, swapInfo );
 
         vkCmdDraw( cmd, 6, 1, 0, 0);
     }

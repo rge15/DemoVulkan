@@ -6,7 +6,7 @@ RenderPipelineMng::RenderPipelineMng(
     VkRenderPass& p_renderPass,
     VkPipelineLayout& p_layout,
     const GraphicPipelineConfig& p_config,
-    Vector<VkPipelineShaderStageCreateInfo> p_shaderStages) noexcept
+    Vector<VkPipelineShaderStageCreateInfo>& p_shaderStages) noexcept
     : device_       { p_device }
     , renderPass_   { p_renderPass }
     , layout_       { p_layout }

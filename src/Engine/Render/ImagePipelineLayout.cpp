@@ -289,7 +289,6 @@ ImagePipelineLayout::addPushConstantInfo() noexcept
 void
 ImagePipelineLayout::bindLayoutCmdData( VkCommandBuffer& p_cmd, float p_relTime )
 {
-    //setPipelineImageBarrier( p_cmd );
     sendPushConstantData( p_cmd, p_relTime );
     bindDescriptorSetImages( p_cmd );
 }

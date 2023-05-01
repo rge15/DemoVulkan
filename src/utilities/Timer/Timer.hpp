@@ -69,6 +69,11 @@ struct Timer
 		void
 		reset( int p_frameRate = 0 ) noexcept;
 
+		/**
+		 * @brief Sets the refresh rate manually 
+		 * 
+		 * @param p_refreshRate New refresh rate to set
+		 */
 		void
 		setManualRefreshRate( double p_refreshRate) noexcept { _refreshTime = p_refreshRate; };
 };

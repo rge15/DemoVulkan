@@ -66,9 +66,8 @@ void
 DemoFX::createRenderPipeline() noexcept
 {
     auto& device        = driver_.getDeviceManager().getDevice();
-    //TODO : Corregir esto
-    auto& renderPass    = renderer_.getRenderPass().getRenderPass();
-    
+
+    auto& renderPass    = renderer_.getRenderPass().getRenderPass();    
     auto& pipeLayout    = renderer_.getLayout(pipelineLayoutId);
 
     renderPipeline_ = std::make_unique<RenderPipelineMng>(device, renderPass, pipeLayout, pipelineConfig, shaderStages_);
